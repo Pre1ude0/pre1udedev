@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LarssJ.dev</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+</head>
+
+<body>
+    <script src="https://kit.fontawesome.com/bd75686a6c.js" crossorigin="anonymous"></script>
+    <div class="top-background">
+        <div class="mac-window">
+            <div class="title-bar">
+                <div class="window-title">LarssJ.dev</div>
+                <div class="window-buttons">
+                    <div class="window-button close"></div>
+                    <div class="window-button minimize"></div>
+                    <div class="window-button expand"></div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/pfp.jpg') }}" alt="Profile Picture">
+                <p>Hello! I'm LarssJ, your favourite self-proclaimed developer/coder :D</p>
+                <div class="card-buttons">
+                    <a href="https://discord.gg/TReMEyBQsh" class="card-button"><i class="fa-brands fa-discord"></i> Discord server</a>
+                    <a href="https://ko-fi.com/larssj" class="card-button"><i class="fa-solid fa-heart"></i> Support me!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-info">
+        <ul class="bottom-list">
+            <li class="bottom-variable"><a href="https://github.com/larssjakobsons"><i class="fa-brands fa-github"></i> GitHub</a></li>
+            <li class="bottom-variable"><a href="https://twitter.com/Larss_J"><i class="fa-brands fa-twitter"></i> Twitter</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
