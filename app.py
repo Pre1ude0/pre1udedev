@@ -1,4 +1,12 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import (
+    Flask,
+    render_template,
+    request,
+    redirect,
+    url_for,
+    session,
+    make_response,
+)
 
 app = Flask(__name__)
 
@@ -10,7 +18,12 @@ def main():
 
 @app.route("/.well-known/acme-challenge/MdTW8IzYdFuKQWAekjWk1q2sP6sJAQhSczvPl1ovXZM")
 def ssl():
-    return "MdTW8IzYdFuKQWAekjWk1q2sP6sJAQhSczvPl1ovXZM.xc9It2P3kCFnFCqMekQ-90CRf6tm3amb_WKVXc-QmMA"
+    response = make_response(
+        "MdTW8IzYdFuKQWAekjWk1q2sP6sJAQhSczvPl1ovXZM.xc9It2P3kCFnFCqMekQ-90CRf6tm3amb_WKVXc-QmMA",
+        200,
+    )
+    response.mimetype = "text/plain"
+    return response
 
 
 if __name__ == "__main__":
