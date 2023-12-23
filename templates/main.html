@@ -39,31 +39,42 @@
                 </div>
             </div>
             <div class="mac-card">
-                <img class="profile-image" src="{{ url_for('static', filename='images/pfp.jpg') }}" alt="Profile Picture">
+                <img class="profile-image" src="{{ url_for('static', filename='images/pfp.jpg') }}"
+                    alt="Profile Picture">
                 <p>Hello! I'm LarssJ, your favourite self-proclaimed developer/coder :D</p>
                 <div class="card-buttons">
-                    <a href="https://discord.gg/TReMEyBQsh" class="card-button"><i class="fa-brands fa-discord"></i> Discord server</a>
-                    <a href="https://ko-fi.com/larssj" class="card-button"><i class="fa-solid fa-heart"></i> Support me!</a>
+                    <a href="https://discord.gg/TReMEyBQsh" class="card-button"><i class="fa-brands fa-discord"></i>
+                        Discord server</a>
+                    <a href="https://ko-fi.com/larssj" class="card-button"><i class="fa-solid fa-heart"></i> Support
+                        me!</a>
                 </div>
             </div>
         </div>
     </div>
     <div class="bottom-info">
         <ul class="bottom-variables">
-            <li class="bottom-variable"><a href="https://github.com/larssjakobsons"><i class="fa-brands fa-github"></i> GitHub</a></li>
-            <li class="bottom-variable"><a href="https://twitter.com/Larss_J"><i class="fa-brands fa-twitter"></i> Twitter</a></li>
+            <li class="bottom-variable"><a href="https://github.com/larssjakobsons"><i class="fa-brands fa-github"></i>
+                    GitHub</a></li>
+            <li class="bottom-variable"><a href="https://twitter.com/Larss_J"><i class="fa-brands fa-twitter"></i>
+                    Twitter</a></li>
         </ul>
     </div>
 
     <!-- Include Materialize JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
+
     <!-- Initialize Parallax with Materialize -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var elems = document.querySelectorAll('.parallax');
             var instances = M.Parallax.init(elems);
+
+            if (window.innerWidth <= 768) {
+                // Change the CSS to fit a mobile device
+                document.body.classList.add('mobile-view');
+            }
         });
+
     </script>
 
 </body>

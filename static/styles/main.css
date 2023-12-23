@@ -2,6 +2,7 @@
 
 .mac-window {
     position: relative;
+    padding: 3%;
 }
 
 .title-bar {
@@ -176,5 +177,34 @@ body {
     transform: translateY(-45%);
 }
 
-/* Rest of your existing styles... */
+/* ... (previous code) ... */
 
+.mobile-view .parallax img {
+    height: 100%;
+    width: auto;
+    transform: translateX(-50%);
+}
+
+.mobile-view .parallax-title {
+    margin-top: 5vh;
+    font-size: 2em;
+}
+
+.mobile-view .mac-card {
+    width: 100%; /* Adjust the width as needed */
+    padding: 1em; /* Adjust padding as needed */
+}
+
+.mobile-view .profile-image {
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+}
+
+.mobile-view p {
+    font-size: 1em; /* Adjust the font size as needed */
+}
+
+.mobile-view .card-button {
+    font-size: 0.8em; /* Adjust the font size as needed */
+    padding: 0.3em 0.5em; /* Adjust the padding as needed */
+}
