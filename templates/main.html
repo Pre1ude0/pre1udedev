@@ -4,12 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='images/pfp-favico.png') }}">
     <title>LarssJ.dev</title>
+    <meta property="og:title" content="LarssJ.dev">
+    <meta property="og:description" content="I'm Larss_J, your favourite self-proclaimed coder :D">
+    <meta property="og:image" content="{{ url_for('static', filename='images/pfp-favico.png') }}">
+    <meta property="og:url" content="https://larssj.dev/">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#ff773d">
+    <meta name="msapplication-TileColor" content="#ff773d">
+
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
 <body>
     <script src="https://kit.fontawesome.com/bd75686a6c.js" crossorigin="anonymous"></script>
+
+    <div class="parallax-container">
+        <div class="parallax">
+            <span class="parallax-title">Welcome! I'm Larss_J.</span>
+            <img class="background-image" src="{{ url_for('static', filename='images/background1.jpg')}}">
+        </div>
+    </div>
+
     <div class="top-background">
         <div class="mac-window">
             <div class="title-bar">
@@ -20,8 +38,8 @@
                     <div class="window-button expand"></div>
                 </div>
             </div>
-            <div class="card">
-                <img src="{{ url_for('static', filename='images/pfp.jpg') }}" alt="Profile Picture">
+            <div class="mac-card">
+                <img class="profile-image" src="{{ url_for('static', filename='images/pfp.jpg') }}" alt="Profile Picture">
                 <p>Hello! I'm LarssJ, your favourite self-proclaimed developer/coder :D</p>
                 <div class="card-buttons">
                     <a href="https://discord.gg/TReMEyBQsh" class="card-button"><i class="fa-brands fa-discord"></i> Discord server</a>
@@ -31,11 +49,23 @@
         </div>
     </div>
     <div class="bottom-info">
-        <ul class="bottom-list">
+        <ul class="bottom-variables">
             <li class="bottom-variable"><a href="https://github.com/larssjakobsons"><i class="fa-brands fa-github"></i> GitHub</a></li>
             <li class="bottom-variable"><a href="https://twitter.com/Larss_J"><i class="fa-brands fa-twitter"></i> Twitter</a></li>
         </ul>
     </div>
+
+    <!-- Include Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <!-- Initialize Parallax with Materialize -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.parallax');
+            var instances = M.Parallax.init(elems);
+        });
+    </script>
+
 </body>
 
 </html>
