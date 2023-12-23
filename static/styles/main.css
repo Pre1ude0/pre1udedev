@@ -2,7 +2,6 @@
 
 .mac-window {
     position: relative;
-    padding: 3%;
 }
 
 .title-bar {
@@ -208,4 +207,9 @@ body {
 .mobile-view .card-button {
     font-size: 0.8em; /* Adjust the font size as needed */
     padding: 0.3em 0.5em; /* Adjust the padding as needed */
+}
+
+.mobile-view .mac-window {
+    padding: 3%;
+    position: relative;
 }
