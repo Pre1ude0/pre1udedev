@@ -169,6 +169,7 @@ body {
     z-index: 1; /* Ensure the title is above the image */
     font-family: 'Italic', sans-serif;
     font-weight: bold;
+    text-align: center;
 }
 
 .parallax img {
