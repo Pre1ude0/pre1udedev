@@ -8,7 +8,6 @@ body {
 
 .mac-window {
     position: relative;
-    margin-top: 50vh;
 }
 
 .title-bar {
@@ -92,7 +91,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 150vh;
+    height: 100vh;
     flex-direction: column;
 }
 
