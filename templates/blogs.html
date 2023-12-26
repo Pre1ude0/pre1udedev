@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{{ url_for('static', filename='images/pfp-favico.png') }}">
+    <title>Larss.dev/Blogs</title>
+    <meta property="og:title" content="LarssJ.dev/blogs">
+    <meta property="og:description" content="My blogs">
+    <meta property="og:image" content="{{ url_for('static', filename='images/pfp-favico.png') }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://larssj.dev/blogs">
+    <meta name="theme-color" content="#ff773d">
+    <meta name="msapplication-TileColor" content="#ff773d">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/blogs.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/dropdown.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+    <script src="https://kit.fontawesome.com/bd75686a6c.js" crossorigin="anonymous"></script>
+    <div class="top-bar">
+        <div class="top-bar-trigger-box" data-target='dropdown1'>
+            <i class="fa-solid fa-tower-observation"></i>
+        </div>
+    </div>
+    <ul id='dropdown1' class='dropdown-content'>
+        <li class="dropdown-variable"><a href="/">
+                <div class="left-dropdown-text"><i class="fa-solid fa-house"></i></div>
+                <div class="right-dropdown-text">Home</div>
+            </a></li>
+        <li class="dropdown-variable"><a href="/blogs">
+                <div class="left-dropdown-text"><i class="fa-sharp fa-solid fa-book"></i></div>
+                <div class="right-dropdown-text">Blogs</div>
+            </a></li>
+        <li class="dropdown-variable"><a href="/projects">
+                <div class="left-dropdown-text"><i class="fa-solid fa-cloud"></i></div>
+                <div class="right-dropdown-text">Projects</div>
+            </a></li>
+    </ul>
+
+    <div class="main">
+        <div class="main-top">
+            <h1>Nothing here yet</h1>
+            <i class="fa-solid fa-code"></i>
+        </div>
+        <div class="main-text">
+            <p>Tune in later!</p>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts/blogs.js') }}"></script>
+</body>
+
+</html>
