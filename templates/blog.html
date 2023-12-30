@@ -12,7 +12,7 @@
     <meta name="theme-color" content="#ff773d">
     <meta name="msapplication-TileColor" content="#ff773d">
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/blogs.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/blog.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/dropdown.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
@@ -41,18 +41,17 @@
 
     <div class="main">
         <div class="main-top">
-            <h1>Blogs</h1>
+            <h1 id="blog-title"></h1>
         </div>
-        <div class="blog-list">
-            {% for blog_name in blog_names %}
-            <li class="blog-button" id="{{ blog_name }}" onclick="redirect('/blog?={{ blog_name }}')"><a
-                    href="/blog?={{ blog_name }}">>{{ blog_name }}</a>
-            </li>
-            {% endfor %}
+        <div class="blog-container">
+            <div class="blog-text" id="blog-text">
+                <p>{{ blog }}</p>
+            </div>
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="{{ url_for('static', filename='scripts/blogs.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/blog.js') }}"></script>
+
 </body>
 
 </html>

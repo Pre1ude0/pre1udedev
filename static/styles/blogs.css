@@ -19,7 +19,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 40vh;
 }
 
 .main-text {
@@ -30,4 +29,43 @@ body {
 
 .main-top i {
     font-size: 8em;
+}
+
+.blog-button {
+    font-size: 1.2em;
+    text-align: center;
+    width: 100%;
+    margin-top: 1em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    background-color: #ff5f57;
+    border: none;
+    cursor: pointer;
+}
+
+.blog-button {
+    list-style-type: none;
+    color: white;
+    margin: 0.5em 0;
+    padding-left: 1em;
+    text-align: left;
+}
+
+.blog-button a {
+    color: white;
+    text-decoration: underline;
+    width: 100%;
+    height: 100%;
+}
+
+.blog-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.blog-button:hover {
+    background-color: #ffafab;
 }

@@ -18,8 +18,11 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.classList.add('mobile-view');
     }
 
-});
+    const urlParams = new URLSearchParams(window.location.search);
 
-function redirect(url) {
-    window.location.href = url;
-}
+    const passedInfo = urlParams.get('');
+
+    // Display the passed info in the h1 element
+    const passedInfoElement = document.getElementById('blog-title');
+    passedInfoElement.textContent = passedInfo;
+});
