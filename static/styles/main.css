@@ -140,6 +140,10 @@ p {
     cursor: pointer;
 }
 
+.card-button:hover {
+    background-color: #ff3f3f;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -177,8 +181,6 @@ body {
     transform: translateY(-45%);
 }
 
-/* ... (previous code) ... */
-
 .mobile-view .parallax img {
     height: 100%;
     width: auto;
@@ -191,22 +193,18 @@ body {
 }
 
 .mobile-view .mac-card {
-    width: 100%; /* Adjust the width as needed */
-    padding: 1em; /* Adjust padding as needed */
+    width: 100%;
+    padding: 1em;
 }
 
 .mobile-view .profile-image {
-    width: 100px; /* Adjust the width as needed */
-    height: 100px; /* Adjust the height as needed */
-}
-
-.mobile-view p {
-    font-size: 1em; /* Adjust the font size as needed */
+    width: 100px; 
+    height: 100px;
 }
 
 .mobile-view .card-button {
-    font-size: 0.8em; /* Adjust the font size as needed */
-    padding: 0.3em 0.5em; /* Adjust the padding as needed */
+    font-size: 0.8em; 
+    padding: 0.3em 0.5em; 
 }
 
 .mobile-view .mac-window {
