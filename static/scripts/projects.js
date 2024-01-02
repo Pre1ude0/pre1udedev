@@ -10,9 +10,7 @@ var dropdown_options = {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-    var dropdown_elems = document.querySelectorAll('.top-bar-trigger-box');
-    var dropdown_instances = M.Dropdown.init(dropdown_elems, dropdown_options);
-
+  
     if (window.innerWidth <= 768) {
         // Change the CSS to fit a mobile device
         document.body.classList.add('mobile-view');

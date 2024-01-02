@@ -1,0 +1,8 @@
+Happy newyear everyone!
+I've added a couple changes in this update:
+- Replaced the dropdown menu with a top bar navigation menu for better ux
+- Better code and file structure
+
+Stay tuned for more updates as I'm not done yet!
+Signing off,
+Your favourite self-proclaimed developer :D
