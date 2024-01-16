@@ -62,9 +62,13 @@ def blog():
         return render_template("blog.html", blog=blogs[index])
 
 
-@app.route("/.well-known/discord")
-def discord():
-    return "dh=623d7266ec590a3ea8d2c2cd4819436988e415c4"
+@app.route("/ielugums")
+def ielugums():
+    info = request.args.get("")
+    if info is None:
+        return render_template("ielugums.html")
+    elif info == "naksu_fr":
+        return render_template("ielugums_accepted.html")
 
 
 if __name__ == "__main__":
