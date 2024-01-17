@@ -13,7 +13,7 @@
             <h1 class="header_text">Nāksi Bowlot?</h1>
         </div>
         <div class="gif_container">
-            <img src="https://raw.githubusercontent.com/LarssJakobsons/private-thing-i-forgor/main/image.png?token=GHSAT0AAAAAACKU62H4P6DCT7XPHROIRZP2ZNG4NIQ"
+            <img src="{{ url_for('static', filename='images/bruh.png') }}"
                 alt="real">
         </div>
         <div class="buttons">
@@ -23,7 +23,7 @@
                 function nextPage() {
                     window.location.href = "/ielugums?=naksu_fr";
                 }
-                
+
                 function moveButton() {
                     var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth - 100);
                     var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight - 100);
