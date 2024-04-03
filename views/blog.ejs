@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/pfp-favico.png">
+    <title>Larss.dev/Blogs</title>
+    <meta property="og:title" content="LarssJ.dev/blogs">
+    <meta property="og:description" content="My blogs">
+    <meta property="og:image" content="../img/pfp-favico.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://larssj.dev/blogs">
+    <meta name="theme-color" content="#ff773d">
+    <meta name="msapplication-TileColor" content="#ff773d">
+
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="stylesheet" href="../css/top-bar.css">
+</head>
+
+<body>
+    <script src="https://kit.fontawesome.com/bd75686a6c.js" crossorigin="anonymous"></script>
+
+    <div class="top-bar">
+        <div class="top-bar-items">
+            <div class="top-bar-item" id="blog-button">Blogs</div>
+            <div class="top-bar-item" id="project-button">Projects</div>
+            <div class="top-bar-item" id="home-button">Home</div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="main-top">
+            <h1 id="blog-title">
+                <%= blogName %>
+            </h1>
+        </div>
+        <div class="blog-container">
+            <div id="blog-text" class="blog-text">
+                <p><%- blog %></p>
+            </div>
+        </div>
+    </div>
+    <script src="../js/top-bar.js"></script>
+</body>
+
+</html>
