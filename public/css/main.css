@@ -12,6 +12,7 @@
 
 .mac-window {
     position: relative;
+    z-index: 2
 }
 
 .window-title {
@@ -214,4 +215,12 @@ body {
         padding: 3%;
         position: relative;
     }
+}
+
+.background {
+  position:  absolute;
+  display:  block;
+  left: 0;
+  z-index: 1;
+  max-height: 100%;
 }
