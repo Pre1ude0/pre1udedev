@@ -11,3 +11,5 @@ Edit:
 Pretty big updates but didn't feel like making a new blog
 - Projects page finally has something in it
 - Mobile support for the navigation bar
+
+02/01/24

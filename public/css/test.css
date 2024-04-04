@@ -1,0 +1,81 @@
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(57, 57, 57);
+  color: white;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.main-title {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.test-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.test-card {
+  width: 300px;
+  background-color: #434850;
+  color: white;
+  padding: 1em;
+  margin: 1em;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.test-card-title {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.test-card-description {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+}
+
+.test-card-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  padding-top: 1em;
+}
+
+.test-card-button {
+  background-color: #ff5f57;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5em 1em;
+  color: white;
+  font-size: 1em;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  i {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.background {
+  position:  absolute;
+  display:  block;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  max-height: 100%;
+}

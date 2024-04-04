@@ -40,7 +40,7 @@ app.get('/blogs', (req, res) => {
     res.render('blogs', { blogNames });
 });
 
-app.get('/blog/:blog', (req, res) => {
+app.get('/blogs/:blog', (req, res) => {
     const blog = req.params.blog;
     const index = blogNames.indexOf(blog);
     if (!blog || index == -1) {
@@ -53,6 +53,10 @@ app.get('/blog/:blog', (req, res) => {
 
 app.get('/discord', (req, res) => {
     res.redirect('https://discord.gg/5nZVVedbqH');
+});
+
+app.get('/test', (req, res) => {
+    res.render('test');
 });
 
 app.use((req, res) => {
