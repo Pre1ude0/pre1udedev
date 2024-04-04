@@ -1,39 +1,3 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Roboto", sans-serif;
-    background-color: #d4d4d4;
-    color: rgb(57, 57, 57);
-}
-
-.main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 80vh;
-}
-
-.main-title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1em;
-}
-
-.projects-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1em;
-    padding: 1em;
-}
-
-
-
-
 .title-bar {
     background-color: #333;
     height: 30px;
@@ -47,7 +11,7 @@ body {
 
 .mac-window {
     position: relative;
-    min-width: 300px;
+    z-index: 2
 }
 
 .window-title {
@@ -84,43 +48,64 @@ body {
 .mac-card {
     background-color: #1e1e1e;
     color: white;
-    padding: 1em 2em 1em 2em;
+    padding: 2em;
     text-align: left;
     border-radius: 0 0 10px 10px;
     box-shadow: 0 0 20px rgb(42, 42, 47);
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 300px;
+    width: 500px;
     z-index: 1; /* Ensure the card is above the title bar */
     text-align: center;
 }
 
-.project-card-button{
+.card-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    padding-top: 1em;
+}
+
+.card-button {
     background-color: #ff5f57;
     border: none;
     border-radius: 5px;
     padding: 0.5em 1em;
+    color: white;
     font-size: 1em;
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
-    a {color: white;}
 }
 
-.project-card-button:hover{
+.card-button:hover {
     background-color: #ff3f3f;
 }
 
-.project-card-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: 1em;
-    gap: 10px;
+.fab {
+    color: white;
 }
 
-.project-card-title {
-    font-size: 1.5em;
-    margin-bottom: 0.5em;
+@media screen and (max-width: 700px) {
+    .mac-card {
+        width: 100%;
+        padding: 1em;
+    }
+
+    .profile-image {
+        width: 100px; 
+        height: 100px;
+    }
+
+    .card-button {
+        font-size: 0.8em; 
+        padding: 0.3em 0.5em; 
+    }
+
+    .mac-window {
+        padding: 3%;
+        position: relative;
+                max-width: 90%;
+    }
 }
