@@ -31,6 +31,12 @@ body {
     font-size: 8em;
 }
 
+h1 {
+    font-size: 4em;
+    font-weight: normal;
+    text-align: center;
+}
+
 .blog-button {
     font-size: 1.2em;
     text-align: center;

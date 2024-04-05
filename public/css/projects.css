@@ -22,6 +22,12 @@ body {
     margin-bottom: 1em;
 }
 
+h1 {
+    font-size: 4em;
+    font-weight: normal;
+    text-align: center;
+}
+
 .projects-container {
     display: flex;
     flex-direction: row;
