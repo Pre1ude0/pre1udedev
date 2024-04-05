@@ -20,13 +20,7 @@
 
 <body>
     <script src="https://kit.fontawesome.com/bd75686a6c.js" crossorigin="anonymous"></script>
-    <div class="top-bar">
-        <div class="top-bar-items">
-            <div class="top-bar-item" id="blog-button">Blogs</div>
-            <div class="top-bar-item" id="project-button">Projects</div>
-            <div class="top-bar-item" id="home-button">Home</div>
-        </div>
-    </div>
+    <div id="top-bar-div" class="top-bar"></div>
 
     <div class="main">
         <div class="main-top">
@@ -34,7 +28,7 @@
         </div>
         <div class="blog-list">
             <% for (let blog of blogNames) { %>
-                <li class="blog-button" id="<%= blog %>" onclick="redirect('/blog/<%= blog %>')">>
+                <li class="blog-button" id="<%= blog %>" onclick="redirect('/blogs/<%= blog %>')">>
                     <a href="/blogs/<%= blog %>">
                         <%= blog %>
                     </a>
