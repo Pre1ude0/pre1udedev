@@ -22,7 +22,7 @@
     text-align: center;
     color: white;
     cursor: pointer;
-    width: 100px;
+    width: 180px;
     height: 100%;
     font-size: 30px;
     font-size: 15pt;
@@ -61,6 +61,7 @@
     .top-bar-item {
         padding-right: 10px;
         padding-left: 10px;
+        width: 33.33%;
     }
     
 }
