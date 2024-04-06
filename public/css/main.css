@@ -154,11 +154,12 @@ body {
 
 .slide-out-active {
     #main-content {
-        margin-bottom: 30vh;
+        margin-bottom: 35vh;
     }
 
     .slide-out-container {
-        margin-top: 60vh;
-        width: 80%;
+        margin-top: 40vh;
+        width: calc(95% - 10px);
+        /* Adjust the value of 20px according to your needs */
     }
 }
