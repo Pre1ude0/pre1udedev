@@ -40,3 +40,16 @@ document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.parallax');
     var instances = M.Parallax.init(elems);
 });
+
+if (window.innerWidth > 700) {
+    var observer = new IntersectionObserver(function(entries) {
+        if(entries[0].isIntersecting === true) {
+            document.body.classList.add('slide-out-active');
+            observer.disconnect();
+        }
+    }, { threshold: [.9] });
+
+    observer.observe(document.querySelector(".top-background"));
+} else {
+    document.body.classList.add('slide-out-active');
+}

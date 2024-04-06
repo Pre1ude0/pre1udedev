@@ -1,5 +1,3 @@
-
-
 .profile-image {
     border-radius: 50%;
     margin-bottom: 1em;
@@ -18,17 +16,18 @@ p {
 .top-background {
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 0.5em 0;
     background-color: #434850;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    gap: 1em;
+    min-height: 100vh;
     flex-direction: column;
 }
 
 .bottom-info {
-    height: 10vh;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,7 +76,7 @@ body {
 }
 
 @media screen and (max-width: 750px) {
-    
+
 
     .parallax img {
         height: 100%;
@@ -88,9 +87,78 @@ body {
 }
 
 .background {
-  position:  absolute;
-  display:  block;
-  left: 0;
-  z-index: 1;
-  max-height: 100%;
+    position: absolute;
+    display: block;
+    left: 0;
+    z-index: 1;
+    max-height: 100%;
+}
+
+#slide-out1,
+#slide-out2 {
+    display: block;
+    position: absolute;
+}
+
+#slide-out1 {
+    right: 0;
+    top: 0;
+}
+
+#slide-out2 {
+    left: 0;
+    top: 0;
+}
+
+#main-content {
+    transition: margin-bottom 0.5s;
+}
+
+.slide-out-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 35vh;
+    width: 500px;
+    position: absolute;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 1;
+    transition: margin-top 0.5s, width 0.5s;
+}
+
+@media screen and (max-width: 750px) {
+    .slide-out-container {
+        margin-top: 0 !important;
+        max-width: 90%;
+        height: auto;
+        position: relative;
+    }
+
+    #main-content {
+        margin-bottom: 0 !important;
+    }
+
+    #slide-out1,
+    #slide-out2 {
+        width: 80%;
+        position: relative;
+    }
+
+    #slide-out1 .mac-card,
+    #slide-out2 .mac-card {
+        height: auto !important;
+        padding: 1em !important;
+    }
+}
+
+.slide-out-active {
+    #main-content {
+        margin-bottom: 30vh;
+    }
+
+    .slide-out-container {
+        margin-top: 60vh;
+        width: 80%;
+    }
 }

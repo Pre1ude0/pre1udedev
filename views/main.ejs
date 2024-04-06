@@ -27,7 +27,7 @@
 <body>
 
     <script src="https://kit.fontawesome.com/bd75686a6c.js" crossorigin="anonymous"></script>
-
+    <script src="https://livejs.com/live.js"></script>
     <div id="top-bar-div" class="top-bar"></div>
 
     <div class="parallax-container">
@@ -37,7 +37,7 @@
     </div>
     <div class="top-background">
         <canvas class="background"></canvas>
-        <div class="mac-window">
+        <div class="mac-window" id="main-content">
             <div class="title-bar">
                 <div class="window-buttons">
                     <div class="window-button close"></div>
@@ -48,30 +48,68 @@
             </div>
             <div class="mac-card">
                 <img class="profile-image" src="../img/pfp.jpg" alt="Profile Picture" />
-                <p>Hello! I'm LarssJ, your favourite self-proclaimed developer/coder :D</p>
+                <p>Hello! I'm Larss_J, your favourite self-proclaimed developer/coder :D</p>
                 <div class="card-buttons">
-                    <a href="https://larssj.dev/discord" target="_blank" class="card-button"><i
-                            class="fa-brands fa-discord"></i>
-                        Discord server</a>
                     <a href="https://ko-fi.com/larssj" target="_blank" class="card-button"><i
                             class="fa-solid fa-heart"></i> Support
                         me!</a>
                 </div>
             </div>
         </div>
+        <div class="slide-out-container">
+            <div class="mac-window" id="slide-out1">
+                <div class="title-bar">
+                    <div class="window-buttons">
+                        <div class="window-button close"></div>
+                        <div class="window-button minimize"></div>
+                        <div class="window-button expand"></div>
+                    </div>
+                    <div class="window-title">Experience</div>
+                </div>
+                <div class="mac-card">
+                    <ul class="experience-list">
+                        <li id="exp-python"><i class="fa-brands fa-python"></i> Python</li>
+                        <li id="exp-git"><i class="fa-brands fa-git-alt"></i> Git</li>
+                        <li id="exp-node"><i class="fa-brands fa-node-js"></i> Node.js</li>
+                        <li id="exp-html"><i class="fa-brands fa-html5"></i> HTML</li>
+                        <li id="exp-css"><i class="fa-brands fa-css3"></i> CSS</li>
+                        <li id="exp-js"><i class="fa-brands fa-js"></i> JavaScript</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mac-window" id="slide-out2">
+                <div class="title-bar">
+                    <div class="window-buttons">
+                        <div class="window-button close"></div>
+                        <div class="window-button minimize"></div>
+                        <div class="window-button expand"></div>
+                    </div>
+                    <div class="window-title">Connections</div>
+                </div>
+                <div class="mac-card">
+                    <div class="card-buttons">
+                        <a href="https://github.com/LarssJakobsons" target="_blank" class="card-button"
+                            id="github-btn"><i class="fa-brands fa-github"></i> Github - LarssJakobsons</a>
+                        <a href="https://twitter.com/Larss_J" target="_blank" class="card-button" id="twitter-btn"><i
+                                class="fa-brands fa-twitter"></i> Twitter - @Larss_J</a>
+                        <a href="https://steamcommunity.com/id/LarssJ" target="_blank" class="card-button"
+                            id="steam-btn"><i class="fa-brands fa-steam"></i>
+                            Steam - Larss_J</a>
+                        <a href="https://larssj.dev/discord" target="_blank" class="card-button" id="discord-btn"><i
+                                class="fa-brands fa-discord"></i>
+                            Discord - larss_j</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <div class="bottom-info">
         <ul class="bottom-variables">
-            <li class="bottom-variable"><a href="https://github.com/larssjakobsons" target="_blank"><i
-                        class="fa-brands fa-github"></i>
-                    GitHub</a></li>
-            <li class="bottom-variable"><a href="https://twitter.com/Larss_J" target="_blank"><i
-                        class="fa-brands fa-twitter"></i>
-                    Twitter</a></li>
+            <li>WIP</li>
         </ul>
     </div>
 
-    <!-- Include Materialize JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/top-bar.js"></script>
