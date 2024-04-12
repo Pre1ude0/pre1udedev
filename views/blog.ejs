@@ -18,6 +18,7 @@
 </head>
 
 <body>
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
     <script src="https://kit.fontawesome.com/bd75686a6c.js" crossorigin="anonymous"></script>
 
     <div class="top-bar" id="top-bar-div"></div>
@@ -30,7 +31,9 @@
         </div>
         <div class="blog-container">
             <div id="blog-text" class="blog-text">
-                <p><%- blog %></p>
+                <md-block>
+                    <%- blog %>
+                </md-block>
             </div>
         </div>
     </div>
