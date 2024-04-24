@@ -16,3 +16,5 @@ function draw_grid (canv_height, canv_width) {
 }
 
 draw_grid(600, 800) // 600x800 grid
+
+// Made by Laura☾
