@@ -1,4 +1,4 @@
-function draw_grid (canv_height, canv_width) {
+function draw_grid (canv_width, canv_height) {
     fill('#000000');
     stroke('#000000');
     for (let i = 0; i < canv_width; i += 20) {
