@@ -59,6 +59,10 @@ app.get('/test', (req, res) => {
     res.render('test');
 });
 
+app.get('/p', (req, res) => {
+    res.redirect('https://docs.google.com/presentation/d/105LwEcxS8Pi6XoxDV0vtbTzIlG0IL46NSQiN5QxyA3o/edit');
+});
+
 app.use((req, res) => {
     res.status(404).render('unknown');
 });
