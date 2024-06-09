@@ -35,3 +35,23 @@ h1 {
     text-align: center;
     width: 50%;
 }
+
+.main-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(57, 57, 57);
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: all 0.1s;
+}
+
+a:hover {
+    color: #ff5f57;
+    background-color: #000;
+}
