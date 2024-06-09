@@ -37,6 +37,7 @@
     margin: 0 2px;
     border: 2px solid #616161;
     background-color: #ff5f57;
+    transition: background-color 0.1s;
 }
 
 .window-button.minimize {
@@ -126,6 +127,10 @@
         gap: 1em;
         width: 100%;
         padding: 0 !important;
+    }
+
+    a {
+        transition: background-color 0.1s;
     }
 }
 

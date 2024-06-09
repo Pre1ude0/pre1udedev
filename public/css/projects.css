@@ -98,11 +98,12 @@ h1 {
     flex-direction: column;
     align-items: center;
     min-width: 300px;
-    z-index: 1; /* Ensure the card is above the title bar */
+    z-index: 1;
+    /* Ensure the card is above the title bar */
     text-align: center;
 }
 
-.project-card-button{
+.project-card-button {
     background-color: #ff5f57;
     border: none;
     border-radius: 5px;
@@ -110,10 +111,14 @@ h1 {
     font-size: 1em;
     font-family: 'Roboto', sans-serif;
     cursor: pointer;
-    a {color: white;}
+    transition: background-color 0.1s;
+
+    i {
+        color: white;
+    }
 }
 
-.project-card-button:hover{
+.project-card-button:hover {
     background-color: #ff3f3f;
 }
 
