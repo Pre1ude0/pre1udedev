@@ -60,7 +60,7 @@ app.get('/blogs/:blog', (req, res) => {
         res.redirect('/blogs');
     } else {
         // blogText = blogs[index].replace(/\n/g, '<br>');
-        res.render('blog', { blog: blogText, blogName: blog, prev: prevBlog, next: nextBlog});
+        res.render('blog', { blog: blogs[index], blogName: blog, prev: prevBlog, next: nextBlog});
     }
 });
 
