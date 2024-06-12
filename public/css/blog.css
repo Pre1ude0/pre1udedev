@@ -44,6 +44,69 @@ h1 {
     width: 80%;
 }
 
+md-block {
+    h1 {
+        font-size: 2em;
+        font-weight: normal;
+        text-align: left;
+        padding: 0.3em 0;
+        border-bottom: 2px dashed #4c4c4c4f;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        font-weight: normal;
+        text-align: left;
+    }
+
+    h3 {
+        font-size: 1.2em;
+        font-weight: normal;
+        text-align: left;
+    }
+
+    p {
+        font-size: 1em;
+        line-height: 1.3em;
+        text-align: left;
+    }
+
+    a {
+        color: #ff5f57;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #ff5f57;
+        text-decoration: underline;
+    }
+
+    code {
+        font-family: 'Roboto Mono', monospace;
+        background-color: #adadad82;
+        padding: 0.2em;
+        border-radius: 0.2em;
+    }
+
+    blockquote {
+        background-color: #0000001a;
+        padding: 0.5em 1em;
+        border-left: 4px solid #ff5f57;
+        margin: 0 0;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    hr {
+        border-color: #4c4c4c4f;
+        border-style: dashed;
+        border-width: 2px;
+        border-bottom: none;
+    }
+}
+
 .arrows {
     display: flex;
     justify-content: space-between;

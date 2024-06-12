@@ -16,9 +16,9 @@ let blogNames = Array();
 
 function openAndSaveBlogs() {
     fs.readdirSync(blogsDir).forEach((filename) => {
-        if (filename.endsWith('.txt')) {
+        if (filename.endsWith('.md')) {
             const filePath = path.join(blogsDir, filename);
-            const blogName = filename.slice(0, -4); // Remove the file extension
+            const blogName = filename.slice(0, -3); // Remove the file extension
             const blogContent = fs.readFileSync(filePath, 'utf8');
             blogs.push(blogContent);
             blogNames.push(blogName);
@@ -59,7 +59,7 @@ app.get('/blogs/:blog', (req, res) => {
     if (!blog || index == -1) {
         res.redirect('/blogs');
     } else {
-        blogText = blogs[index].replace(/\n/g, '<br>');
+        // blogText = blogs[index].replace(/\n/g, '<br>');
         res.render('blog', { blog: blogText, blogName: blog, prev: prevBlog, next: nextBlog});
     }
 });
