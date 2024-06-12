@@ -43,11 +43,24 @@ app.get('/blogs', (req, res) => {
 app.get('/blogs/:blog', (req, res) => {
     const blog = req.params.blog;
     const index = blogNames.indexOf(blog);
+
+    if (!(index == 0)) {
+        var prevBlog = blogNames[index - 1];
+    } else {
+        var prevBlog = blogNames[blogNames.length - 1];
+    }
+
+    if (!(index == blogNames.length - 1)) {
+        var nextBlog = blogNames[index + 1];
+    } else {
+        var nextBlog = blogNames[0];
+    }
+
     if (!blog || index == -1) {
         res.redirect('/blogs');
     } else {
         blogText = blogs[index].replace(/\n/g, '<br>');
-        res.render('blog', { blog: blogText, blogName: blog});
+        res.render('blog', { blog: blogText, blogName: blog, prev: prevBlog, next: nextBlog});
     }
 });
 
