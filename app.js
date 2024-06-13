@@ -68,12 +68,8 @@ app.get('/discord', (req, res) => {
     res.redirect('https://discord.gg/5nZVVedbqH');
 });
 
-app.get('/test', (req, res) => {
-    res.render('test');
-});
-
-app.get('/p', (req, res) => {
-    res.redirect('https://docs.google.com/presentation/d/105LwEcxS8Pi6XoxDV0vtbTzIlG0IL46NSQiN5QxyA3o/edit');
+app.get('/MIT', (req, res) => {
+    res.render('mit');
 });
 
 app.use((req, res) => {
