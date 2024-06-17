@@ -116,7 +116,7 @@
     z-index: 1;
 
     .mac-card {
-        height: 250px;
+        height: 270px;
         padding: 0 1.5em;
     }
 
@@ -164,6 +164,22 @@
 
 #discord-btn:hover {
     background-color: #5865a2;
+}
+
+#mastodon-btn {
+    background-color: #3088d4;
+}
+
+#mastodon-btn:hover {
+    background-color: #1f5d8c;
+}
+
+#connections-card .card-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 0.8em;
+    width: 100%;
 }
 
 .experience-list {
