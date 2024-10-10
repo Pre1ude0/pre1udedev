@@ -72,6 +72,10 @@ app.get('/MIT', (req, res) => {
     res.render('mit');
 });
 
+app.get('/test', (req, res) => {
+    res.render('test');
+});
+
 app.use((req, res) => {
     res.status(404).render('unknown');
 });
