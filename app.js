@@ -72,8 +72,8 @@ app.get('/MIT', (req, res) => {
     res.render('mit');
 });
 
-app.get('/test', (req, res) => {
-    res.render('test');
+app.get('/legacy', (req, res) => {
+    res.render('main-old');
 });
 
 app.use((req, res) => {
