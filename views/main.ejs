@@ -4,6 +4,7 @@
         <title>Test</title>
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="/css/discord.css">
+        <link rel="stylesheet" href="/css/disclaimer.css">
     </head>
     <body>
         <script src="https://livejs.com/live.js"></script>
@@ -35,7 +36,6 @@
                 <button class="close"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="window-body">
-
             </div>
         </div>
         <div class="window discord" style="height: 500px">
@@ -44,10 +44,20 @@
                 <button class="close"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="window-body">
-
+                <div class="discord"></div>
             </div>
         </div>
+
+        <div class="disclaimer-container">
+            <div class="disclaimer">IN ALPHA</div>
+            <div class="disclaimer-secondary">Proof of concept, content is subject to change</div>
+        </div>
+
         <script src="/js/main.js"></script>
+
+        <script src="/js/initWindows.js"></script>
+        <script src="/js/initIcons.js"></script>
+
         <script src="/js/console.js"></script>
     </body>
 </html>
