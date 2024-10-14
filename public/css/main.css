@@ -45,7 +45,7 @@ body {
 }
 
 .window-body {
-    height: 100%;
+    height: calc(100% - 45px);
     position: relative;
 }
 

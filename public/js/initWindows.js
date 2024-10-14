@@ -4,6 +4,7 @@ function initWindows() {
     const closeButtons = document.getElementsByClassName('close');
     console.log(titleBars);
 
+
     for (let i = 0; i < titleBars.length; i++) {
         let isDragging = false;
         let offsetX, offsetY;
@@ -23,6 +24,10 @@ function initWindows() {
 
         document.addEventListener('mouseup', () => {
             isDragging = false;
+            windowElements[i].style.top = `${Math.max(10, parseInt(windowElements[i].style.top))}px`;
+            windowElements[i].style.top = `${Math.min(window.innerHeight - windowElements[i].getBoundingClientRect().height - 10, parseInt(windowElements[i].style.top))}px`;
+            windowElements[i].style.left = `${Math.max(10, parseInt(windowElements[i].style.left))}px`;
+            windowElements[i].style.left = `${Math.min(window.innerWidth - windowElements[i].getBoundingClientRect().width - 10, parseInt(windowElements[i].style.left))}px`;
         });
 
         closeButtons[i].addEventListener('click', () => {
@@ -37,6 +42,11 @@ function initWindows() {
     for (let i = 0; i < windows.length; i++) {
         windows[i].addEventListener('mousedown', (e) => {
             liftWindow(windows[i]);
+        });
+
+        addEventListener('resize', () => {
+            windows[i].style.top = `${Math.min(window.innerHeight - windows[i].getBoundingClientRect().height - 10, parseInt(windows[i].style.top))}px`;
+            windows[i].style.left = `${Math.min(window.innerWidth - windows[i].getBoundingClientRect().width - 10, parseInt(windows[i].style.left))}px`;
         });
     }
 }
