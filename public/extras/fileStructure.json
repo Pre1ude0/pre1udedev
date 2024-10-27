@@ -1,0 +1,20 @@
+{
+    "guest" : {
+        "type" : "directory",
+        "children" : {
+            "file.txt" : {
+                "type" : "file",
+                "content" : "Hello World!"
+            },
+            "Desktop" : {
+                "type" : "directory",
+                "children" : {
+                    "file.txt" : {
+                        "type" : "file",
+                        "content" : "Hello Desktop!"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -2,7 +2,6 @@ function initWindows() {
     const titleBars = document.getElementsByClassName('title-bar');
     const windowElements = document.getElementsByClassName('window');
     const closeButtons = document.getElementsByClassName('close');
-    console.log(titleBars);
 
 
     for (let i = 0; i < titleBars.length; i++) {
@@ -57,8 +56,9 @@ function liftWindow(windowElement) {
         let otherWindows = document.getElementsByClassName('window')
         for (let j = 0; j < otherWindows.length; j++) {
             if (otherWindows[j] != windowElement) {
-
-                otherWindows[j].style.zIndex = (parseInt(otherWindows[j].style.zIndex) - 1).toString();
+                if (parseInt(otherWindows[j].style.zIndex) > 125) {
+                    otherWindows[j].style.zIndex = (parseInt(otherWindows[j].style.zIndex) - 1).toString();
+                }
                 otherWindows[j].classList.remove('active');
             }
         }

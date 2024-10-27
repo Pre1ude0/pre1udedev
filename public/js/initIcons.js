@@ -26,7 +26,9 @@ function initIcons() {
             let otherIcons = document.getElementsByClassName('icon')
             for (let j = 0; j < otherIcons.length; j++) {
                 otherIcons[j].classList.remove('clicked');
-                otherIcons[j].style.zIndex = (parseInt(otherIcons[j].style.zIndex) - 1).toString();
+                if (parseInt(otherIcons[j].style.zIndex) > 25) {
+                    otherIcons[j].style.zIndex = (parseInt(otherIcons[j].style.zIndex) - 1).toString();
+                }
             }
             icons[i].classList.add('clicked');
             icons[i].style.zIndex = "100";
