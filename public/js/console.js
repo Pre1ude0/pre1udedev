@@ -38,7 +38,7 @@ function commandRequest(command, outputElement) {
             i--;
         }
     }
-    outputElement.innerHTML += `<br>${splitCommand.join(' ')} ← commands still in dev :3`;
+    outputElement.innerHTML += `${splitCommand.join(' ')} ← commands still in dev :3<br>`;
 }
 
 function initializeConsole() {
@@ -57,7 +57,7 @@ function initializeConsole() {
                 const command = inputLine.querySelector('.command-input').innerHTML;
                 inputLine.innerHTML = '';
                 inputLine.remove();
-                outputElement.innerHTML += `[root@localhost ${currentPath}]$ ${command}`;
+                outputElement.innerHTML += `[guest@Pre1.dev ${currentPath}]$ ${command}<br>`;
                 outputElement.scrollTop = outputElement.scrollHeight;
 
                 commandRequest(command, outputElement);
