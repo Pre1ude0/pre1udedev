@@ -48,8 +48,12 @@ function initializeConsole() {
     let outputElement = document.createElement('div');
     outputElement.classList.add('command-output');
 
+    let extraSpace = document.createElement('div');
+    extraSpace.classList.add('extra-space');
+
     consoleBody.appendChild(inputLine);
     consoleBody.appendChild(outputElement);
+    consoleBody.appendChild(extraSpace);
 
     addEventListener('keydown', (e) => {
         if (consoleWindow.classList.contains('active') && !keyBlacklist.includes(e.key)) {
@@ -57,14 +61,21 @@ function initializeConsole() {
                 const command = inputLine.querySelector('.command-input').innerHTML;
                 inputLine.innerHTML = '';
                 inputLine.remove();
+                extraSpace.remove();
                 outputElement.innerHTML += `[guest@Pre1.dev ${currentPath}]$ ${command}<br>`;
-                outputElement.scrollTop = outputElement.scrollHeight;
 
                 commandRequest(command, outputElement);
 
                 currentCommand = '';
                 inputLine = createInputLine();
                 consoleBody.appendChild(inputLine);
+
+                extraSpace = document.createElement('div');
+                extraSpace.classList.add('extra-space');
+                consoleBody.appendChild(extraSpace);
+
+                consoleBody.scrollTo(0, consoleBody.scrollHeight);
+
             } else {
                 if (e.key === 'Backspace') {
                     currentCommand = currentCommand.slice(0, -1);

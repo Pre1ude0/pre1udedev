@@ -1,5 +1,5 @@
 .console .window-body {
-    padding: 2px 5px;
+    padding: 2px 5px 0 5px;
     color: white;
     font-family: 'Roboto-mono', monospace;
     overflow-y: scroll;
@@ -27,4 +27,8 @@
         outline: none;
         border: none;
     }
+}
+
+.extra-space {
+    height: 50px;
 }
