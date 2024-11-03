@@ -1,4 +1,5 @@
 let currentPath = '~';
+let relativePath = '~';
 let currentCommand = '';
 let keyBlacklist = ['Control', 'Shift', 'Alt', 'Meta', 'CapsLock', 'Tab', 'Delete', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Home', 'End', 'PageUp', 'PageDown', 'Insert', 'Escape', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'];
 const fileStructure = []
@@ -18,7 +19,7 @@ function createInputLine() {
 
     let pathDisplay = document.createElement('div');
     pathDisplay.classList.add('path-display');
-    pathDisplay.innerHTML = `[guest@Pre1.dev ${currentPath}]$ `;
+    pathDisplay.innerHTML = `[guest@Pre1.dev ${relativePath}]$ `;
 
     let inputElement = document.createElement('div');
     inputElement.classList.add('command-input');
@@ -58,6 +59,10 @@ function initializeConsole() {
     addEventListener('keydown', (e) => {
         if (consoleWindow.classList.contains('active') && !keyBlacklist.includes(e.key)) {
             if (e.key === 'Enter') {
+                if (currentCommand === '') {
+                    inputLine.querySelector('.command-input').innerHTML = '';
+                    return;
+                }
                 const command = inputLine.querySelector('.command-input').innerHTML;
                 inputLine.innerHTML = '';
                 inputLine.remove();
