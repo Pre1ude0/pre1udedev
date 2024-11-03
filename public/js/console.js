@@ -1,17 +1,85 @@
 let currentPath = '~';
 let relativePath = '~';
+let currentDirectory = [];
 let currentCommand = '';
 let keyBlacklist = ['Control', 'Shift', 'Alt', 'Meta', 'CapsLock', 'Tab', 'Delete', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Home', 'End', 'PageUp', 'PageDown', 'Insert', 'Escape', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'];
-const fileStructure = []
-fetch('/extras/fileStructure.json')
-    .then(response => response.json())
-    .then(data => {
+let fileStructure = [];
 
-    fileStructure.push(data);
-});
+fetch('/extras/fileStructure.json')
+    .then(response => response.text())
+    .then(data => {
+        fileStructure = JSON.parse(data);
+}).then(() => { changeDirectory('~') });
 
 const consoleWindow = document.querySelector('.console');
 const consoleBody = consoleWindow.querySelector('.window-body');
+
+function setParentReferences(node, parent = null) {
+    node.parent = parent;
+    node.filepath = parent ? `${parent.filepath}/${node.filename}` : '~';
+
+    if (node.type === 'directory' && node.children) {
+        for (let childName in node.children) {
+            if (node.children.hasOwnProperty(childName)) {
+                setParentReferences(node.children[childName], node);
+            }
+        }
+    }
+}
+
+
+// Fetch and initialize the file structure
+fetch('/extras/fileStructure.json')
+    .then(response => response.text())
+    .then(data => {
+        fileStructure = JSON.parse(data);
+        setParentReferences(fileStructure.home); // Initialize parent references
+        console.log(fileStructure);
+    }).then(() => {
+        changeDirectory('~');
+    });
+
+function changeDirectory(newPath="~") {
+    if (newPath === '~') {
+        currentPath = '~';
+        relativePath = '~';
+        currentDirectory = fileStructure.home;
+        console.log(currentDirectory);
+    }
+
+    let splitPath = newPath.split('/');
+    let current = currentDirectory;
+    console.log(current);
+
+    // Check if the path starts from root (~)
+
+    if (newPath[0] === '/' || newPath[0] === '~') {
+        current = fileStructure.home;
+        console.log(current);
+    }
+    for (let i = 0; i < splitPath.length; i++) {
+        if (!(splitPath[i] === '' || splitPath[i] === '.')) {
+            if (splitPath[i] === '..') {
+                if (current.parent) {
+                    current = current.parent;
+                }
+            } else {
+                if (!current.children || !current.children[splitPath[i]]) {
+                    return `cd: ${newPath}: No such file or directory`; // Invalid path
+                } else {
+                    current = current.children[splitPath[i]];
+                }
+            }
+        }
+    }
+
+    console.log(current);
+    currentPath = current['filepath'];
+    console.log(currentPath);
+    relativePath = currentPath.split('/').slice(-1)[0];
+    currentDirectory = current;
+}
+
 
 function createInputLine() {
     let inputLine = document.createElement('div');
@@ -39,7 +107,30 @@ function commandRequest(command, outputElement) {
             i--;
         }
     }
-    outputElement.innerHTML += `${splitCommand.join(' ')} ← commands still in dev :3<br>`;
+    if (splitCommand[0] === 'clear') {
+        outputElement.innerHTML = '';
+    } else if (splitCommand[0] === 'cd') {
+        if (splitCommand.length === 1) {
+            outputElement.innerHTML += changeDirectory('~') + '<br>';
+        } else if (splitCommand.length === 2) {
+            let dif = changeDirectory(splitCommand[1]);
+            if (dif !== undefined) {
+                outputElement.innerHTML += changeDirectory(splitCommand[1]) + '<br>';
+            }
+        } else {
+            outputElement.innerHTML += `cd: too many arguments<br>`;
+        }
+    } else if (splitCommand[0] === 'ls') {
+        console.log(currentDirectory, currentDirectory.children);
+        for (let child in currentDirectory.children) {
+            outputElement.innerHTML += `${currentDirectory.children[child].filename} `;
+        }
+        outputElement.innerHTML += '<br>';
+    } else if (splitCommand[0] === 'pwd') {
+        outputElement.innerHTML += `${currentPath}<br>`;
+    } else {
+        outputElement.innerHTML += `${command}: command not found<br>`;
+    }
 }
 
 function initializeConsole() {
@@ -67,7 +158,7 @@ function initializeConsole() {
                 inputLine.innerHTML = '';
                 inputLine.remove();
                 extraSpace.remove();
-                outputElement.innerHTML += `[guest@Pre1.dev ${currentPath}]$ ${command}<br>`;
+                outputElement.innerHTML += `[guest@Pre1.dev ${relativePath}]$ ${command}<br>`;
 
                 commandRequest(command, outputElement);
 

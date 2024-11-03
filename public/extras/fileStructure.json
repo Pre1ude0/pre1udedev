@@ -1,17 +1,21 @@
 {
-    "guest" : {
-        "type" : "directory",
-        "children" : {
-            "file.txt" : {
-                "type" : "file",
-                "content" : "Hello World!"
+    "home": {
+        "type": "directory",
+        "filename": "~",
+        "children": {
+            "file.txt": {
+                "filename": "file.txt",
+                "type": "file",
+                "content": "Hello World!"
             },
-            "Desktop" : {
-                "type" : "directory",
-                "children" : {
-                    "file.txt" : {
-                        "type" : "file",
-                        "content" : "Hello Desktop!"
+            "Desktop": {
+                "filename": "Desktop",
+                "type": "directory",
+                "children": {
+                    "file.txt": {
+                        "filename": "file.txt",
+                        "type": "file",
+                        "content": "Hello Desktop!"
                     }
                 }
             }
