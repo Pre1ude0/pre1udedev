@@ -3,65 +3,62 @@ let relativePath = '~';
 let currentDirectory = [];
 let currentCommand = '';
 let keyBlacklist = ['Control', 'Shift', 'Alt', 'Meta', 'CapsLock', 'Tab', 'Delete', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Home', 'End', 'PageUp', 'PageDown', 'Insert', 'Escape', 'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12'];
-let fileStructure = [];
+let fileStructure = {home: {filename: 'home', filepath: '~', children: {}}};
 
 fetch('/extras/fileStructure.json')
     .then(response => response.text())
     .then(data => {
         fileStructure = JSON.parse(data);
+        setFilePaths(fileStructure.home);
 }).then(() => { changeDirectory('~') });
 
 const consoleWindow = document.querySelector('.console');
 const consoleBody = consoleWindow.querySelector('.window-body');
 
-function setParentReferences(node, parent = null) {
-    node.parent = parent;
-    node.filepath = parent ? `${parent.filepath}/${node.filename}` : '~';
-
-    if (node.type === 'directory' && node.children) {
-        for (let childName in node.children) {
-            if (node.children.hasOwnProperty(childName)) {
-                setParentReferences(node.children[childName], node);
-            }
+function setFilePaths(node, path = null) {
+    node.filepath = path ? `${path}/${node.filename}` : '~';
+    if (node.type === 'directory') {
+        for (let child in node.children) {
+            setFilePaths(node.children[child], node.filepath);
         }
     }
 }
 
+function getParent(path) {
+    let splitPath = path.split('/');
+    splitPath.pop();
+    let currentNode = fileStructure.home;
+    for (let i = 1; i < splitPath.length; i++) {
+        if (!currentNode.children || !currentNode.children[splitPath[i]]) {
+            return null;
+        }
+        currentNode = currentNode.children[splitPath[i]];
+    }
 
-// Fetch and initialize the file structure
-fetch('/extras/fileStructure.json')
-    .then(response => response.text())
-    .then(data => {
-        fileStructure = JSON.parse(data);
-        setParentReferences(fileStructure.home); // Initialize parent references
-        console.log(fileStructure);
-    }).then(() => {
-        changeDirectory('~');
-    });
+    return currentNode;
+}
 
-function changeDirectory(newPath="~") {
+function changeDirectory(newPath) {
     if (newPath === '~') {
         currentPath = '~';
         relativePath = '~';
         currentDirectory = fileStructure.home;
-        console.log(currentDirectory);
     }
 
     let splitPath = newPath.split('/');
     let current = currentDirectory;
-    console.log(current);
-
-    // Check if the path starts from root (~)
 
     if (newPath[0] === '/' || newPath[0] === '~') {
         current = fileStructure.home;
+        splitPath = splitPath.slice(1);
         console.log(current);
     }
     for (let i = 0; i < splitPath.length; i++) {
         if (!(splitPath[i] === '' || splitPath[i] === '.')) {
             if (splitPath[i] === '..') {
-                if (current.parent) {
-                    current = current.parent;
+                let fileParent = getParent(current['filepath']);
+                if (fileParent !== null) {
+                    current = fileParent;
                 }
             } else {
                 if (!current.children || !current.children[splitPath[i]]) {
@@ -73,9 +70,7 @@ function changeDirectory(newPath="~") {
         }
     }
 
-    console.log(current);
-    currentPath = current['filepath'];
-    console.log(currentPath);
+    currentPath = current.filepath;
     relativePath = currentPath.split('/').slice(-1)[0];
     currentDirectory = current;
 }
