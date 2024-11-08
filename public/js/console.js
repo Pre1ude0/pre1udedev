@@ -63,6 +63,8 @@ function changeDirectory(newPath) {
             } else {
                 if (!current.children || !current.children[splitPath[i]]) {
                     return `cd: ${newPath}: No such file or directory`; // Invalid path
+                } else if (current.children[splitPath[i]].type === 'file') {
+                        return `cd: ${newPath}: Not a directory`; // Not a directory
                 } else {
                     current = current.children[splitPath[i]];
                 }
@@ -105,24 +107,90 @@ function commandRequest(command, outputElement) {
     if (splitCommand[0] === 'clear') {
         outputElement.innerHTML = '';
     } else if (splitCommand[0] === 'cd') {
+
         if (splitCommand.length === 1) {
             outputElement.innerHTML += changeDirectory('~') + '<br>';
         } else if (splitCommand.length === 2) {
             let dif = changeDirectory(splitCommand[1]);
-            if (dif !== undefined) {
+            if (dif !== undefined && dif !== null) {
                 outputElement.innerHTML += changeDirectory(splitCommand[1]) + '<br>';
             }
         } else {
             outputElement.innerHTML += `cd: too many arguments<br>`;
         }
+
     } else if (splitCommand[0] === 'ls') {
+
         console.log(currentDirectory, currentDirectory.children);
         for (let child in currentDirectory.children) {
             outputElement.innerHTML += `${currentDirectory.children[child].filename} `;
         }
         outputElement.innerHTML += '<br>';
+
     } else if (splitCommand[0] === 'pwd') {
+
         outputElement.innerHTML += `${currentPath}<br>`;
+
+    } else if (splitCommand[0] === 'cat') {
+
+        if (splitCommand.length === 2) {
+            if (currentDirectory.children[splitCommand[1]]) {
+                if (currentDirectory.children[splitCommand[1]].type === 'file') {
+                    outputElement.innerHTML += `${currentDirectory.children[splitCommand[1]].content}<br>`;
+                } else {
+                    outputElement.innerHTML += `cat: ${splitCommand[1]}: Is a directory<br>`;
+                }
+            } else {
+                outputElement.innerHTML += `cat: ${splitCommand[1]}: No such file or directory<br>`;
+            }
+        } else {
+            outputElement.innerHTML += `cat: invalid number of arguments<br>`;
+        }
+    } else if (splitCommand[0] === 'head') {
+        if (splitCommand.length === 2) {
+            if (currentDirectory.children[splitCommand[1]]) {
+                if (currentDirectory.children[splitCommand[1]].type === 'file') {
+                    let content = currentDirectory.children[splitCommand[1]].content.split('\n');
+                    for (let i = 0; i < Math.min(10, content.length); i++) {
+                        outputElement.innerHTML += `${content[i]}<br>`;
+                    }
+                } else {
+                    outputElement.innerHTML += `head: ${splitCommand[1]}: Is a directory<br>`;
+                }
+            } else {
+                outputElement.innerHTML += `head: ${splitCommand[1]}: No such file or directory<br>`;
+            }
+        } else {
+            outputElement.innerHTML += `head: invalid number of arguments<br>`;
+        }
+    } else if (splitCommand[0] === 'tail') {
+        if (splitCommand.length === 2) {
+            if (currentDirectory.children[splitCommand[1]]) {
+                if (currentDirectory.children[splitCommand[1]].type === 'file') {
+                    let content = currentDirectory.children[splitCommand[1]].content.split('\n');
+                    for (let i = Math.max(0, content.length - 10); i < content.length; i++) {
+                        outputElement.innerHTML += `${content[i]}<br>`;
+                    }
+                } else {
+                    outputElement.innerHTML += `tail: ${splitCommand[1]}: Is a directory<br>`;
+                }
+            } else {
+                outputElement.innerHTML += `tail: ${splitCommand[1]}: No such file or directory<br>`;
+            }
+        } else {
+            outputElement.innerHTML += `tail: invalid number of arguments<br>`;
+        }
+    } else if (splitCommand[0] === 'echo') {
+        let echoMessage = '';
+        if (splitCommand.length === 1) {
+            outputElement.innerHTML += `echo: invalid number of arguments<br>`;
+            return;
+        }
+        for (let i = 1; i < splitCommand.length; i++) {
+            splitCommand[i] = splitCommand[i].replace(/"/g, '');
+            echoMessage += " " + splitCommand[i];
+        }
+        outputElement.innerHTML += `${echoMessage}<br>`;
     } else {
         outputElement.innerHTML += `${command}: command not found<br>`;
     }
