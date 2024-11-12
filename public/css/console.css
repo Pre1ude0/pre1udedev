@@ -14,6 +14,12 @@
     border: none;
 }
 
+.help-commands {
+    columns: 2;
+    column-gap: 20px;
+    padding: 0 10px;
+}
+
 .input-line {
     display: flex;
     gap: 10px;
@@ -23,7 +29,8 @@
     caret-shape: block;
     font-family: 'Roboto-mono', monospace;
 
-    :focus, :focus-visible {
+    :focus,
+    :focus-visible {
         outline: none;
         border: none;
     }
