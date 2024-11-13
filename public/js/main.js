@@ -1,18 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-    initWindows();
-    initIcons();
+  initWindows();
+  initIcons();
 
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
 
-    initializeConsole();
+  initializeConsole();
 
-    function keydown(event) {
-        if(  event.code === "NumpadDivide"
-          || event.code === "Slash"
-          || event.code === "Quote") {
-            event.preventDefault();
-        }
+  function keydown(event) {
+    if (event.code === "NumpadDivide"
+      || event.code === "Slash"
+      || event.code === "Quote") {
+      event.preventDefault();
     }
-    window.addEventListener("keydown", keydown, {capture: true} );
+  }
+  window.addEventListener("keydown", keydown, { capture: true });
+
+  setTimeout(() => {
+    openWindow('about');
+  }, 700);
 });
