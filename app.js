@@ -12,7 +12,7 @@ app.use(express.static("js"));
 app.get("/", (req, res) => {
   const referer = req.get("Referer");
   if (referer) {
-    res.sendFile(path.join(__dirname, "blankie.png"));
+    res.render("blankie");
     console.log("Referer: ", referer);
   } else {
     res.render("main");
