@@ -1,0 +1,107 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <title>Test</title>
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/discord.css">
+        <link rel="stylesheet" href="css/about.css">
+        <link rel="stylesheet" href="css/console.css">
+        <link rel="stylesheet" href="css/disclaimer.css">
+    </head>
+    <body>
+        <script src="https://kit.fontawesome.com/bd75686a6c.js" crossorigin="anonymous"></script>
+        <div class="icon" data-target="console">
+            <img src="img/console.png" alt="Icon">
+            <p>console</p>
+        </div>
+        <div class="icon" data-target="discord">
+            <img src="img/discord.png" alt="Icon">
+            <p>discord</p>
+        </div>
+        <div class="icon" data-target="about">
+            <img src="icons/undefined-exec.png" alt="Icon">
+            <p>about.sh</p>
+        </div>
+        <div class="window test">
+            <div class="title-bar">
+                <div class="title-bar-text">Test</div>
+                <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="window-body">
+                <p>Test</p>
+            </div>
+        </div>
+        <div class="window console" style="height: 500px">
+            <div class="title-bar">
+                <div class="title-bar-text">Console</div>
+                <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="window-body">
+            </div>
+        </div>
+        <div class="window discord" style="height: 500px">
+            <div class="title-bar">
+                <div class="title-bar-text">Discord</div>
+                <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="window-body">
+                <div class="discord"></div>
+            </div>
+        </div>
+
+        <div class="window about" style="height: 500px">
+            <div class="title-bar">
+                <div class="title-bar-text">About</div>
+                <button class="close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="window-body">
+                <div class="about-left">
+                  <img class="pfp" src="img/newpfp.jpeg" alt="Profile Picture">
+                  <div class="name">Laura☾</div>
+                  <div class="handle">@Pre1ude0</div>
+                  <li class="bio">Your favourite self(not so anymore)-proclaimed coder :3</li>
+                </div>
+                <div class="about-right">
+                    <div class="r-title">About Me</div>
+                    <div class="r-content">
+                        <div class="r-request"> <div class="name">Name</div>
+                          <div class="pronouns">Pronouns</div>
+                          <div class="age">Age</div>
+                          <div class="location">Location</div>
+                          <div class="occupation">Occupation</div>
+                          <div class="hobbies">Hobbies</div>
+                        </div>
+                        <div class="r-response">
+                          <div class="name">Laura</div>
+                          <div class="pronouns">She/Her 🏳️‍⚧️</div>
+                          <div class="age">16</div>
+                          <div class="location">Latvia 🇱🇻</div>
+                          <div class="occupation">Student</div>
+                          <div class="hobbies">Programming, Gaming, Music (singing/piano)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="disclaimer-container">
+            <div class="disclaimer">IN ALPHA</div>
+            <div class="disclaimer-secondary">Proof of concept, content is subject to change</div>
+        </div>
+
+        <div class="mobile-disclaimer">
+            <i class="fa-solid fa-desktop"></i>
+            <div class="mobile-disclaimer-text">Please use a desktop device for viewing this site</div>
+        </div>
+
+        <script src="js/main.js"></script>
+
+        <script src="js/initWindows.js"></script>
+        <script src="js/initIcons.js"></script>
+        <script src="js/mobileDisclaimer.js"></script>
+
+        <script src="js/console.js"></script>
+    </body>
+</html>

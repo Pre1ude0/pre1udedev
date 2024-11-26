@@ -19,6 +19,10 @@ app.get("/", (req, res) => {
   }
 });
 
+app.get("/desktop", (req, res) => {
+  res.render("desktop");
+});
+
 app.use((req, res) => {
   res.status(404).redirect("/");
 });
