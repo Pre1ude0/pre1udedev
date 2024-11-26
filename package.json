@@ -2,5 +2,6 @@
   "dependencies": {
     "ejs": "^3.1.9",
     "express": "^4.19.2"
-  }
+  },
+  "start": "npm run build && node app.js"
 }
