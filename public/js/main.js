@@ -4,8 +4,10 @@ function changeScreen(screenId) {
   for (i = 0; i < document.getElementsByClassName("screen").length; i++) {
     if (document.getElementsByClassName("screen")[i].id !== screenId) {
       document.getElementsByClassName("screen")[i].style.opacity = "0";
+      document.getElementsByClassName("screen")[i].style.zIndex = "0";
     }
     document.getElementById(screenId).style.opacity = "1";
+    document.getElementById(screenId).style.zIndex = "5";
   }
 }
 
@@ -32,4 +34,15 @@ document.addEventListener("DOMContentLoaded", function () {
   } else if (window.location.hash === "#home") {
     return;
   }
+
+  drawCanvas();
+  generateBackground();
+
+  document.addEventListener("mousemove", (event) => {
+    generateBackground(event.clientX, event.clientY);
+  });
+
+  window.addEventListener("resize", () => {
+    drawCanvas();
+  });
 });
