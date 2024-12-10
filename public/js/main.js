@@ -32,17 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     indicator.style.bottom = "15px";
     changeScreen("screen3");
   } else if (window.location.hash === "#home") {
-    return;
+    document.getElementById("indicator").style.bottom = "115px";
+    changeScreen("screen1");
   }
-
-  drawCanvas();
-  generateBackground();
-
-  document.addEventListener("mousemove", (event) => {
-    generateBackground(event.clientX, event.clientY);
-  });
-
-  window.addEventListener("resize", () => {
-    drawCanvas();
-  });
 });

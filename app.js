@@ -10,13 +10,13 @@ app.use(express.static("css"));
 app.use(express.static("js"));
 
 app.get("/", (req, res) => {
-  const referer = req.get("Referer");
-  if (referer) {
-    res.render("blankie");
-    console.log("Referer: ", referer);
-  } else {
-    res.render("main");
-  }
+  res.render("main");
+});
+
+app.get("/referer", (req, res) => {
+  let referer = req.headers.referer;
+  res.render("blankie");
+  console.log("Referer: ", referer);
 });
 
 app.get("/desktop", (req, res) => {
