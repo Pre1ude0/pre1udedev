@@ -36,3 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     changeScreen("screen1");
   }
 });
+
+function copyHandle() {
+  navigator.clipboard.writeText("@pre1ude0");
+}
