@@ -5,6 +5,7 @@ body {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    position: relative;
 
     display: flex;
     align-items: center;
@@ -30,17 +31,19 @@ body {
     color: white;
     background-color: black;
     z-index: 2;
+    overflow: hidden;
 }
 
 .box-title h1 {
-    padding: 0 6px;
+    padding: 0 4px;
     position: absolute;
-    left: 15px;
-    top: -27px;
+    left: calc(50% - 350px);
+    top: calc(50% - 357px);
     font-size: 18px;
     background-color: black;
     font-family: "Space Mono", monospace;
     z-index: 20;
+    color: white;
 }
 
 .tab-selector {

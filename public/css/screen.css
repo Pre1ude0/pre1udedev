@@ -52,7 +52,7 @@
     gap: 5px;
 }
 
-#screen1 img {
+#screen1 .pfp-image {
     width: 250px;
     aspect-ratio: 1;
     filter: invert(1);
@@ -152,5 +152,63 @@
             height: 0;
             margin-top: -39px;
         }
+
+        .box {
+            position: relative;
+            height: 15px;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 5px;
+            padding: 4px;
+            font-size: 14pt;
+            font-family: "Roboto-mono", monospace;
+            background: white;
+            color: black;
+            cursor: cell;
+            user-select: none;
+            transition:
+                color 1s,
+                background 3s;
+
+            &:hover {
+                transition:
+                    color 0.4s,
+                    background 0.3s;
+            }
+        }
+
+        .experience-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: start;
+            gap: 10px;
+            position: relative;
+            /* height: 200px; */
+        }
     }
+}
+
+#css:hover {
+    background: purple !important;
+    color: white !important;
+}
+
+#html:hover {
+    background-color: #f16529 !important;
+    color: white !important;
+}
+
+#js:hover {
+    background-color: #f0db4f !important;
+}
+
+#python:hover {
+    background-color: #306998 !important;
+    color: #f0db4f !important;
+}
+
+#node:hover {
+    background-color: #8cc84b !important;
 }

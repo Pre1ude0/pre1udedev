@@ -1,0 +1,140 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes tabSelectorSlideIn {
+    from {
+        transform: translateX(-300%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes descriptorRightSlideIn {
+    from {
+        transform: translateX(120%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes descriptorLeftSlideIn {
+    from {
+        transform: translateY(400px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes languageSlideIn {
+    from {
+        transform: translateX(-500px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.mainbox {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.tab-selector {
+    transform: translateX(-300%);
+    animation: tabSelectorSlideIn 1s ease-out forwards;
+    animation-delay: 3s;
+}
+
+.box-title h1 {
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+}
+
+.pfp-image {
+    opacity: 0;
+    animation: fadeIn 0.2s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+.hero {
+    opacity: 0;
+    animation: slideIn 0.2s linear forwards;
+    animation-delay: 1s;
+}
+
+.handle {
+    opacity: 0;
+    animation: fadeIn 0.3s ease-out forwards;
+    animation-delay: 1.2s;
+}
+
+.descriptor {
+    .title {
+        transform: translateX(120%);
+        animation: descriptorRightSlideIn 0.8s ease-in-out forwards;
+        animation-delay: 1.5s;
+    }
+
+    h2 {
+        opacity: 0;
+        animation: fadeIn 0.2s linear forwards;
+        animation-delay: 1.8s;
+    }
+}
+
+.left .descriptor {
+    .title {
+        transform: translateY(400px);
+        animation: descriptorLeftSlideIn 0.8s ease-in-out forwards;
+        animation-delay: 1.8s;
+    }
+    .experience-container {
+        #css {
+            transform: translateX(-500px);
+            animation: languageSlideIn 0.8s ease-in-out forwards;
+            animation-delay: 2.3s;
+        }
+        #html {
+            transform: translateX(-500px);
+            animation: languageSlideIn 0.8s ease-in-out forwards;
+            animation-delay: 2.2s;
+        }
+        #js {
+            transform: translateX(-500px);
+            animation: languageSlideIn 0.8s ease-in-out forwards;
+            animation-delay: 2.1s;
+        }
+        #node {
+            transform: translateX(-500px);
+            animation: languageSlideIn 0.8s ease-in-out forwards;
+            animation-delay: 2.4s;
+        }
+        #python {
+            transform: translateX(-500px);
+            animation: languageSlideIn 0.8s ease-in-out forwards;
+            animation-delay: 2.5s;
+        }
+    }
+}
