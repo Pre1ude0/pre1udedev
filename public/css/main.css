@@ -81,6 +81,7 @@ body {
     bottom: 15px;
     gap: 10px;
     font-family: "Space Mono", monospace;
+    user-select: none;
 }
 
 .tabs-right {

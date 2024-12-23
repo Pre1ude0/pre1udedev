@@ -94,7 +94,42 @@
     .title {
         transform: translateX(120%);
         animation: descriptorRightSlideIn 0.8s ease-in-out forwards;
-        animation-delay: 1.5s;
+    }
+
+    &:nth-child(1) {
+        .title {
+            animation-delay: 1.2s;
+        }
+    }
+    &:nth-child(2) {
+        .title {
+            animation-delay: 1.3s;
+        }
+    }
+    &:nth-child(3) {
+        .title {
+            animation-delay: 1.4s;
+        }
+    }
+    &:nth-child(4) {
+        .title {
+            animation-delay: 1.5s;
+        }
+    }
+    &:nth-child(5) {
+        .title {
+            animation-delay: 1.6s;
+        }
+    }
+    &:nth-child(6) {
+        .title {
+            animation-delay: 1.7s;
+        }
+    }
+    &:nth-child(7) {
+        .title {
+            animation-delay: 1.8s;
+        }
     }
 
     h2 {
