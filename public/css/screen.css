@@ -1,216 +1,233 @@
 .screen {
-  height: 100%;
-  width: calc(100% - 120px);
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  z-index: 4;
-  transition: opacity 0.3s;
-  padding: 50px;
-  padding-left: 120px !important;
-  color: white;
-  font-family: "Roboto-mono", monospace;
+    height: 100%;
+    width: calc(100% - 120px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 4;
+    transition: opacity 0.3s;
+    padding: 50px;
+    padding-left: 120px !important;
+    color: white;
+    font-family: "Roboto-mono", monospace;
 }
 
 #screen1 {
-  opacity: 1;
-  z-index: 5;
-  display: flex;
-  justify-content: space-between;
-
-  h2 {
-    padding: 0;
-    margin: 0;
-  }
-
-  .handle {
-    cursor: pointer;
-    transition:
-      color 2s,
-      font-weight 0.3s;
-    font-weight: normal;
-    color: #b5b5b5;
-    &:active {
-      transition: none;
-      color: white;
-      font-weight: bold;
-    }
+    opacity: 1;
+    z-index: 5;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: left;
-    width: fit-content;
-    user-select: none;
-  }
+    justify-content: space-between;
+
+    h2 {
+        padding: 0;
+        margin: 0;
+    }
+
+    .handle {
+        cursor: pointer;
+        transition:
+            color 2s,
+            font-weight 0.3s;
+        font-weight: normal;
+        color: #b5b5b5;
+        &:active {
+            transition: none;
+            color: white;
+            font-weight: bold;
+        }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        width: fit-content;
+        user-select: none;
+    }
 }
 
 #screen1 .left {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 #screen1 .pfp-image {
-  width: 250px;
-  aspect-ratio: 1;
-  filter: invert(1);
-  cursor: crosshair;
+    width: 250px;
+    aspect-ratio: 1;
+    filter: invert(1);
+    cursor: crosshair;
 
-  transition: filter 0.3s;
+    transition: filter 0.3s;
 }
 
 #screen1 img:hover {
-  filter: invert(0);
-  user-select: none;
+    filter: invert(0);
+    user-select: none;
 }
 
-.handle .handle-popup, .copy-popup {
-  visibility: hidden;
-  padding: 5px;
-  background-color: black;
-  color: white;
-  /* border-radius: 4px; */
-  /* margin-bottom: 120px; */
-  position: absolute;
-  font-family: "Roboto-mono", monospace;
-  font-size: 12pt;
-  transform: translateY(-150%);
-  opacity: 0;
+.handle .handle-popup,
+.copy-popup {
+    visibility: hidden;
+    padding: 5px;
+    background-color: black;
+    color: white;
+    /* border-radius: 4px; */
+    /* margin-bottom: 120px; */
+    position: absolute;
+    font-family: "Roboto-mono", monospace;
+    font-size: 12pt;
+    transform: translateY(-150%);
+    opacity: 0;
 
-  z-index: 20 !important;
-  user-select: none;
+    z-index: 20 !important;
+    user-select: none;
 
-  transition:
-    visibility 1.2s,
-    transform 1.2s,
-    opacity 1.2s ease-in;
+    transition:
+        visibility 1.2s,
+        transform 1.2s,
+        opacity 1.2s ease-in;
 }
 
 .handle:active {
-  .handle-popup {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(-80%);
-    transition: none;
-  }
+    .handle-popup {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(-80%);
+        transition: none;
+    }
 }
 
 .items {
-  margin-right: 40px;
-  gap: 10px;
-  width: 270px;
-  font-family: "Space Mono", monospace;
+    margin-right: 40px;
+    gap: 10px;
+    width: 270px;
+    font-family: "Space Mono", monospace;
 
-  .descriptor {
-    width: 100%;
+    .descriptor {
+        width: 100%;
 
-    .title {
-      position: relative; /* Establish a positioning context for pseudo-elements */
-      width: 100%; /* Adjust as needed */
-      height: 40px; /* Adjust to fit your layout */
+        .title {
+            position: relative; /* Establish a positioning context for pseudo-elements */
+            width: 100%; /* Adjust as needed */
+            height: 40px; /* Adjust to fit your layout */
+        }
+
+        .title::before {
+            content: "";
+            position: absolute;
+            top: 50%; /* Align the line vertically */
+            left: 0;
+            width: 100%;
+            height: 2px; /* Adjust thickness of the line */
+            background-color: #b8b8b8; /* Change to your desired line color */
+            transform: translateY(-50%);
+            z-index: 5; /* Ensure it's behind the text */
+        }
+
+        h1 {
+            position: absolute;
+            background-color: black; /* Match the background to "hide" the line */
+            z-index: 6; /* Place it above the line */
+            padding: 0 1px; /* Optional: Add spacing around the text */
+            margin: 0;
+            width: fit-content;
+            font-size: 16pt;
+
+            top: 2px;
+            right: 4px;
+            text-align: right;
+
+            color: #a8a8a8;
+            i {
+                padding-left: 2px;
+            }
+        }
+
+        /*
+	.title i {
+		position: relative;
+		left: 4px;
+		top: 9px;
+		color: #a8a8a8;
+		font-size: 16pt;
+		background-color: black;
+		padding: 0 2px;
+		z-index: 6;
+	}
+	*/
+
+        h2,
+        span {
+            font-size: 14pt;
+            display: inline-block;
+            vertical-align: middle;
+            text-shadow: white 0 0 6px;
+        }
+
+        span {
+            font-size: 18pt !important;
+            height: 0;
+            margin-top: -39px;
+        }
+
+        .box {
+            position: relative;
+            height: 15px;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 5px;
+            padding: 4px;
+            font-size: 14pt;
+            font-family: "Roboto-mono", monospace;
+            background: white;
+            color: black;
+            cursor: cell;
+            user-select: none;
+            transition:
+                color 1s,
+                background 3s;
+
+            &:hover {
+                transition:
+                    color 0.4s,
+                    background 0.3s;
+            }
+        }
+
+        .experience-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: start;
+            gap: 10px;
+            position: relative;
+            /* height: 200px; */
+        }
     }
-
-    .title::before {
-      content: "";
-      position: absolute;
-      top: 50%; /* Align the line vertically */
-      left: 0;
-      width: 100%;
-      height: 2px; /* Adjust thickness of the line */
-      background-color: #b8b8b8; /* Change to your desired line color */
-      transform: translateY(-50%);
-      z-index: 5; /* Ensure it's behind the text */
-    }
-
-    h1 {
-      position: absolute;
-      background-color: black; /* Match the background to "hide" the line */
-      z-index: 6; /* Place it above the line */
-      padding: 0 1px; /* Optional: Add spacing around the text */
-      margin: 0;
-      width: fit-content;
-      font-size: 16pt;
-
-      top: 2px;
-      right: 4px;
-      text-align: right;
-
-      color: #a8a8a8;
-    }
-
-    h2,
-    span {
-      font-size: 14pt;
-      display: inline-block;
-      vertical-align: middle;
-      text-shadow: white 0 0 6px;
-    }
-
-    span {
-      font-size: 18pt !important;
-      height: 0;
-      margin-top: -39px;
-    }
-
-    .box {
-      position: relative;
-      height: 15px;
-      width: fit-content;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 5px;
-      padding: 4px;
-      font-size: 14pt;
-      font-family: "Roboto-mono", monospace;
-      background: white;
-      color: black;
-      cursor: cell;
-      user-select: none;
-      transition:
-        color 1s,
-        background 3s;
-
-      &:hover {
-        transition:
-          color 0.4s,
-          background 0.3s;
-      }
-    }
-
-    .experience-container {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: start;
-      gap: 10px;
-      position: relative;
-      /* height: 200px; */
-    }
-  }
 }
 
 #css:hover {
-  background: purple !important;
-  color: white !important;
+    background: purple !important;
+    color: white !important;
 }
 
 #html:hover {
-  background-color: #f16529 !important;
-  color: white !important;
+    background-color: #f16529 !important;
+    color: white !important;
 }
 
 #js:hover {
-  background-color: #f0db4f !important;
+    background-color: #f0db4f !important;
 }
 
 #python:hover {
-  background-color: #306998 !important;
-  color: #f0db4f !important;
+    background-color: #306998 !important;
+    color: #f0db4f !important;
 }
 
 #node:hover {
-  background-color: #8cc84b !important;
+    background-color: #8cc84b !important;
 }
 
 /*
@@ -235,75 +252,81 @@
 */
 
 .visible {
-  visibility: visible !important;
-  opacity: 1 !important;
-  transform: translateY(0) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 
-  transition: none !important;
+    transition: none !important;
 }
 
 #screen2 {
-  h1 {
-    /* color: white; */
-    font-family: "Space Mono", monospace;
-    margin: 0;
-  }
-
-  .items {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    width: 590px;
-    padding-left: 10px;
-  }
-
-  .descriptor {
-    width: 270px;
-
-    h2 {
-      font-size: 14pt;
-      margin: 0;
+    h1 {
+        /* color: white; */
+        font-family: "Space Mono", monospace;
+        margin: 0;
     }
 
-    .connection {
-      display: flex;
-      justify-content: space-between;
-
-      &:hover {
-        .buttons {
-          opacity: 1;
-        }
-      }
-
-      .buttons {
-        opacity: 0;
-        transition: opacity 0.15s;
-
+    .items {
         display: flex;
-        align-items: center;
-        gap: 10px;
-
-        i {
-          font-size: 15pt;
-          cursor: pointer;
-          color: #a8a8a8;
-
-          transition:
-            color 0.2s,
-            transform 0.2s;
-
-          &:hover {
-            color: white !important;
-            transform: scale(1.2);
-          }
-
-          &:active {
-            transition: 0.1s;
-            transform: scale(1.1);
-          }
-        }
-      }
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 590px;
+        padding-left: 10px;
     }
-  }
+
+    .descriptor {
+        width: 270px;
+
+        h2 {
+            font-size: 14pt;
+            margin: 0;
+        }
+
+        .connection {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+
+            &:hover {
+                .buttons {
+                    opacity: 1;
+                }
+            }
+
+            .buttons {
+				position: absolute;
+				right: 0;
+				top: 0;
+                opacity: 0;
+				height: 24px;
+                transition: opacity 0.15s;
+
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                i {
+					text-shadow: black 0 0 6px;
+                    font-size: 15pt;
+                    cursor: pointer;
+                    color: #a8a8a8;
+
+                    transition:
+                        color 0.2s,
+                        transform 0.2s;
+
+                    &:hover {
+                        color: white !important;
+                        transform: scale(1.2);
+                    }
+
+                    &:active {
+                        transition: 0.1s;
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+    }
 }
