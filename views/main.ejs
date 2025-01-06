@@ -15,18 +15,36 @@
         <div class="box-title">
             <h1>Pre1ude0</h1>
         </div>
+		<div class="copy-popup" id="copyPopup">Copied!</div>
         <div class="mainbox">
             <div class="tab-selector">
-                <div class="selected-tab" id="indicator"></div>
-                <div class="tabs-left"><a href="#home" class="tab"><i class="fa-solid fa-house"></i></a><a href="#connections"><i class="fa-solid fa-link"></i></a><a href="#projects"><i class="fa-solid fa-clipboard"></i></a></div>
-                <div class="tabs-right"><a href="#home" draggable="false">Home</a><a href="#connections" draggable="false">Socials</a><a href="#projects" draggable="false">Projects</a></div>
+				<div class="selected-tab" id="indicator"></div>
+                <div class="tabs-left">
+					<a href="#home" class="tab">
+						<i class="fa-solid fa-house"></i>
+					</a>
+					<a href="#connections">
+						<i class="fa-solid fa-link"></i>
+					</a>
+					<a href="#projects">
+						<i class="fa-solid fa-clipboard"></i>
+					</a>
+				</div>
+                <div class="tabs-right">
+					<a href="#home" draggable="false">Home</a>
+					<a href="#connections" draggable="false">Socials</a>
+					<a href="#projects" draggable="false">Projects</a>
+				</div>
             </div>
             <div class="screen" id="screen1">
                 <div class="left">
                     <img src="/img/newpfp.jpeg" alt="Laura" class="pfp-image" draggable="false"/>
                     <!-- <h1 class="name">Laura☾</h1> -->
                     <h2 class="hero glitch layers" data-text="Laura☾"><span>Laura☾</span></h2>
-                    <h2 class="handle" onclick="copyHandle()">@pre1ude0 <div class="handle-popup" id="handlePopup">Copied!</div></h2>
+                    <h2 class="handle" onclick="copyHandle()">
+					@pre1ude0
+					<div class="handle-popup" id="handlePopup">Copied!</div>
+					</h2>
                     <div class="experience">
                         <div class="items">
                             <div class="descriptor">
@@ -86,19 +104,40 @@
                 </div>
             </div>
             <div class="screen" id="screen2">
-                <div class="items">
+				<div class="items">
                     <h1>Connections</h1>
                     <div class="descriptor">
                         <div class="title"><h1>email</h1></div>
-                        <h2>laura@pre1ude.dev</h2>
+						<div class="connection">
+                    	    <h2>laura@pre1ude.dev</h2>
+							<div class="buttons">
+								<i onclick="copyItem('laura@pre1ude.dev')" class="fa-solid fa-copy"></i>
+							</div>
+						</div>
                     </div>
                     <div class="descriptor">
                         <div class="title"><h1>github</h1></div>
-                        <div class="connection"><h2>Pre1ude0</h2><div class="buttons"><i class="fa-solid fa-copy"></i><i class="fa-solid fa-arrow-up-right-from-square"></i></div></div>
+                        <div class="connection">
+							<h2>Pre1ude0</h2>
+							<div class="buttons">
+								<i onclick="copyItem('Pre1ude0')" class="fa-solid fa-copy"></i>
+								<a href="https://github.com/Pre1ude0" target="_blank">
+									<i class="fa-solid fa-arrow-up-right-from-square"></i>
+								</a>
+							</div>
+						</div>
                     </div>
                     <div class="descriptor">
                         <div class="title"><h1>discord</h1></div>
-                        <div class="connection"><h2>pre1ude0</h2><div class="buttons"><i class="fa-solid fa-copy"></i><i class="fa-solid fa-arrow-up-right-from-square"></i></div></div>
+                        <div class="connection">
+							<h2>pre1ude0</h2>
+							<div class="buttons">
+								<i onclick="copyItem('pre1ude0')" class="fa-solid fa-copy"></i>
+								<a href="https://discord.com/users/737983831000350731" target="_blank">
+									<i class="fa-solid fa-arrow-up-right-from-square"></i>
+								</a>
+							</div>
+						</div>
                     </div>
                 </div>
             </div>

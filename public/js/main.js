@@ -1,5 +1,7 @@
 const indicator = document.getElementById("indicator");
 
+const copyPopup = document.getElementById("copyPopup");
+
 function changeScreen(screenId) {
   for (i = 0; i < document.getElementsByClassName("screen").length; i++) {
     if (document.getElementsByClassName("screen")[i].id !== screenId) {
@@ -40,3 +42,21 @@ document.addEventListener("DOMContentLoaded", function () {
 function copyHandle() {
   navigator.clipboard.writeText("@pre1ude0");
 }
+
+function copyItem(item) {
+	navigator.clipboard.writeText(item);
+	elementY = event.target.getBoundingClientRect().top;
+	elementX = event.target.getBoundingClientRect().left;
+	targetWidth = event.target.offsetWidth;
+	let leftOffset = elementX + targetWidth / 2;
+	leftOffset = leftOffset - copyPopup.offsetWidth / 2;
+	copyPopup.style.top = `calc(${elementY}px - 40px)`;
+	copyPopup.style.left = `${leftOffset}px`;
+	copyPopup.classList.add("visible");
+	setTimeout(() => {
+		copyPopup.classList.remove("visible");
+	}, 100);
+}
+
+window.copyHandle = copyHandle;
+window.copyItem = copyItem;
