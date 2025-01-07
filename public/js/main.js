@@ -39,10 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-function copyHandle() {
-  navigator.clipboard.writeText("@pre1ude0");
-}
-
 function copyItem(item) {
 	navigator.clipboard.writeText(item);
 	elementY = event.target.getBoundingClientRect().top;
@@ -56,6 +52,11 @@ function copyItem(item) {
 	setTimeout(() => {
 		copyPopup.classList.remove("visible");
 	}, 100);
+}
+
+function copyIframe() {
+	querySelector = document.querySelector("code");
+	navigator.clipboard.writeText(querySelector.innerText);
 }
 
 window.copyHandle = copyHandle;
