@@ -3,105 +3,198 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
-        <title>Test</title>
         <link rel="stylesheet" href="/css/main.css">
-        <link rel="stylesheet" href="/css/discord.css">
-        <link rel="stylesheet" href="/css/about.css">
-        <link rel="stylesheet" href="/css/console.css">
-        <link rel="stylesheet" href="/css/disclaimer.css">
+        <link rel="stylesheet" href="/css/background.css">
+        <link rel="stylesheet" href="/css/glitch.css">
+        <link rel="stylesheet" href="/css/screen.css">
+		<link rel="stylesheet" href="/css/git.css">
+        <link rel="stylesheet" href="/css/animation.css">
     </head>
     <body>
+        <script src="https://livejs.com/live.js"></script>
         <script src="https://kit.fontawesome.com/bd75686a6c.js" crossorigin="anonymous"></script>
-        <div class="icon" data-target="console">
-            <img src="/img/console.png" alt="Icon">
-            <p>console</p>
+        <div class="box-title">
+            <h1>Pre1ude0</h1>
         </div>
-        <div class="icon" data-target="discord">
-            <img src="/img/discord.png" alt="Icon">
-            <p>discord</p>
-        </div>
-        <div class="icon" data-target="about">
-            <img src="/icons/undefined-exec.png" alt="Icon">
-            <p>about.sh</p>
-        </div>
-        <div class="window test">
-            <div class="title-bar">
-                <div class="title-bar-text">Test</div>
-                <button class="close"><i class="fa-solid fa-xmark"></i></button>
+	    <div class="commit-box" id="commit-box">
+	        <div class="commit-content">
+	            <button class="close-btn" id="close-btn"><i class="fa-solid fa-xmark close-btn"></i>
+</button>
+				<h2>Latest change</h2>
+	            <p><a href="" id="commit-link" target="_blank">
+					<strong><span id="commit-message"></span></strong>
+				</a></p>
+				<p><span id="commit-date"></span></p>
+				<div class="line"></div>
+	        </div>
+	    </div>
+		<div class="copy-popup" id="copyPopup">Copied!</div>
+        <div class="mainbox">
+            <div class="tab-selector">
+				<div class="selected-tab" id="indicator"></div>
+                <div class="tabs-left">
+					<a href="#home" class="tab">
+						<i class="fa-solid fa-house"></i>
+					</a>
+					<a href="#connections">
+						<i class="fa-solid fa-link"></i>
+					</a>
+					<a href="#projects">
+						<i class="fa-solid fa-clipboard"></i>
+					</a>
+				</div>
+                <div class="tabs-right">
+					<a href="#home" draggable="false">Home</a>
+					<a href="#connections" draggable="false">Socials</a>
+					<a href="#projects" draggable="false">Projects</a>
+				</div>
             </div>
-            <div class="window-body">
-                <p>Test</p>
-            </div>
-        </div>
-        <div class="window console" style="height: 500px">
-            <div class="title-bar">
-                <div class="title-bar-text">Console</div>
-                <button class="close"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <div class="window-body">
-            </div>
-        </div>
-        <div class="window discord" style="height: 500px">
-            <div class="title-bar">
-                <div class="title-bar-text">Discord</div>
-                <button class="close"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <div class="window-body">
-                <div class="discord"></div>
-            </div>
-        </div>
-
-        <div class="window about" style="height: 500px">
-            <div class="title-bar">
-                <div class="title-bar-text">About</div>
-                <button class="close"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <div class="window-body">
-                <div class="about-left">
-                  <img class="pfp" src="/img/newpfp.jpeg" alt="Profile Picture">
-                  <div class="name">Laura☾</div>
-                  <div class="handle">@Pre1ude0</div>
-                  <li class="bio">Your favourite self(not so anymore)-proclaimed coder :3</li>
-                </div>
-                <div class="about-right">
-                    <div class="r-title">About Me</div>
-                    <div class="r-content">
-                        <div class="r-request"> <div class="name">Name</div>
-                          <div class="pronouns">Pronouns</div>
-                          <div class="age">Age</div>
-                          <div class="location">Location</div>
-                          <div class="occupation">Occupation</div>
-                          <div class="hobbies">Hobbies</div>
+            <div class="screen" id="screen1">
+                <div class="left">
+                    <img src="/img/newpfp.jpeg" alt="Laura" class="pfp-image" draggable="false"/>
+                    <!-- <h1 class="name">Laura☾</h1> -->
+                    <h2 class="hero glitch layers" data-text="Laura☾"><span>Laura☾</span></h2>
+                    <h2 class="handle" onclick="copyItem('@Pre1ude0')">
+					@Pre1ude0
+					</h2>
+                    <div class="experience">
+                        <div class="items">
+                            <div class="descriptor">
+                                <div class="title"><h1>Experience</h1></div>
+                                <div class="experience-container">
+                                  <div class="box" id="css">
+                                      <i class="fa-brands fa-css"></i><text>CSS</text>
+                                  </div>
+                                  <div class="box" id="html">
+                                      <i class="fa-brands fa-html5"></i><text>HTML</text>
+                                  </div>
+                                  <div class="box" id="js">
+                                      <i class="fa-brands fa-js"></i><text>JS</text>
+                                  </div>
+                                  <div class="box" id="python">
+                                      <i class="fa-brands fa-python"></i><text>Python</text>
+                                  </div>
+                                  <div class="box" id="node">
+                                      <i class="fa-brands fa-node-js"></i><text>NodeJS</text>
+                                  </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="r-response">
-                          <div class="name">Laura</div>
-                          <div class="pronouns">She/Her 🏳️‍⚧️</div>
-                          <div class="age">16</div>
-                          <div class="location">Latvia 🇱🇻</div>
-                          <div class="occupation">Student</div>
-                          <div class="hobbies">Programming, Gaming, Music (singing/piano)</div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="items">
+                        <div class="descriptor">
+                            <div class="title"><h1>Name</h1></div>
+                            <h2>Laura</h2>
+                        </div>
+                        <div class="descriptor">
+                            <div class="title"><h1>Pronouns</h1></div>
+                            <h2>She/Her <span style="text-shadow: pink 0 0 8px;">🏳️‍⚧️</span></h2>
+                        </div>
+                        <div class="descriptor">
+                            <div class="title"><h1>Age</h1></div>
+                            <h2>16</h2>
+                        </div>
+                        <div class="descriptor">
+                            <div class="title"><h1>Location</h1></div>
+                            <h2>Latvia <span style="text-shadow: red 0 0 8px;">🇱🇻<span></h2>
+                        </div>
+                        <div class="descriptor">
+                            <div class="title"><h1>Occupation</h1></div>
+                            <h2>Freelance developer / Student</h2>
+                        </div>
+                        <div class="descriptor">
+                            <div class="title"><h1>Hobbies</h1></div>
+                            <h2>Programming; Chess; Gaming; Art (singing/piano/culture)</h2>
+                        </div>
+                        <div class="descriptor">
+                            <div class="title"><h1>Meow?</h1></div>
+                            <h2>Meow!</h2>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="screen" id="screen2">
+				<div class="items">
+                    <h1>Connections</h1>
+                    <div class="descriptor">
+                        <div class="title"><h1>email<i class="fa-solid fa-at"></i></h1></div>
+						<div class="connection">
+                    	    <h2>laura@pre1ude.dev</h2>
+							<div class="buttons">
+								<i onclick="copyItem('laura@pre1ude.dev')" class="fa-solid fa-copy"></i>
+							</div>
+						</div>
+                    </div>
+                    <div class="descriptor">
+                        <div class="title"><h1>github<i class="fa-brands fa-github"></i></h1></div>
+                        <div class="connection">
+							<h2>Pre1ude0</h2>
+							<div class="buttons">
+								<i onclick="copyItem('Pre1ude0')" class="fa-solid fa-copy"></i>
+								<a href="https://github.com/Pre1ude0" target="_blank">
+									<i class="fa-solid fa-arrow-up-right-from-square"></i>
+								</a>
+							</div>
+						</div>
+                    </div>
+                    <div class="descriptor">
+                        <div class="title"><h1>discord<i class="fa-brands fa-discord"></i></h1></div>
+                        <div class="connection">
+							<h2>pre1ude0</h2>
+							<div class="buttons">
+								<i onclick="copyItem('pre1ude0')" class="fa-solid fa-copy"></i>
+								<a href="https://discord.com/users/737983831000350731" target="_blank">
+									<i class="fa-solid fa-arrow-up-right-from-square"></i>
+								</a>
+							</div>
+						</div>
+                    </div>
+					<div class="descriptor">
+                        <div class="title"><h1>mastodon<i class="fa-brands fa-mastodon"></i></h1></div>
+                        <div class="connection">
+							<h2>Pre1ude@catgirl.center</h2>
+							<div class="buttons">
+								<i onclick="copyItem('Pre1ude@catgirl.center')" class="fa-solid fa-copy"></i>
+								<a href="https://catgirl.center/@Pre1ude0" target="_blank">
+									<i class="fa-solid fa-arrow-up-right-from-square"></i>
+								</a>
+							</div>
+						</div>
+                    </div>
+					<div class="descriptor">
+                        <div class="title"><h1>steam<i class="fa-brands fa-steam"></i></h1></div>
+                        <div class="connection">
+							<h2>Laura☾</h2>
+							<div class="buttons">
+								<i onclick="copyItem('Laura☾')" class="fa-solid fa-copy"></i>
+								<a href="https://steamcommunity.com/id/Pre1ude0/" target="_blank">
+									<i class="fa-solid fa-arrow-up-right-from-square"></i>
+								</a>
+							</div>
+						</div>
+                    </div>
+					</div>
+				<div class="friends">
+					<h1>Friends</h1>
+					<div class="banners"></div>
+					<div class="referrer-box">
+						<h3>Add me to your website!</h3>
+						<div class="referer-sub">
+							<code>&lt;iframe src="https://pre1ude.dev/referer" height=31 width=88 frameborder=0 loading=lazy&gt;&lt;/iframe&gt;</code>
+							<button onclick="copyIframe()">Copy</button>
+							<iframe src="https://pre1ude.dev/referer" height=31 width=88 frameborder=0 loading=lazy></iframe>
+						</div>
+					</div>
+            	</div>
+			</div>
+            <div class="screen" id="screen3">
+            </div>
         </div>
 
-        <div class="disclaimer-container">
-            <div class="disclaimer">IN ALPHA</div>
-            <div class="disclaimer-secondary">Proof of concept, content is subject to change</div>
-        </div>
-
-        <div class="mobile-disclaimer">
-            <i class="fa-solid fa-desktop"></i>
-            <div class="mobile-disclaimer-text">Please use a desktop device for viewing this site</div>
-        </div>
-
+        <div class="bg"></div>
         <script src="/js/main.js"></script>
-
-        <script src="/js/initWindows.js"></script>
-        <script src="/js/initIcons.js"></script>
-        <script src="/js/mobileDisclaimer.js"></script>
-
-        <script src="/js/console.js"></script>
+		<script src="/js/git.js"></script>
     </body>
 </html>
