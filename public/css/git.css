@@ -1,0 +1,64 @@
+.commit-box {
+	z-index: 10;
+    position: fixed;
+    top: -110px; /* Initially hidden above the top */
+    right: 10px;
+    width: 300px;
+    background-color: black;
+    color: white;
+	border: 1px solid #fff;
+    transition: top 0.3s, right 0.3s;
+	cursor: zoom-in;
+	h2 {
+		margin: 0;
+		font-family: "Space Mono", monospace;
+		font-size: 1.5em;
+	}
+	a {
+		all: inherit;
+		cursor: pointer;
+	}
+	p {
+		margin: 0;
+		font-family: "Space Mono", monospace;
+	}
+
+	#commit-message {
+		font-size: 1.2em;
+	}
+}
+
+.commit-box:hover {
+    top: 10px; /* Slide down when hovered */
+}
+
+.commit-content {
+    padding: 20px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+	transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #f00;
+}
+
+.line {
+	margin-top: 20px;
+	width: 70%;
+	height: 1px;
+	background-color: #fff;
+}
+.commit-box.hidden {
+    right: -320px !important; /* Hide the box when closed */
+	top: 10px !important;
+}

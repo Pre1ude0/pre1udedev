@@ -59,5 +59,5 @@ function copyIframe() {
 	navigator.clipboard.writeText(querySelector.innerText);
 }
 
-window.copyHandle = copyHandle;
+window.copyIframe = copyIframe;
 window.copyItem = copyItem;

@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="/css/background.css">
         <link rel="stylesheet" href="/css/glitch.css">
         <link rel="stylesheet" href="/css/screen.css">
+		<link rel="stylesheet" href="/css/git.css">
         <link rel="stylesheet" href="/css/animation.css">
     </head>
     <body>
@@ -15,6 +16,18 @@
         <div class="box-title">
             <h1>Pre1ude0</h1>
         </div>
+	    <div class="commit-box" id="commit-box">
+	        <div class="commit-content">
+	            <button class="close-btn" id="close-btn"><i class="fa-solid fa-xmark close-btn"></i>
+</button>
+				<h2>Latest change</h2>
+	            <p><a href="" id="commit-link" target="_blank">
+					<strong><span id="commit-message"></span></strong>
+				</a></p>
+				<p><span id="commit-date"></span></p>
+				<div class="line"></div>
+	        </div>
+	    </div>
 		<div class="copy-popup" id="copyPopup">Copied!</div>
         <div class="mainbox">
             <div class="tab-selector">
@@ -182,5 +195,6 @@
 
         <div class="bg"></div>
         <script src="/js/main.js"></script>
+		<script src="/js/git.js"></script>
     </body>
 </html>
