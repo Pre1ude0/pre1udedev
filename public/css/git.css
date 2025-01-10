@@ -1,13 +1,13 @@
 .commit-box {
 	z-index: 10;
     position: fixed;
-    top: -110px; /* Initially hidden above the top */
+    bottom: calc(100% - 35px); /* Initially hidden above the top */
     right: 10px;
     width: 300px;
     background-color: black;
     color: white;
 	border: 1px solid #fff;
-    transition: top 0.3s, right 0.3s;
+    transition: transform 0.3s, right 0.3s;
 	cursor: zoom-in;
 	h2 {
 		margin: 0;
@@ -29,7 +29,7 @@
 }
 
 .commit-box:hover {
-    top: 10px; /* Slide down when hovered */
+	transform: translateY(calc(100% - 20px));
 }
 
 .commit-content {
@@ -58,7 +58,7 @@
 	height: 1px;
 	background-color: #fff;
 }
+
 .commit-box.hidden {
-    right: -320px !important; /* Hide the box when closed */
-	top: 10px !important;
+    transform: translateY(-40px) !important;
 }
