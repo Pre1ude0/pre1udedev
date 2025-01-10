@@ -57,6 +57,7 @@ function copyItem(item) {
 function copyIframe() {
 	querySelector = document.querySelector("code");
 	navigator.clipboard.writeText(querySelector.innerText);
+	window.getSelection().selectAllChildren(querySelector);
 }
 
 window.copyIframe = copyIframe;

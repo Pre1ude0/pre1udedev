@@ -9,7 +9,7 @@
     transition: opacity 0.3s;
     padding: 50px;
     padding-left: 120px !important;
-	padding-right: 0 !important;
+    padding-right: 0 !important;
     color: white;
     font-family: "Roboto-mono", monospace;
 }
@@ -251,9 +251,9 @@
 }
 
 #screen2 {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
     h1 {
         /* color: white; */
@@ -270,63 +270,88 @@
         padding-left: 10px;
     }
 
-	.friends {
-		position: relative;
-		height: remainder;
-		flex: 1 1 auto;
-		padding-left: 10px;
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-		
-		.referrer-box {
-			display: flex;
-			flex-direction: column;
-			position: absolute;
-			bottom: 0;
-		}
-		.referer-sub {
-			display: flex;
-			justify-content: flex-start;
-			align-items: center;
-			height: 50px;
-			code {
-				font-family: "Roboto-mono", monospace;
-				font-size: 10pt;
-				color: white;
-				width: 400px;
-				border: 1px solid #a8a8a8;
-				overflow: scroll;
-				height: calc(100% - 6px);
-				padding: 2px;
-				background-color: black;
-				&:selection {
-					background-color: #111;
-				}
-			}
+    .friends {
+        position: relative;
+        height: remainder;
+        flex: 1 1 auto;
+        padding-left: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .referrer-box {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            bottom: 0;
+        }
+        .referer-sub {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 50px;
 			
-			button {
-				background-color: black;
-				color: white;
-				border: 1px solid #a8a8a8;
-				cursor: pointer;
-				font-family: "Roboto-mono", monospace;
-				font-size: 10pt;
+			.code-container {
+				border-radius: 10px;
+				background-color: #333;
 				padding: 5px;
-				transition: background-color 0.3s;
-				height: 100%;
-				transition: background-color 2s, color 2s;
-				&:active {
-					background-color: white;
-					color: black;
-					transition: none;
+				display: flex;
+				align-items: center;
+				gap: 5px;
+
+				.divider {
+					width: 1px;
+					height: 24px;
+					background-color: #666;
 				}
 			}
-			iframe {
-				margin-left: 20px;
-			}
-		}
-	}
+
+            code {
+                font-family: "Roboto-mono", monospace;
+                font-size: 12pt;
+				display: flex;
+				align-items: center;
+                color: white;
+                width: 400px;
+                text-wrap: nowrap;
+                overflow-x: scroll;
+				overflow-y: hidden;
+
+                scrollbar-color: gray transparent;
+				scrollbar-width: thin;
+                height: 30px;
+                padding: 2px;
+                &:selection {
+                    background-color: #111;
+                }
+            }
+
+            button {
+                color: white;
+                cursor: pointer;
+                font-family: "Space mono", monospace;
+                font-size: 12pt;
+                height: 100%;
+				background: transparent;
+				border: none;
+				user-select: none;
+
+				transition: text-shadow 0.2s, transform 0.2s;
+
+				&:hover {
+					text-shadow: white 0 0 6px;
+				}
+
+				&:active {
+					transform: scale(0.9);
+				}
+            }
+
+            iframe {
+                margin-left: 20px;
+            }
+        }
+    }
 
     .descriptor {
         width: 270px;
@@ -348,11 +373,11 @@
             }
 
             .buttons {
-				position: absolute;
-				right: 0;
-				top: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
                 opacity: 0;
-				height: 24px;
+                height: 24px;
                 transition: opacity 0.15s;
 
                 display: flex;
@@ -360,7 +385,7 @@
                 gap: 10px;
 
                 i {
-					text-shadow: black 0 0 6px;
+                    text-shadow: black 0 0 6px;
                     font-size: 15pt;
                     cursor: pointer;
                     color: #a8a8a8;
