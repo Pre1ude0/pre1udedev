@@ -10,16 +10,14 @@ app.use(express.static("css"));
 app.use(express.static("js"));
 
 app.get("/", (req, res) => {
-    if (req.headers.referrer) {
-		console.log("Referrer: ", req.headers.referrer);
+    if (req.headers.referer) {
+		console.log("Referrer: ", req.headers.referer);
 	}
     res.render("main");
 });
 
-app.get("/referrer", (req, res) => {
-    let referrer = req.headers.referrer;
+app.get("/referer", (req, res) => { 
     res.render("blankie");
-    console.log("Referer: ", referrer);
 });
 
 app.get("/desktop", (req, res) => {
