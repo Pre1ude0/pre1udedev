@@ -10,23 +10,26 @@ app.use(express.static("css"));
 app.use(express.static("js"));
 
 app.get("/", (req, res) => {
-  res.render("main");
+    if (req.headers.referrer) {
+		console.log("Referrer: ", req.headers.referrer);
+	}
+    res.render("main");
 });
 
-app.get("/referer", (req, res) => {
-  let referer = req.headers.referer;
-  res.render("blankie");
-  console.log("Referer: ", referer);
+app.get("/referrer", (req, res) => {
+    let referrer = req.headers.referrer;
+    res.render("blankie");
+    console.log("Referer: ", referrer);
 });
 
 app.get("/desktop", (req, res) => {
-  res.render("desktop");
+   	res.render("desktop");
 });
 
 app.use((req, res) => {
-  res.status(404).redirect("/");
+    res.status(404).redirect("/");
 });
 
 app.listen(3000, () => {
-  console.log("Server is running on http://localhost:3000");
+    console.log("Server is running on http://localhost:3000");
 });
