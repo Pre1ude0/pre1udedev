@@ -90,7 +90,7 @@
     animation-delay: 1.2s;
 }
 
-.descriptor {
+#screen1 .descriptor {
     .title {
         transform: translateX(120%);
         animation: descriptorRightSlideIn 0.8s ease-in-out forwards;
@@ -160,7 +160,7 @@
     }
 }
 
-.left .descriptor {
+#screen1 .left .descriptor {
     .title {
         transform: translateY(400px);
         animation: descriptorLeftSlideIn 0.8s ease-in-out forwards;
@@ -193,4 +193,9 @@
             animation-delay: 2.5s;
         }
     }
+}
+
+
+.not-home {
+	animation-delay: 0.5s !important;
 }
