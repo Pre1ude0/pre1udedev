@@ -290,35 +290,35 @@
             justify-content: flex-start;
             align-items: center;
             height: 50px;
-			
-			.code-container {
-				border-radius: 10px;
-				background-color: #333;
-				padding: 5px;
-				display: flex;
-				align-items: center;
-				gap: 5px;
 
-				.divider {
-					width: 1px;
-					height: 24px;
-					background-color: #666;
-				}
-			}
+            .code-container {
+                border-radius: 10px;
+                background-color: #333;
+                padding: 5px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                .divider {
+                    width: 1px;
+                    height: 24px;
+                    background-color: #666;
+                }
+            }
 
             code {
                 font-family: "Roboto-mono", monospace;
                 font-size: 12pt;
-				display: flex;
-				align-items: center;
+                display: flex;
+                align-items: center;
                 color: white;
                 width: 400px;
                 text-wrap: nowrap;
                 overflow-x: scroll;
-				overflow-y: hidden;
+                overflow-y: hidden;
 
                 scrollbar-color: gray transparent;
-				scrollbar-width: thin;
+                scrollbar-width: thin;
                 height: 30px;
                 padding: 2px;
                 &:selection {
@@ -332,19 +332,21 @@
                 font-family: "Space mono", monospace;
                 font-size: 12pt;
                 height: 100%;
-				background: transparent;
-				border: none;
-				user-select: none;
+                background: transparent;
+                border: none;
+                user-select: none;
 
-				transition: text-shadow 0.2s, transform 0.2s;
+                transition:
+                    text-shadow 0.2s,
+                    transform 0.2s;
 
-				&:hover {
-					text-shadow: white 0 0 6px;
-				}
+                &:hover {
+                    text-shadow: white 0 0 6px;
+                }
 
-				&:active {
-					transform: scale(0.9);
-				}
+                &:active {
+                    transform: scale(0.9);
+                }
             }
 
             iframe {
@@ -410,20 +412,19 @@
 }
 
 #screen3 {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-	padding: 0 !important;
-	padding-left: 10px !important;
-	width: 100% !important;
-	height: 100% !important;
+    padding: 0 !important;
+    padding-left: 10px !important;
+    width: 100% !important;
+    height: 100% !important;
 
-	h1 {
-		font-family: "Roboto-mono", monospace;
-		margin: 0;
-		font-size: 40pt;
-	}
+    h1 {
+        font-family: "Roboto-mono", monospace;
+        margin: 0;
+        font-size: 40pt;
+    }
 }
-
