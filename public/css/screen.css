@@ -57,13 +57,16 @@
     aspect-ratio: 1;
     filter: invert(1);
     cursor: crosshair;
+	box-shadow: 0 0 0 0 black;
 
-    transition: filter 0.3s;
+    transition: filter 0.3s, box-shadow 0.3s;
 }
 
 #screen1 img:hover {
     filter: invert(0);
     user-select: none;
+
+	box-shadow: 0 0 5px 5px white;
 }
 
 .copy-popup {
