@@ -78,6 +78,12 @@
     animation-delay: 0.8s;
 }
 
+.visits {
+	transform: translateX(-200%);
+	animation: languageSlideIn 1s ease-in-out forwards;
+	animation-delay: 2s;
+}
+
 .hero {
     opacity: 0;
     animation: slideIn 0.2s linear forwards;

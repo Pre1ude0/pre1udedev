@@ -1,40 +1,52 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="/css/main.css">
-        <link rel="stylesheet" href="/css/background.css">
-		<link rel="stylesheet" href="/css/crt.css">
-        <link rel="stylesheet" href="/css/glitch.css">
-        <link rel="stylesheet" href="/css/screen.css">
-		<link rel="stylesheet" href="/css/git.css">
-        <link rel="stylesheet" href="/css/animation.css">
-    </head>
-    <body>
-        <!-- <script src="https://livejs.com/live.js"></script> -->
-        <script src="https://kit.fontawesome.com/bd75686a6c.js" crossorigin="anonymous"></script>
-		<img src="https://www.playbalatro.com/assets/scanlines-CkHILBA5.png" class="crt-toggle" draggable=false onclick="document.querySelector('.crt').classList.toggle('hide')"/>
-        <div class="box-title">
-            <h1>pre1ude<span style="color: gray">.dev</span></h1>
-        </div>
-	    <div class="commit-box" id="commit-box">
-	        <div class="commit-content">
-	            <button class="close-btn" id="close-btn"><i class="fa-solid fa-xmark close-btn"></i>
-</button>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="stylesheet" href="/css/background.css" />
+		<link rel="stylesheet" href="/css/crt.css" />
+		<link rel="stylesheet" href="/css/glitch.css" />
+		<link rel="stylesheet" href="/css/screen.css" />
+		<link rel="stylesheet" href="/css/git.css" />
+		<link rel="stylesheet" href="/css/animation.css" />
+	</head>
+	<body>
+		<!-- <script src="https://livejs.com/live.js"></script> -->
+		<script
+			src="https://kit.fontawesome.com/bd75686a6c.js"
+			crossorigin="anonymous"
+		></script>
+		<img
+			src="https://www.playbalatro.com/assets/scanlines-CkHILBA5.png"
+			class="crt-toggle"
+			draggable="false"
+			onclick="document.querySelector('.crt').classList.toggle('hide')"
+		/>
+		<div class="box-title">
+			<h1>pre1ude<span style="color: gray">.dev</span></h1>
+		</div>
+		<div class="commit-box" id="commit-box">
+			<div class="commit-content">
+				<button class="close-btn" id="close-btn">
+					<i class="fa-solid fa-xmark close-btn"></i>
+				</button>
 				<h2>Latest change</h2>
-	            <p><a href="" id="commit-link" target="_blank">
-					<strong><span id="commit-message"></span></strong>
-				</a></p>
+				<p>
+					<a href="" id="commit-link" target="_blank">
+						<strong><span id="commit-message"></span></strong>
+					</a>
+				</p>
 				<p><span id="commit-date"></span></p>
 				<div class="line"></div>
-	        </div>
-	    </div>
+			</div>
+		</div>
 		<div class="copy-popup" id="copyPopup">Copied!</div>
-        <div class="mainbox">
-            <div class="tab-selector">
+		<div class="mainbox">
+			<div class="tab-selector">
 				<div class="selected-tab" id="indicator"></div>
-                <div class="tabs-left">
+				<div class="tabs-left">
 					<a href="#home" class="tab">
 						<i class="fa-solid fa-house"></i>
 					</a>
@@ -45,93 +57,112 @@
 						<i class="fa-solid fa-clipboard"></i>
 					</a>
 				</div>
-                <div class="tabs-right">
+				<div class="tabs-right">
 					<a href="#home" draggable="false">Home</a>
 					<a href="#connections" draggable="false">Socials</a>
 					<a href="#projects" draggable="false">Projects</a>
 				</div>
-            </div>
-            <div class="screen" id="screen1">
-                <div class="left">
-                    <img src="/img/newpfp.jpeg" alt="Laura" class="pfp-image" draggable="false"/>
-                    <!-- <h1 class="name">Laura☾</h1> -->
-                    <h2 class="hero glitch layers" data-text="Laura☾"><span>Laura☾</span></h2>
-                    <h2 class="handle" onclick="copyItem('Pre1ude0')">
-					@Pre1ude0
+			</div>
+			<div class="screen" id="screen1">
+				<div class="left">
+					<img
+						src="/img/newpfp.jpeg"
+						alt="Laura"
+						class="pfp-image"
+						draggable="false"
+					/>
+					<!-- <h1 class="name">Laura☾</h1> -->
+					<h2 class="hero glitch layers" data-text="Laura☾">
+						<span>Laura☾</span>
 					</h2>
-                    <div class="experience">
-                        <div class="items">
-                            <div class="descriptor">
-                                <div class="title"><h1>Experience</h1></div>
-                                <div class="experience-container">
-                                  <div class="box" id="css">
-                                      <i class="fa-brands fa-css"></i><text>CSS</text>
-                                  </div>
-                                  <div class="box" id="html">
-                                      <i class="fa-brands fa-html5"></i><text>HTML</text>
-                                  </div>
-                                  <div class="box" id="js">
-                                      <i class="fa-brands fa-js"></i><text>JS</text>
-                                  </div>
-                                  <div class="box" id="python">
-                                      <i class="fa-brands fa-python"></i><text>Python</text>
-                                  </div>
-                                  <div class="box" id="node">
-                                      <i class="fa-brands fa-node-js"></i><text>NodeJS</text>
-                                  </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="right">
-                    <div class="items">
-                        <div class="descriptor">
-                            <div class="title"><h1>Name</h1></div>
-                            <h2>Laura</h2>
-                        </div>
-                        <div class="descriptor">
-                            <div class="title"><h1>Pronouns</h1></div>
-                            <h2>She/Her <span style="text-shadow: pink 0 0 8px;">🏳️‍⚧️</span></h2>
-                        </div>
-                        <div class="descriptor">
-                            <div class="title"><h1>Age</h1></div>
-                            <h2>16</h2>
-                        </div>
-                        <div class="descriptor">
-                            <div class="title"><h1>Location</h1></div>
-                            <h2>Latvia <span style="text-shadow: red 0 0 8px;">🇱🇻<span></h2>
-                        </div>
-                        <div class="descriptor">
-                            <div class="title"><h1>Occupation</h1></div>
-                            <h2>Freelance developer / Student</h2>
-                        </div>
-                        <div class="descriptor">
-                            <div class="title"><h1>Hobbies</h1></div>
-                            <h2>Programming; Chess; Gaming; Art (singing/piano/culture)</h2>
-                        </div>
-                        <div class="descriptor">
-                            <div class="title"><h1>Meow?</h1></div>
-                            <h2>Meow!</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="screen" id="screen2">
-				<div class="items">
-                    <h1>Connections</h1>
-                    <div class="descriptor">
-                        <div class="title"><h1>email<i class="fa-solid fa-at"></i></h1></div>
-						<div class="connection">
-                    	    <h2>laura@pre1ude.dev</h2>
-							<div class="buttons">
-								<i onclick="copyItem('laura@pre1ude.dev')" class="fa-solid fa-copy"></i>
+					<h2 class="handle" onclick="copyItem('Pre1ude0')">@Pre1ude0</h2>
+						<div class="items">
+							<div class="descriptor">
+								<div class="title"><h1>Experience</h1></div>
+								<div class="experience-container">
+									<div class="box" id="css">
+										<i class="fa-brands fa-css"></i><text>CSS</text>
+									</div>
+									<div class="box" id="html">
+										<i class="fa-brands fa-html5"></i><text>HTML</text>
+									</div>
+									<div class="box" id="js">
+										<i class="fa-brands fa-js"></i><text>JS</text>
+									</div>
+									<div class="box" id="python">
+										<i class="fa-brands fa-python"></i><text>Python</text>
+									</div>
+									<div class="box" id="node">
+										<i class="fa-brands fa-node-js"></i><text>NodeJS</text>
+									</div>
+								</div>
+							</div>
+							<div class="descriptor">
+								<div class="title"><h1>Visits</h1></div>
+								<img
+									src="https://visit-counter.vercel.app/counter.png?page=pre1ude.dev&s=40&c=ffffff&bg=00000000&no=8&ff=digi&tb=&ta="
+									alt="visits"
+									draggable="false"
+									class="visits"
+								/>
 							</div>
 						</div>
-                    </div>
-                    <div class="descriptor">
-                        <div class="title"><h1>github<i class="fa-brands fa-github"></i></h1></div>
-                        <div class="connection">
+				</div>
+				<div class="right">
+					<div class="items">
+						<div class="descriptor">
+							<div class="title"><h1>Name</h1></div>
+							<h2>Laura</h2>
+						</div>
+						<div class="descriptor">
+							<div class="title"><h1>Pronouns</h1></div>
+							<h2>She/Her <span style="text-shadow: pink 0 0 8px">🏳️‍⚧️</span></h2>
+						</div>
+						<div class="descriptor">
+							<div class="title"><h1>Age</h1></div>
+							<h2>16</h2>
+						</div>
+						<div class="descriptor">
+							<div class="title"><h1>Location</h1></div>
+							<h2>Latvia <span style="text-shadow: red 0 0 8px">🇱🇻</span></h2>
+						</div>
+						<div class="descriptor">
+							<div class="title"><h1>Occupation</h1></div>
+							<h2>Freelance developer / Student</h2>
+						</div>
+						<div class="descriptor">
+							<div class="title"><h1>Hobbies</h1></div>
+							<h2>Programming; Chess; Gaming; Art (singing/piano/culture)</h2>
+						</div>
+						<div class="descriptor">
+							<div class="title"><h1>Meow?</h1></div>
+							<h2>Meow!</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="screen" id="screen2">
+				<div class="items">
+					<h1>Connections</h1>
+					<div class="descriptor">
+						<div class="title">
+							<h1>email<i class="fa-solid fa-at"></i></h1>
+						</div>
+						<div class="connection">
+							<h2>laura@pre1ude.dev</h2>
+							<div class="buttons">
+								<i
+									onclick="copyItem('laura@pre1ude.dev')"
+									class="fa-solid fa-copy"
+								></i>
+							</div>
+						</div>
+					</div>
+					<div class="descriptor">
+						<div class="title">
+							<h1>github<i class="fa-brands fa-github"></i></h1>
+						</div>
+						<div class="connection">
 							<h2>Pre1ude0</h2>
 							<div class="buttons">
 								<i onclick="copyItem('Pre1ude0')" class="fa-solid fa-copy"></i>
@@ -140,73 +171,122 @@
 								</a>
 							</div>
 						</div>
-                    </div>
-                    <div class="descriptor">
-                        <div class="title"><h1>discord<i class="fa-brands fa-discord"></i></h1></div>
-                        <div class="connection">
+					</div>
+					<div class="descriptor">
+						<div class="title">
+							<h1>discord<i class="fa-brands fa-discord"></i></h1>
+						</div>
+						<div class="connection">
 							<h2>pre1ude0</h2>
 							<div class="buttons">
 								<i onclick="copyItem('pre1ude0')" class="fa-solid fa-copy"></i>
-								<a href="https://discord.com/users/737983831000350731" target="_blank">
+								<a
+									href="https://discord.com/users/737983831000350731"
+									target="_blank"
+								>
 									<i class="fa-solid fa-arrow-up-right-from-square"></i>
 								</a>
 							</div>
 						</div>
-                    </div>
+					</div>
 					<div class="descriptor">
-                        <div class="title"><h1>mastodon<i class="fa-brands fa-mastodon"></i></h1></div>
-                        <div class="connection">
+						<div class="title">
+							<h1>mastodon<i class="fa-brands fa-mastodon"></i></h1>
+						</div>
+						<div class="connection">
 							<h2>Pre1ude@catgirl.center</h2>
 							<div class="buttons">
-								<i onclick="copyItem('Pre1ude@catgirl.center')" class="fa-solid fa-copy"></i>
+								<i
+									onclick="copyItem('Pre1ude@catgirl.center')"
+									class="fa-solid fa-copy"
+								></i>
 								<a href="https://catgirl.center/@Pre1ude0" target="_blank">
 									<i class="fa-solid fa-arrow-up-right-from-square"></i>
 								</a>
 							</div>
 						</div>
-                    </div>
+					</div>
 					<div class="descriptor">
-                        <div class="title"><h1>steam<i class="fa-brands fa-steam"></i></h1></div>
-                        <div class="connection">
+						<div class="title">
+							<h1>steam<i class="fa-brands fa-steam"></i></h1>
+						</div>
+						<div class="connection">
 							<h2>Laura☾</h2>
 							<div class="buttons">
 								<i onclick="copyItem('Laura☾')" class="fa-solid fa-copy"></i>
-								<a href="https://steamcommunity.com/id/Pre1ude0/" target="_blank">
+								<a
+									href="https://steamcommunity.com/id/Pre1ude0/"
+									target="_blank"
+								>
 									<i class="fa-solid fa-arrow-up-right-from-square"></i>
 								</a>
 							</div>
 						</div>
-                    </div>
+					</div>
 				</div>
 				<div class="friends">
 					<h1>Friends</h1>
 					<div class="banners">
-						<iframe src="https://pre1ude.dev/referer" height=31 width=88 frameborder=0 loading=lazy referrerpolicy="origin"></iframe>
-						<iframe src="https://kyuqdev.pages.dev/referer/referer" height=31 width=88 frameborder=0 referrerpolicy="origin" loading=lazy></iframe>
-						<a href="https://uwu.gal/about-us" target="_blank"><img src="https://uwu.gal/button.png" width="88" height="31" /></a>
-						<a href="https://vorlie.pages.dev/" target="_blank"><img src="https://vorlie.pages.dev/images/vorlie.png" alt="vorlie button" width="88" height="31" loading="lazy"/></a>
-						<a href="https://byeoon.github.io" target="_blank"><img src="https://byeoon.github.io/img/button.png" alt="byeoon button" width="88" height="31" loading="lazy"/></a>
+						<iframe
+							src="https://pre1ude.dev/referer"
+							height="31"
+							width="88"
+							frameborder="0"
+							loading="lazy"
+							referrerpolicy="origin"
+						></iframe>
+						<iframe
+							src="https://kyuqdev.pages.dev/referer/referer"
+							height="31"
+							width="88"
+							frameborder="0"
+							referrerpolicy="origin"
+							loading="lazy"
+						></iframe>
+						<a href="https://uwu.gal/about-us" target="_blank"
+							><img src="https://uwu.gal/button.png" width="88" height="31"
+						/></a>
+						<a href="https://vorlie.pages.dev/" target="_blank"
+							><img
+								src="https://vorlie.pages.dev/images/vorlie.png"
+								alt="vorlie button"
+								width="88"
+								height="31"
+								loading="lazy"
+						/></a>
+						<a href="https://byeoon.github.io" target="_blank"
+							><img
+								src="https://byeoon.github.io/img/button.png"
+								alt="byeoon button"
+								width="88"
+								height="31"
+								loading="lazy"
+						/></a>
 					</div>
 					<div class="referrer-box">
 						<h3>Add me to your website!</h3>
 						<div class="referer-sub">
 							<div class="code-container">
-								<code>&lt;iframe src="https://pre1ude.dev/referer" height=31 width=88 frameborder=0 referrerpolicy="origin" loading=lazy&gt;&lt;/iframe&gt;</code>
+								<code
+									>&lt;iframe src="https://pre1ude.dev/referer" height=31
+									width=88 frameborder=0 referrerpolicy="origin"
+									loading=lazy&gt;&lt;/iframe&gt;</code
+								>
 								<div class="divider"></div>
 								<button onclick="copyIframe()">Copy</button>
 							</div>
 						</div>
 					</div>
-            	</div>
+				</div>
 			</div>
-            <div class="screen" id="screen3">
+			<div class="screen" id="screen3">
 				<h1>WIP</h1>
-            </div>
-        </div>
+			</div>
+		</div>
 
 		<div class="crt hide"></div>
-        <div class="bg"></div>
-        <script src="/js/main.js"></script>
+		<div class="bg"></div>
+		<script src="/js/main.js"></script>
 		<script src="/js/git.js"></script>
-    </body>
+	</body>
 </html>

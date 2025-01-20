@@ -62,11 +62,16 @@
     transition: filter 0.3s, box-shadow 0.3s;
 }
 
-#screen1 img:hover {
+#screen1 .pfp-image:hover {
     filter: invert(0);
     user-select: none;
 
 	box-shadow: 0 0 5px 5px white;
+}
+
+#screen1 .visits {
+	margin-left: -10px; 
+	user-select: none
 }
 
 .copy-popup {
