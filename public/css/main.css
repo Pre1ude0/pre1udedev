@@ -40,7 +40,7 @@ body {
     left: calc(50% - 350px);
     top: calc(50% - 357px);
     font-size: 18px;
-    background-color: black;
+    background: linear-gradient(to top, black 50%, transparent 50%);
     font-family: "Space Mono", monospace;
     z-index: 20;
     color: white;
