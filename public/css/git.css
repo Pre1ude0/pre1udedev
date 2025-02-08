@@ -9,6 +9,7 @@
 	border: 1px solid #fff;
     transition: transform 0.3s, right 0.3s;
 	cursor: zoom-in;
+  	overflow-wrap: break-word;
 	h2 {
 		margin: 0;
 		font-family: "Space Mono", monospace;
