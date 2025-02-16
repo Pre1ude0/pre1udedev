@@ -168,7 +168,7 @@
         .emoji {
             font-size: 18pt !important;
             height: 0;
-            margin-top: -39px;
+            margin-top: -19px;
         }
 
         .box {
@@ -422,106 +422,86 @@
 }
 
 #screen3 {
-	padding-right: 50px;
-	width: calc(100% - 170px);
+    width: calc(100% - 120px);
+    overflow-y: auto;
 
-	.items {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		flex-wrap: wrap;
-		width: 100%;
-	}
+    .items {
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 70px);
+        gap: 20px;
+    }
 
     .descriptor {
-        width: 270px;
+        width: 100%;
 
         h1 {
             background-color: transparent;
             width: 100%;
             text-align: center;
-			text-shadow: none;
-			right: 0;
+            text-shadow: none;
+            right: 0;
 
             span {
                 background-color: black !important;
                 padding: 0 2px;
-				height: fit-content;
-				margin-bottom: -35px;
+                height: fit-content;
+                margin-bottom: -35px;
             }
         }
 
         h2 {
             font-size: 14pt;
             margin: 0;
-			margin-bottom: 15px;
         }
 
         .project {
             position: relative;
             display: flex;
+            flex-direction: row;
             justify-content: space-between;
 
-            .buttons {
-                position: absolute;
-                left: 0;
-                top: 100%;
-				width: calc(100% - 20px);
-				max-height: 2px;
-               	transition: max-height 0.3s, padding 0.3s, box-shadow 0.3s;
-				box-shadow: 0 0 0 0 black;
+            .banner {
+                width: 50%;
+				object-fit: contain;
+				max-height: 120px;
+			}
 
+            .info {
                 display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
                 align-items: flex-start;
-				flex-direction: column;
-                gap: 10px;
-				overflow: hidden;
-				padding: 0 10px;
-
-				background-color: black;
-				z-index: 7;
-
-				a {
-					color: white;
-					text-decoration: none;
-					font-size: 12pt;
-					text-shadow: 0 0 0 6px white;
-					transition: text-shadow 0.2s, transform 0.2s;
-
-					&:hover {
-						text-shadow: 0 0 0 6px white;
-						transform: translateX(5px);
-					}
-				}
-
-				.overflow-cont {
-					position: absolute;
-					bottom: 0;
-					left: 0;
-					width: 100%;
-					height: 100%;
-				}
-
+                gap: 5px;
+				width: 50%;
             }
 
-			&:hover {
-				.buttons {
-					max-height: 200px;
-					padding-bottom: 10px;
-					box-shadow: 0 0 10px 10px black;
-				}
-			}
+            .buttons {
+                position: relative;
+                width: 100%;
+				height: 100%;
+                transition: box-shadow 0.3s;
+                display: flex;
+                align-items: flex-end;
+				justify-content: flex-end;
+                flex-direction: column;
+                gap: 10px;
+                overflow: hidden;
+                padding: 5px 2px;
+                z-index: 7;
 
-			.line {
-				position: absolute;
-				bottom: 0;
-				right: 0;
-				border-right: 2px solid #b8b8b8;
-				border-bottom: 2px solid #b8b8b8;
-				height: 5px;
-				width: 100%;
-				background-color: transparent;
-			}
+                a {
+                    width: 100%;
+                    color: white;
+                    text-decoration: none;
+                    font-size: 12pt;
+                    transition: transform 0.2s;
+
+                    &:hover {
+                        transform: translateX(5px);
+                    }
+                }
+            }
         }
     }
 }

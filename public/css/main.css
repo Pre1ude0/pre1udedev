@@ -37,7 +37,7 @@ body {
 .box-title h1 {
     padding: 0 4px;
     position: absolute;
-    left: calc(50% - 350px);
+    left: calc(50% - 330px);
     top: calc(50% - 357px);
     font-size: 18px;
     background: linear-gradient(to top, black 50%, transparent 50%);
