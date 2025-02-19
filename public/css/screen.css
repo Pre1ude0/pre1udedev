@@ -294,6 +294,10 @@
 			flex-direction: row;
 			gap: 10px;
 			flex-wrap: wrap;
+			
+			a {
+				color: transparent;
+			}
 
 			img, iframe {
 				transition: transform 0.2s, box-shadow 0.2s;
