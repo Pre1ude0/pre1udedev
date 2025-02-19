@@ -44,6 +44,8 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("indicator").style.bottom = "115px";
         changeScreen("screen1");
     }
+
+	let banners = document.getElementsByClassName("banners")[0].children;
 });
 
 function copyItem(item) {

@@ -289,6 +289,21 @@
         flex-direction: column;
         gap: 10px;
 
+		.banners {
+			display: flex;
+			flex-direction: row;
+			gap: 10px;
+			flex-wrap: wrap;
+
+			img, iframe {
+				transition: transform 0.2s, box-shadow 0.2s;
+				&:hover {
+					transform: translateY(-2px);
+					box-shadow: 0 1px 5px 0 white;
+				}
+			}
+		}
+
         .referrer-box {
             display: flex;
             flex-direction: column;
