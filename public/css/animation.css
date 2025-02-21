@@ -167,12 +167,21 @@
 }
 
 #screen1 .left .descriptor {
-    .title {
-        transform: translateY(400px);
-        animation: descriptorLeftSlideIn 0.8s ease-in-out forwards;
-        animation-delay: 1.8s;
-    }
-    .experience-container {
+    &:nth-child(1) {
+		.title {
+			transform: translateY(400px);
+			animation: descriptorLeftSlideIn 0.8s ease-in-out forwards;
+			animation-delay: 1.8s;
+		}
+	}
+	&:nth-child(2) {
+		.title {
+			transform: translateY(400px);
+			animation: descriptorLeftSlideIn 0.8s ease-in-out forwards;
+			animation-delay: 1.9s;
+		}
+	}
+	.experience-container {
         #css {
             transform: translateX(-500px);
             animation: languageSlideIn 0.8s ease-in-out forwards;
@@ -199,6 +208,10 @@
             animation-delay: 2.5s;
         }
     }
+
+	h2 {
+		animation-delay: 2.6s;
+	}
 }
 
 .not-home {
