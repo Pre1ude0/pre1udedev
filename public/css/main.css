@@ -22,6 +22,16 @@ body {
     background-color: black;
 }
 
+@media screen and (max-width: 768px) {
+    body {
+        justify-content: flex-start;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        overflow: auto;
+    }
+}
+
 .mainbox {
     padding: 30px;
     width: 700px;
@@ -36,14 +46,31 @@ body {
 
 .box-title h1 {
     padding: 0 4px;
-    position: absolute;
-    left: calc(50% - 330px);
-    top: calc(50% - 357px);
+    margin: 0;
+    position: fixed;
+    left: calc(50% - 360px);
+    top: calc(50% - 346px);
     font-size: 18px;
     background: linear-gradient(to top, black 50%, transparent 50%);
     font-family: "Space Mono", monospace;
     z-index: 20;
     color: white;
+}
+
+@media screen and (max-width: 768px) {
+    .mainbox {
+        width: 95%;
+        height: 95%;
+        box-sizing: border-box;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    .box-title h1 {
+        font-size: 20px;
+        left: 30px;
+        top: 8px;
+    }
 }
 
 .tab-selector {
@@ -59,18 +86,6 @@ body {
 
 .tabs-right,
 .tabs-left {
-    a {
-        margin: 0;
-        padding: 0;
-        color: white;
-        text-decoration: none;
-        height: 40px;
-		aspect-ratio: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
     position: absolute;
 
     color: white;
@@ -81,8 +96,21 @@ body {
     height: 100%;
     bottom: 15px;
     gap: 10px;
-    font-family: "Space Mono", monospace;
+    font-family: "Space Mono",
+        monospace;
     user-select: none;
+
+    a {
+        margin: 0;
+        padding: 0;
+        color: white;
+        text-decoration: none;
+        height: 40px;
+        aspect-ratio: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 .tabs-right {
@@ -104,6 +132,7 @@ body {
     align-items: center;
     justify-content: flex-end;
     transition: transform 0.3s;
+
     a {
         transform: rotate(0);
         transition: transform 0.3s;
@@ -112,6 +141,7 @@ body {
 
 .tab-selector:hover {
     width: 170px;
+
     .tabs-right {
         a {
             opacity: 1;
@@ -144,4 +174,39 @@ body {
 
 .selected-tab:hover {
     transform: scale(1.1) rotate(-5deg);
+}
+
+@media screen and (max-width: 768px) {
+    .tab-selector {
+        width: calc(100% - 80px);
+        height: 60px;
+        bottom: 40px;
+        left: 40px;
+
+        position: fixed;
+
+        &:hover {
+            width: calc(100% - 80px);
+        }
+    }
+
+    .tabs-right {
+        display: none;
+    }
+
+    .tabs-left {
+        width: 100%;
+        height: 60px;
+        bottom: 0;
+        left: -10px;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
+
+        a {
+            transform: rotate(0);
+            transition: transform 0.3s;
+        }
+    }
 }

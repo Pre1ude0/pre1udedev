@@ -1,12 +1,14 @@
 .screen {
-    height: calc(100% - 100px);
-    width: calc(100% - 120px);
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
+    visibility: hidden;
     z-index: 4;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s, visibility 0.3s;
     padding: 50px;
     padding-left: 120px !important;
     padding-right: 0 !important;
@@ -14,8 +16,21 @@
     font-family: "Roboto-mono", monospace;
 }
 
+@media screen and (max-width: 768px) {
+    .screen {
+        padding: 0 !important;
+        width: 100%;
+        height: 800px;
+        box-sizing: border-box;
+        margin-top: 50px !important;
+        padding-bottom: 100px !important;
+    }
+}
+
 #screen1 {
     opacity: 1;
+    visibility: visible;
+
     z-index: 5;
     display: flex;
     justify-content: space-between;
@@ -32,11 +47,13 @@
             font-weight 0.3s;
         font-weight: normal;
         color: #b5b5b5;
+
         &:active {
             transition: none;
             color: white;
             font-weight: bold;
         }
+
         display: flex;
         align-items: center;
         justify-content: center;
@@ -76,6 +93,55 @@
     user-select: none;
 }
 
+@media screen and (max-width: 768px) {
+    #screen1 {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+
+        padding-top: 50px;
+        padding-bottom: 100px;
+
+        height: fit-content;
+
+        .left,
+        .right {
+            width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .pfp-image {
+            width: 300px;
+            margin-left: 25px;
+        }
+
+        .descriptor {
+            .title {
+
+                &::before {
+                    top: 60%;
+                    height: 2px;
+                }
+
+                margin-bottom: 6px;
+
+                h1 {
+                    font-size: 20pt;
+                    padding: 0 2px;
+                }
+            }
+
+            h2 {
+                font-size: 18pt;
+            }
+        }
+    }
+
+
+}
+
 .copy-popup {
     visibility: hidden;
     padding: 5px;
@@ -108,28 +174,38 @@
         width: 100%;
 
         .title {
-            position: relative; /* Establish a positioning context for pseudo-elements */
-            width: 100%; /* Adjust as needed */
-            height: 40px; /* Adjust to fit your layout */
+            position: relative;
+            /* Establish a positioning context for pseudo-elements */
+            width: 100%;
+            /* Adjust as needed */
+            height: 40px;
+            /* Adjust to fit your layout */
         }
 
         .title::before {
             content: "";
             position: absolute;
-            top: 50%; /* Align the line vertically */
+            top: 50%;
+            /* Align the line vertically */
             left: 0;
             width: 100%;
-            height: 2px; /* Adjust thickness of the line */
-            background-color: #b8b8b8; /* Change to your desired line color */
+            height: 2px;
+            /* Adjust thickness of the line */
+            background-color: #b8b8b8;
+            /* Change to your desired line color */
             transform: translateY(-50%);
-            z-index: 5; /* Ensure it's behind the text */
+            z-index: 5;
+            /* Ensure it's behind the text */
         }
 
         h1 {
             position: absolute;
-            background-color: black; /* Match the background to "hide" the line */
-            z-index: 6; /* Place it above the line */
-            padding: 0 1px; /* Optional: Add spacing around the text */
+            background-color: black;
+            /* Match the background to "hide" the line */
+            z-index: 6;
+            /* Place it above the line */
+            padding: 0 1px;
+            /* Optional: Add spacing around the text */
             margin: 0;
             width: fit-content;
             font-size: 16pt;
@@ -139,6 +215,7 @@
             text-align: right;
 
             color: #a8a8a8;
+
             i {
                 padding-left: 2px;
             }
@@ -166,9 +243,9 @@
         }
 
         .emoji {
-            font-size: 18pt !important;
+            font-size: 20pt !important;
             height: 0;
-            margin-top: -19px;
+            margin-top: -22px;
         }
 
         .box {
@@ -208,6 +285,13 @@
     }
 }
 
+@media screen and (max-width: 768px) {
+    .items {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
 #css:hover {
     background: purple !important;
     color: white !important;
@@ -229,6 +313,28 @@
 
 #node:hover {
     background-color: #8cc84b !important;
+}
+
+@media screen and (max-width: 768px) {
+    .items {
+        .descriptor {
+            .title {
+                h1 {
+                    font-size: 20pt;
+                }
+            }
+
+            h2 {
+                font-size: 18pt;
+            }
+
+            .box {
+                font-size: 16pt;
+                height: 20px;
+            }
+        }
+    }
+
 }
 
 /*
@@ -289,24 +395,26 @@
         flex-direction: column;
         gap: 10px;
 
-		.banners {
-			display: flex;
-			flex-direction: row;
-			gap: 10px;
-			flex-wrap: wrap;
-			
-			a {
-				color: transparent;
-			}
+        .banners {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            flex-wrap: wrap;
 
-			img, iframe {
-				transition: transform 0.2s, box-shadow 0.2s;
-				&:hover {
-					transform: translateY(-2px);
-					box-shadow: 0 1px 5px 0 white;
-				}
-			}
-		}
+            a {
+                color: transparent;
+            }
+
+            img,
+            iframe {
+                transition: transform 0.2s, box-shadow 0.2s;
+
+                &:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 1px 5px 0 white;
+                }
+            }
+        }
 
         .referrer-box {
             display: flex;
@@ -314,6 +422,7 @@
             position: absolute;
             bottom: 0;
         }
+
         .referer-sub {
             display: flex;
             justify-content: flex-start;
@@ -350,6 +459,7 @@
                 scrollbar-width: thin;
                 height: 30px;
                 padding: 2px;
+
                 &:selection {
                     background-color: #111;
                 }
@@ -396,6 +506,7 @@
             position: relative;
             display: flex;
             justify-content: space-between;
+            align-items: flex-start;
 
             &:hover {
                 .buttons {
@@ -440,8 +551,82 @@
     }
 }
 
+@media screen and (max-width: 768px) {
+    #screen2 {
+        width: 100%;
+        box-sizing: border-box;
+
+        .items {
+            width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+            justify-content: center;
+        }
+
+        .friends {
+            width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+            align-items: center;
+            justify-content: center;
+
+            .banners {
+                gap: 15px;
+                justify-content: center;
+            }
+
+            .referrer-box {
+                display: none;
+            }
+        }
+
+        .descriptor {
+            width: 100%;
+            justify-content: center;
+
+            align-items: flex-start;
+
+            .title {
+
+                margin-bottom: 15px;
+
+                &::before {
+                    top: 60%;
+                    height: 2px;
+                }
+
+                h1 {
+                    font-size: 20pt;
+                }
+            }
+
+            h2 {
+                font-size: 18pt;
+            }
+
+            .connection {
+                flex-wrap: wrap;
+                gap: 10px;
+
+                .buttons {
+                    opacity: 1 !important;
+                    position: relative;
+                    height: 100%;
+
+                    i {
+                        color: white !important;
+                        font-size: 20pt;
+
+                    }
+                }
+            }
+        }
+    }
+
+}
+
 #screen3 {
-    width: calc(100% - 120px);
+    width: 100%;
     overflow-y: auto;
 
     .items {
@@ -482,9 +667,9 @@
 
             .banner {
                 width: 50%;
-				object-fit: contain;
-				max-height: 120px;
-			}
+                object-fit: contain;
+                max-height: 120px;
+            }
 
             .info {
                 display: flex;
@@ -492,17 +677,17 @@
                 justify-content: flex-start;
                 align-items: flex-start;
                 gap: 5px;
-				width: 50%;
+                width: 50%;
             }
 
             .buttons {
                 position: relative;
                 width: 100%;
-				height: 100%;
+                height: 100%;
                 transition: box-shadow 0.3s;
                 display: flex;
                 align-items: flex-end;
-				justify-content: flex-end;
+                justify-content: flex-end;
                 flex-direction: column;
                 gap: 10px;
                 overflow: hidden;
@@ -519,6 +704,55 @@
                     &:hover {
                         transform: translateX(5px);
                     }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #screen3 {
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+        overflow: visible;
+        height: fit-content;
+
+        .items {
+            width: 100%;
+            padding: 0 20px;
+            box-sizing: border-box;
+            gap: 20px;
+        }
+
+        .descriptor {
+            width: 100%;
+
+            h1 {
+                span {
+                    margin-bottom: -20px;
+                }
+            }
+
+            .project {
+                flex-direction: column;
+                gap: 10px;
+
+                .banner {
+                    width: 100%;
+                    max-height: 200px;
+                }
+
+                .info {
+                    width: 100%;
+                }
+
+                .buttons {
+                    flex-direction: row;
+                    gap: 10px;
+                    padding: 5px 0;
+                    justify-content: center;
+                    align-items: center;
                 }
             }
         }

@@ -6,9 +6,11 @@ function changeScreen(screenId) {
     for (i = 0; i < document.getElementsByClassName("screen").length; i++) {
         if (document.getElementsByClassName("screen")[i].id !== screenId) {
             document.getElementsByClassName("screen")[i].style.opacity = "0";
+            document.getElementsByClassName("screen")[i].style.visibility = "hidden";
             document.getElementsByClassName("screen")[i].style.zIndex = "0";
         }
         document.getElementById(screenId).style.opacity = "1";
+        document.getElementById(screenId).style.visibility = "visible";
         document.getElementById(screenId).style.zIndex = "5";
     }
 }
@@ -45,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         changeScreen("screen1");
     }
 
-	let banners = document.getElementsByClassName("banners")[0].children;
+    let banners = document.getElementsByClassName("banners")[0].children;
 });
 
 function copyItem(item) {

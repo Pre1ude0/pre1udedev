@@ -9,19 +9,23 @@ app.use(express.static("img"));
 app.use(express.static("css"));
 app.use(express.static("js"));
 
+app.use('/css-pride-flag', express.static(path.join(__dirname, 'node_modules/@vkea/pridecss/css')));
+
+
 app.get("/", (req, res) => {
     if (req.headers.referer) {
-		console.log("Referrer: ", req.headers.referer);
-	}
+        console.log("Referrer: ", req.headers.referer);
+        console.log("Host: ", req.headers.host);
+    }
     res.render("main");
 });
 
-app.get("/referer", (req, res) => { 
+app.get("/referer", (req, res) => {
     res.render("blankie");
 });
 
 app.get("/desktop", (req, res) => {
-   	res.render("desktop");
+    res.render("desktop");
 });
 
 app.use((req, res) => {

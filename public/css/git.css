@@ -1,36 +1,40 @@
 .commit-box {
-	z-index: 10;
+    z-index: 10;
     position: fixed;
-    bottom: calc(100% - 35px); /* Initially hidden above the top */
+    bottom: calc(100% - 35px);
+    /* Initially hidden above the top */
     right: 10px;
     width: 300px;
     background-color: black;
     color: white;
-	border: 1px solid #fff;
+    border: 1px solid #fff;
     transition: transform 0.3s, right 0.3s;
-	cursor: zoom-in;
-  	overflow-wrap: break-word;
-	h2 {
-		margin: 0;
-		font-family: "Space Mono", monospace;
-		font-size: 1.5em;
-	}
-	a {
-		all: inherit;
-		cursor: pointer;
-	}
-	p {
-		margin: 0;
-		font-family: "Space Mono", monospace;
-	}
+    cursor: zoom-in;
+    overflow-wrap: break-word;
 
-	#commit-message {
-		font-size: 1.2em;
-	}
+    h2 {
+        margin: 0;
+        font-family: "Space Mono", monospace;
+        font-size: 1.5em;
+    }
+
+    a {
+        all: inherit;
+        cursor: pointer;
+    }
+
+    p {
+        margin: 0;
+        font-family: "Space Mono", monospace;
+    }
+
+    #commit-message {
+        font-size: 1.2em;
+    }
 }
 
 .commit-box:hover {
-	transform: translateY(calc(100% - 20px));
+    transform: translateY(calc(100% - 20px));
 }
 
 .commit-content {
@@ -46,7 +50,7 @@
     color: #fff;
     font-size: 20px;
     cursor: pointer;
-	transition: color 0.2s;
+    transition: color 0.2s;
 }
 
 .close-btn:hover {
@@ -54,12 +58,18 @@
 }
 
 .line {
-	margin-top: 20px;
-	width: 70%;
-	height: 1px;
-	background-color: #fff;
+    margin-top: 20px;
+    width: 70%;
+    height: 1px;
+    background-color: #fff;
 }
 
 .commit-box.hidden {
     transform: translateY(-40px) !important;
+}
+
+@media screen and (max-width: 768px) {
+    .commit-box {
+        display: none;
+    }
 }
