@@ -10,8 +10,6 @@ app.use(express.static("img"));
 app.use(express.static("css"));
 app.use(express.static("js"));
 
-app.use('/css-pride-flag', express.static(path.join(__dirname, 'node_modules/@vkea/pridecss/css')));
-
 
 app.get("/", (req, res) => {
     if (req.headers.referer) {

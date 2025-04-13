@@ -244,8 +244,6 @@
 
         .emoji {
             font-size: 20pt !important;
-            height: 0;
-            margin-top: -22px;
         }
 
         .box {
@@ -775,4 +773,3 @@
         }
     }
 }
-
