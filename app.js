@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const fs = require("fs");
 
 const app = express();
 app.set("view engine", "ejs");
@@ -26,6 +27,22 @@ app.get("/referer", (req, res) => {
 
 app.get("/desktop", (req, res) => {
     res.render("desktop");
+});
+
+app.get("/blogs/:hyperlink", (req, res) => {
+    const hyperlink = req.params.hyperlink;
+    const blogPath = path.join(__dirname, "blogs", `${hyperlink}.md`);
+
+    fs.readFile(blogPath, "utf8", (err, data) => {
+        if (err) {
+            console.error(`Error reading blog file: ${err.message}`);
+            return res.status(404).render("main", {
+                error: "Blog not found!",
+            });
+        }
+
+        res.render("blog", { content: data, title: hyperlink });
+    });
 });
 
 app.use((req, res) => {

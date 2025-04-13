@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title><%= title %></title>
+		<meta property="og:title" content="Lauras blogs" />
+		<meta property="og:type" content="article" />
+		<meta
+			property="og:description"
+			content="Read the '<%= title %>' blog!"
+		/>
+		<meta
+			property="og:url"
+			content="https://pre1ude.dev/blogs/<%= title %>"
+		/>
+		<meta
+			property="og:image"
+			content="https://pre1ude.dev/img/newpfp.jpeg"
+		/>
+		<link rel="stylesheet" href="/css/blogs.css" />
+	</head>
+	<body>
+		<md-block class="blog-content"><%= content %></md-block>
+
+		<script
+			type="module"
+			src="https://md-block.verou.me/md-block.js"
+		></script>
+		<script>
+			window.addEventListener("DOMContentLoaded", () => {
+				setTimeout(() => {
+					document.querySelectorAll("a").forEach((link) => {
+						link.setAttribute("target", "_blank");
+					});
+				}, 1000);
+			});
+		</script>
+		<div style="flex-grow: 1"></div>
+		<footer>
+			<p>Made with ❤️ by Laura☾</p>
+			<a href="https://pre1ude.dev">&gt; Back to home page &lt;</a>
+		</footer>
+	</body>
+</html>
