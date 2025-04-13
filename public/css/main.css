@@ -1,5 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Agu+Display&family=Badeen+Display&family=Oswald:wght@200..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Yuji+Mai&display=swap");
 
+body:not(.user-is-tabbing) button:focus,
+body:not(.user-is-tabbing) a:focus,
+body:not(.user-is-tabbing) input:focus,
+body:not(.user-is-tabbing) select:focus,
+body:not(.user-is-tabbing) textarea:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+::selection {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+::-moz-selection {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: black;
+}
+
+:focus {
+    outline: 2px solid white;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px gray;
+}
+
+
 body {
     background: black;
     height: 100vh;
@@ -123,6 +154,7 @@ body {
         opacity: 0;
         transform: translateX(100%);
         transition: all 0.3s;
+        text-wrap: nowrap;
     }
 }
 
@@ -169,7 +201,8 @@ body {
     cursor: pointer;
     transition:
         bottom 0.2s,
-        transform 0.15s;
+        transform 0.15s,
+        opacity 0.2s;
 }
 
 .selected-tab:hover {
@@ -209,4 +242,61 @@ body {
             transition: transform 0.3s;
         }
     }
+}
+
+.unknown-page {
+    height: 100%;
+    width: 100%;
+    padding-left: 50px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+
+    font-family: "Space Mono", monospace;
+    font-size: 20px;
+
+    color: white;
+
+    transition: visibility 0.3s, opacity 0.3s;
+
+    h1 {
+        font-size: 40px;
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        padding: 0;
+        background-color: black;
+        transition: all 0.3s;
+        font-weight: bold;
+
+        &:hover,
+        &:focus {
+            background-color: white;
+            outline: none;
+            color: black;
+            transform: scale(1.05);
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+}
+
+.hidden.unknown-page {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.hidden.selected-tab {
+    opacity: 0;
+    pointer-events: none;
 }

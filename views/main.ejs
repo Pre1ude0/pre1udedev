@@ -34,56 +34,60 @@ self(not so anymore)-proclaimed developer :3"
 			crossorigin="anonymous"
 		></script>
 		<script src="https://livejs.com/live.js"></script>
-		<img
+		<!-- <img
 			src="https://www.playbalatro.com/assets/scanlines-CkHILBA5.png"
+			alt="crt line toggle icon"
 			class="crt-toggle"
 			draggable="false"
 			onclick="document.querySelector('.crt').classList.toggle('hide')"
-		/>
+			tabindex="-1"
+		/> -->
 		<div class="box-title">
 			<h1>pre1ude<span style="color: gray">.dev</span></h1>
-		</div>
-		<div class="commit-box" id="commit-box">
-			<div class="commit-content">
-				<button class="close-btn" id="close-btn">
-					<i class="fa-solid fa-xmark close-btn"></i>
-				</button>
-				<h2>Latest change</h2>
-				<p>
-					<a href="" id="commit-link" target="_blank">
-						<strong>
-							<span id="commit-message"></span>
-						</strong>
-					</a>
-				</p>
-				<p>
-					<span id="commit-date"></span>
-				</p>
-				<div class="line"></div>
-			</div>
 		</div>
 		<div class="copy-popup" id="copyPopup">Copied!</div>
 		<div class="mainbox">
 			<div class="tab-selector">
 				<div class="selected-tab" id="indicator"></div>
 				<div class="tabs-left">
-					<a href="#home" class="tab">
+					<!-- <a
+						href="#hireme"
+						class="tab hireme"
+						style="position: absolute; left: 10px; top: 25px"
+						tabindex="1"
+					>
+						<i class="fa-solid fa-user"></i>
+					</a> -->
+					<a href="#home" class="tab" tabindex="10">
 						<i class="fa-solid fa-house"></i>
 					</a>
-					<a href="#connections">
+					<a href="#connections" class="tab" tabindex="10">
 						<i class="fa-solid fa-link"></i>
 					</a>
-					<a href="#projects">
+					<a href="#projects" class="tab" tabindex="10">
 						<i class="fa-solid fa-clipboard"></i>
 					</a>
 				</div>
 				<div class="tabs-right">
-					<a href="#home" draggable="false"> Home </a>
-					<a href="#connections" draggable="false"> Socials </a>
-					<a href="#projects" draggable="false"> Projects </a>
+					<!-- <a
+						href="#hireme"
+						style="position: absolute; left: 0; top: 25px"
+						draggable="false"
+						tabindex="-1"
+						class="hireme"
+					>
+						Hire me!
+					</a> -->
+					<a href="#home" draggable="false" tabindex="-1"> Home </a>
+					<a href="#connections" draggable="false" tabindex="-1">
+						Socials
+					</a>
+					<a href="#projects" draggable="false" tabindex="-1">
+						Projects
+					</a>
 				</div>
 			</div>
-			<div class="screen" id="screen1">
+			<div class="screen" id="home">
 				<div class="left">
 					<img
 						src="/img/newpfp.jpeg"
@@ -202,7 +206,7 @@ self(not so anymore)-proclaimed developer :3"
 					</div>
 				</div>
 			</div>
-			<div class="screen" id="screen2">
+			<div class="screen" id="connections">
 				<div class="items">
 					<h1>Connections</h1>
 					<div class="descriptor">
@@ -212,6 +216,10 @@ self(not so anymore)-proclaimed developer :3"
 						<div class="connection">
 							<h2>laura@pre1ude.dev</h2>
 							<div class="buttons">
+								<button
+									onclick="copyItem('laura@pre1ude.dev')"
+									class="fa-solid fa-copy"
+								></button>
 								<a
 									href="mailto:laura@pre1ude.dev"
 									target="_blank"
@@ -220,10 +228,6 @@ self(not so anymore)-proclaimed developer :3"
 										class="fa-solid fa-arrow-up-right-from-square"
 									></i>
 								</a>
-								<i
-									onclick="copyItem('laura@pre1ude.dev')"
-									class="fa-solid fa-copy"
-								></i>
 							</div>
 						</div>
 					</div>
@@ -234,10 +238,10 @@ self(not so anymore)-proclaimed developer :3"
 						<div class="connection">
 							<h2>Pre1ude0</h2>
 							<div class="buttons">
-								<i
+								<button
 									onclick="copyItem('Pre1ude0')"
 									class="fa-solid fa-copy"
-								></i>
+								></button>
 								<a
 									href="https://github.com/Pre1ude0"
 									target="_blank"
@@ -256,10 +260,10 @@ self(not so anymore)-proclaimed developer :3"
 						<div class="connection">
 							<h2>pre1ude0</h2>
 							<div class="buttons">
-								<i
+								<button
 									onclick="copyItem('pre1ude0')"
 									class="fa-solid fa-copy"
-								></i>
+								></button>
 								<a
 									href="https://discord.com/users/737983831000350731"
 									target="_blank"
@@ -280,10 +284,10 @@ self(not so anymore)-proclaimed developer :3"
 						<div class="connection">
 							<h2>Pre1ude@catgirl.center</h2>
 							<div class="buttons">
-								<i
+								<button
 									onclick="copyItem('Pre1ude@catgirl.center')"
 									class="fa-solid fa-copy"
-								></i>
+								></button>
 								<a
 									href="https://catgirl.center/@Pre1ude0"
 									target="_blank"
@@ -302,10 +306,10 @@ self(not so anymore)-proclaimed developer :3"
 						<div class="connection">
 							<h2>@pre1ude0.at.fent.space</h2>
 							<div class="buttons">
-								<i
+								<button
 									onclick="copyItem('pre1ude0.at.fent.space')"
 									class="fa-solid fa-copy"
-								></i>
+								></button>
 								<a
 									href="https://bsky.app/profile/pre1ude0.at.fent.space"
 									target="_blank"
@@ -326,10 +330,10 @@ self(not so anymore)-proclaimed developer :3"
 						<div class="connection">
 							<h2>Laura J</h2>
 							<div class="buttons">
-								<i
+								<button
 									onclick="copyItem('Laura J')"
 									class="fa-solid fa-copy"
-								></i>
+								></button>
 								<a
 									href="https://www.linkedin.com/in/pre1ude0"
 									target="_blank"
@@ -350,10 +354,10 @@ self(not so anymore)-proclaimed developer :3"
 						<div class="connection">
 							<h2>gg/5nZVVedbqH</h2>
 							<div class="buttons">
-								<i
+								<button
 									onclick="copyItem('5nZVVedbqH')"
 									class="fa-solid fa-copy"
-								></i>
+								></button>
 								<a
 									href="https://discord.gg/5nZVVedbqH"
 									target="_blank"
@@ -367,7 +371,7 @@ self(not so anymore)-proclaimed developer :3"
 					</div>
 				</div>
 				<div class="friends">
-					<h1>Friends</h1>
+					<h1>Me & my friends</h1>
 					<div class="banners">
 						<a href="https://pre1ude.dev" target="_blank"
 							><img
@@ -471,7 +475,7 @@ self(not so anymore)-proclaimed developer :3"
 					</div>
 				</div>
 			</div>
-			<div class="screen" id="screen3">
+			<div class="screen" id="projects">
 				<div class="items">
 					<h1 style="width: 100%">Projects</h1>
 					<div class="descriptor">
@@ -624,6 +628,66 @@ self(not so anymore)-proclaimed developer :3"
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="screen" id="hireme">
+				<h2>Want to comission/hire me? <br />I'm looking for work!</h2>
+				<h3>I make</h3>
+				<div class="items">
+					<div class="descriptor">
+						<div class="title">
+							<h1>Portfolio websites</h1>
+						</div>
+					</div>
+					<div class="descriptor">
+						<div class="title">
+							<h1>Corporate sites</h1>
+						</div>
+					</div>
+					<div class="descriptor">
+						<div class="title">
+							<h1>Webapps</h1>
+						</div>
+					</div>
+					<div class="descriptor">
+						<div class="title">
+							<h1>Discord bots</h1>
+						</div>
+					</div>
+					<h3>And more!</h3>
+				</div>
+
+				<p>
+					Send me an email at
+					<a href="mailto:laura@pre1ude.dev">laura@pre1ude.dev</a> or
+					a dm on discord:
+					<a href="https://discord.com/users/737983831000350731"
+						>@pre1ude0</a
+					>!
+				</p>
+			</div>
+			<div class="unknown-page" id="unknownPage" class="hidden">
+				<h1>Took a detour?</h1>
+				<a href="#home">&gt Get back on track! &lt</a>
+			</div>
+		</div>
+
+		<div class="commit-box" id="commit-box">
+			<div class="commit-content">
+				<button class="close-btn" id="close-btn">
+					<i class="fa-solid fa-xmark close-btn"></i>
+				</button>
+				<h2>Latest change</h2>
+				<p>
+					<a href="" id="commit-link" target="_blank">
+						<strong>
+							<span id="commit-message"></span>
+						</strong>
+					</a>
+				</p>
+				<p>
+					<span id="commit-date"></span>
+				</p>
+				<div class="line"></div>
 			</div>
 		</div>
 

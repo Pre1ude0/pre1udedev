@@ -27,7 +27,7 @@
     }
 }
 
-#screen1 {
+#home {
     opacity: 1;
     visibility: visible;
 
@@ -63,13 +63,13 @@
     }
 }
 
-#screen1 .left {
+#home .left {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-#screen1 .pfp-image {
+#home .pfp-image {
     width: 250px;
     aspect-ratio: 1;
     filter: invert(1);
@@ -81,20 +81,20 @@
         box-shadow 0.3s;
 }
 
-#screen1 .pfp-image:hover {
+#home .pfp-image:hover {
     filter: invert(0);
     user-select: none;
 
     box-shadow: 0 0 5px 5px white;
 }
 
-#screen1 .visits {
+#home .visits {
     margin-left: -10px;
     user-select: none;
 }
 
 @media screen and (max-width: 768px) {
-    #screen1 {
+    #home {
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
@@ -366,7 +366,7 @@
     transition: none !important;
 }
 
-#screen2 {
+#connections {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -514,6 +514,12 @@
                 }
             }
 
+            &:focus-within {
+                .buttons {
+                    opacity: 1;
+                }
+            }
+
             .buttons {
                 position: absolute;
                 right: 0;
@@ -526,17 +532,26 @@
                 align-items: center;
                 gap: 10px;
 
-                i {
+                button,
+                a {
+                    aspect-ratio: 1;
                     text-shadow: black 0 0 6px;
                     font-size: 15pt;
                     cursor: pointer;
                     color: #a8a8a8;
+                    background-color: transparent;
+                    border: none;
+                    user-select: none;
 
-                    transition:
-                        color 0.2s,
+                    transition: color 0.2s,
                         transform 0.2s;
 
                     &:hover {
+                        color: white !important;
+                        transform: scale(1.2);
+                    }
+
+                    &:focus {
                         color: white !important;
                         transform: scale(1.2);
                     }
@@ -552,7 +567,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    #screen2 {
+    #connections {
         width: 100%;
         box-sizing: border-box;
 
@@ -613,7 +628,7 @@
                     position: relative;
                     height: 100%;
 
-                    i {
+                    button {
                         color: white !important;
                         font-size: 20pt;
 
@@ -625,7 +640,7 @@
 
 }
 
-#screen3 {
+#projects {
     width: 100%;
     overflow-y: auto;
 
@@ -699,9 +714,11 @@
                     color: white;
                     text-decoration: none;
                     font-size: 12pt;
-                    transition: transform 0.2s;
+                    transition: transform 0.2s, text-shadow 0.2s;
 
-                    &:hover {
+                    &:hover,
+                    &:focus {
+                        text-shadow: darkgray 0 0 6px;
                         transform: translateX(5px);
                     }
                 }
@@ -711,7 +728,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    #screen3 {
+    #projects {
         width: 100%;
         padding: 0 20px;
         box-sizing: border-box;
@@ -758,3 +775,4 @@
         }
     }
 }
+

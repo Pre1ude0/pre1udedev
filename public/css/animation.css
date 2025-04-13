@@ -2,6 +2,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -11,6 +12,7 @@
     from {
         transform: translateX(-300%);
     }
+
     to {
         transform: translateX(0);
     }
@@ -21,6 +23,7 @@
         opacity: 0;
         transform: translateY(-100%);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -31,6 +34,7 @@
     from {
         transform: translateX(120%);
     }
+
     to {
         transform: translateX(0);
     }
@@ -40,6 +44,7 @@
     from {
         transform: translateY(400px);
     }
+
     to {
         transform: translateY(0);
     }
@@ -49,6 +54,7 @@
     from {
         transform: translateX(-500px);
     }
+
     to {
         transform: translateX(0);
     }
@@ -79,9 +85,9 @@
 }
 
 .visits {
-	transform: translateX(-200%);
-	animation: languageSlideIn 1s ease-in-out forwards;
-	animation-delay: 2s;
+    transform: translateX(-200%);
+    animation: languageSlideIn 1s ease-in-out forwards;
+    animation-delay: 2s;
 }
 
 .hero {
@@ -96,7 +102,7 @@
     animation-delay: 1.2s;
 }
 
-#screen1 .descriptor {
+#home .descriptor {
     .title {
         transform: translateX(120%);
         animation: descriptorRightSlideIn 0.8s ease-in-out forwards;
@@ -106,54 +112,67 @@
         .title {
             animation-delay: 1.2s;
         }
+
         h2 {
             animation-delay: 2s;
         }
     }
+
     &:nth-child(2) {
         .title {
             animation-delay: 1.3s;
         }
+
         h2 {
             animation-delay: 2.1s;
         }
     }
+
     &:nth-child(3) {
         .title {
             animation-delay: 1.4s;
         }
+
         h2 {
             animation-delay: 2.2s;
         }
     }
+
     &:nth-child(4) {
         .title {
             animation-delay: 1.5s;
         }
+
         h2 {
             animation-delay: 2.3s;
         }
     }
+
     &:nth-child(5) {
         .title {
             animation-delay: 1.6s;
         }
+
         h2 {
             animation-delay: 2.4s;
         }
     }
+
     &:nth-child(6) {
         .title {
             animation-delay: 1.7s;
         }
+
         h2 {
             animation-delay: 2.5s;
         }
     }
+
     &:nth-child(7) {
         .title {
             animation-delay: 1.8s;
         }
+
         h2 {
             animation-delay: 2.6s;
         }
@@ -166,42 +185,48 @@
     }
 }
 
-#screen1 .left .descriptor {
+#home .left .descriptor {
     &:nth-child(1) {
-		.title {
-			transform: translateY(400px);
-			animation: descriptorLeftSlideIn 0.8s ease-in-out forwards;
-			animation-delay: 1.8s;
-		}
-	}
-	&:nth-child(2) {
-		.title {
-			transform: translateY(400px);
-			animation: descriptorLeftSlideIn 0.8s ease-in-out forwards;
-			animation-delay: 1.9s;
-		}
-	}
-	.experience-container {
+        .title {
+            transform: translateY(400px);
+            animation: descriptorLeftSlideIn 0.8s ease-in-out forwards;
+            animation-delay: 1.8s;
+        }
+    }
+
+    &:nth-child(2) {
+        .title {
+            transform: translateY(400px);
+            animation: descriptorLeftSlideIn 0.8s ease-in-out forwards;
+            animation-delay: 1.9s;
+        }
+    }
+
+    .experience-container {
         #css {
             transform: translateX(-500px);
             animation: languageSlideIn 0.8s ease-in-out forwards;
             animation-delay: 2.3s;
         }
+
         #html {
             transform: translateX(-500px);
             animation: languageSlideIn 0.8s ease-in-out forwards;
             animation-delay: 2.2s;
         }
+
         #js {
             transform: translateX(-500px);
             animation: languageSlideIn 0.8s ease-in-out forwards;
             animation-delay: 2.1s;
         }
+
         #node {
             transform: translateX(-500px);
             animation: languageSlideIn 0.8s ease-in-out forwards;
             animation-delay: 2.4s;
         }
+
         #python {
             transform: translateX(-500px);
             animation: languageSlideIn 0.8s ease-in-out forwards;
@@ -209,11 +234,11 @@
         }
     }
 
-	h2 {
-		animation-delay: 2.6s;
-	}
+    h2 {
+        animation-delay: 2.6s;
+    }
 }
 
 .not-home {
-	animation-delay: 0.5s !important;
+    animation-delay: 0.5s !important;
 }
