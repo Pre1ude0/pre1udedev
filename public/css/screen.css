@@ -246,6 +246,26 @@
             font-size: 20pt !important;
         }
 
+        h2 {
+            width: 100%;
+        }
+
+        .demigirl {
+            background: linear-gradient(90deg, #7F7F7F, #C4C4C4, #FDADC8, #FFFFFF, #FDADC8, #C4C4C4, #7F7F7F);
+            -webkit-background-clip: text;
+            background-clip: text;
+            width: 100%;
+
+            color: rgba(255, 255, 255, 1);
+            transition: color 0.2s;
+        }
+
+        h2:hover {
+            .demigirl {
+                color: rgba(255, 255, 255, 0);
+            }
+        }
+
         .box {
             position: relative;
             height: 15px;
