@@ -90,11 +90,12 @@ body {
 
 @media screen and (max-width: 768px) {
     .mainbox {
-        width: 95%;
-        height: 95%;
+        width: 100vw;
+        height: 100vh;
         box-sizing: border-box;
         overflow-y: scroll;
         overflow-x: hidden;
+        border: none;
     }
 
     .box-title h1 {
@@ -102,6 +103,8 @@ body {
         left: 30px;
         top: 8px;
     }
+
+
 }
 
 .tab-selector {
@@ -241,6 +244,10 @@ body {
             transform: rotate(0);
             transition: transform 0.3s;
         }
+    }
+
+    .tab-selector .selected-tab {
+        display: none;
     }
 }
 
