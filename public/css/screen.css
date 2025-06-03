@@ -8,7 +8,9 @@
     opacity: 0;
     visibility: hidden;
     z-index: 4;
-    transition: opacity 0.3s, visibility 0.3s;
+    transition:
+        opacity 0.3s,
+        visibility 0.3s;
     padding: 50px;
     padding-left: 120px !important;
     padding-right: 0 !important;
@@ -119,7 +121,6 @@
 
         .descriptor {
             .title {
-
                 &::before {
                     top: 60%;
                     height: 2px;
@@ -138,8 +139,6 @@
             }
         }
     }
-
-
 }
 
 .copy-popup {
@@ -251,7 +250,16 @@
         }
 
         .demigirl {
-            background: linear-gradient(90deg, #7F7F7F, #C4C4C4, #FDADC8, #FFFFFF, #FDADC8, #C4C4C4, #7F7F7F);
+            background: linear-gradient(
+                90deg,
+                #7f7f7f,
+                #c4c4c4,
+                #fdadc8,
+                #ffffff,
+                #fdadc8,
+                #c4c4c4,
+                #7f7f7f
+            );
             -webkit-background-clip: text;
             background-clip: text;
             width: 100%;
@@ -352,7 +360,6 @@
             }
         }
     }
-
 }
 
 /*
@@ -425,7 +432,9 @@
 
             img,
             iframe {
-                transition: transform 0.2s, box-shadow 0.2s;
+                transition:
+                    transform 0.2s,
+                    box-shadow 0.2s;
 
                 &:hover {
                     transform: translateY(-2px);
@@ -561,7 +570,8 @@
                     border: none;
                     user-select: none;
 
-                    transition: color 0.2s,
+                    transition:
+                        color 0.2s,
                         transform 0.2s;
 
                     &:hover {
@@ -569,7 +579,7 @@
                         transform: scale(1.2);
                     }
 
-                    &:focus {
+                    &:focus-visible {
                         color: white !important;
                         transform: scale(1.2);
                     }
@@ -620,7 +630,6 @@
             align-items: flex-start;
 
             .title {
-
                 margin-bottom: 15px;
 
                 &::before {
@@ -649,13 +658,11 @@
                     button {
                         color: white !important;
                         font-size: 20pt;
-
                     }
                 }
             }
         }
     }
-
 }
 
 #projects {
@@ -732,7 +739,9 @@
                     color: white;
                     text-decoration: none;
                     font-size: 12pt;
-                    transition: transform 0.2s, text-shadow 0.2s;
+                    transition:
+                        transform 0.2s,
+                        text-shadow 0.2s;
 
                     &:hover,
                     &:focus {
