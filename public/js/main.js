@@ -5,7 +5,7 @@ const copyPopup = document.getElementById("copyPopup");
 function changeScreen() {
     screenId = window.location.hash.substring(1);
     unknownPage.classList.add("hidden");
-    indicator.classList.remove("hidden");
+    indicator.style.opacity = "1";
     switch (window.location.hash) {
         case "#connections":
             indicator.style.bottom = "65px";
