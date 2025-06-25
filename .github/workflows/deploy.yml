@@ -13,6 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Debug SSH Secret
+        run: |
+          echo "${{ secrets.SERVER_SSH_KEY }}" | grep "PRIVATE KEY"
+
       - name: Deploy to server via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
