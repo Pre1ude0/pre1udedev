@@ -194,13 +194,13 @@
         }
     }
 
-    &:nth-child(2) {
+    /* &:nth-child(2) {
         .title {
             transform: translateY(400px);
             animation: descriptorLeftSlideIn 0.8s ease-in-out forwards;
             animation-delay: 1.9s;
         }
-    }
+    } */
 
     .experience-container {
         #css {
@@ -230,13 +230,13 @@
         #ts {
             transform: translateX(-500px);
             animation: languageSlideIn 0.8s ease-in-out forwards;
-            animation-delay: 2.5s;
+            animation-delay: 2.6s;
         }
 
         #python {
             transform: translateX(-500px);
             animation: languageSlideIn 0.8s ease-in-out forwards;
-            animation-delay: 2.6s;
+            animation-delay: 2.5s;
         }
         #express {
             transform: translateX(-500px);
@@ -247,6 +247,11 @@
             transform: translateX(-500px);
             animation: languageSlideIn 0.8s ease-in-out forwards;
             animation-delay: 2.7s;
+        }
+        #linux {
+            transform: translateX(-500px);
+            animation: languageSlideIn 0.8s ease-in-out forwards;
+            animation-delay: 2.9s;
         }
     }
 

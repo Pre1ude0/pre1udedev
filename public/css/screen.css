@@ -265,7 +265,7 @@
             ); */
             /* -webkit-background-clip: text;
             background-clip: text; */
-            width: 100%;
+            width: fit-content;
             color: black;
             text-shadow: transparent;
             padding: 0 5px;
@@ -299,16 +299,46 @@
             }
         }
 
+        .latvia {
+            text-decoration: none;
+            z-index: 1;
+            position: relative;
+            width: fit-content;
+            color: black;
+            text-shadow: transparent;
+            padding: 0 5px !important;
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: linear-gradient(
+                    to right,
+                    #c8102e 0%,
+                    #c8102e 45%,
+                    #ffffff 40%,
+                    #ffffff 60%,
+                    #c8102e 60%,
+                    #c8102e 100%
+                );
+                filter: blur(2px);
+                z-index: -1;
+            }
+        }
+
         .box {
             position: relative;
-            height: 12px;
+            height: 15px;
             width: fit-content;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 5px;
             padding: 4px;
-            font-size: 12pt;
+            font-size: 14pt;
             font-family: "Roboto-mono", monospace;
             background: white;
             color: black;
@@ -378,6 +408,11 @@
 
 #svelte:hover {
     background-color: #ff3e00 !important;
+    color: white !important;
+}
+
+#linux:hover {
+    background-color: #1793d0 !important;
     color: white !important;
 }
 
@@ -845,9 +880,53 @@
 
 #hireme {
     padding-right: 40px !important;
+    padding-left: 20px;
     h2 {
         text-align: right;
+        font-size: 25pt;
+    }
+
+    h3 {
         font-size: 20pt;
+        margin-top: 40px;
+        margin-bottom: 5px;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 7px;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        margin-left: 20px;
+        margin-bottom: 40px;
+
+        li {
+            font-size: 14pt;
+            list-style-type: "-";
+            padding-left: 5px;
+        }
+    }
+
+    p {
+        margin-left: 60px;
+        font-size: 14pt;
+        text-align: left;
+
+        a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .subnote {
+            display: block;
+            font-size: 12pt;
+            color: #b5b5b5;
+            margin-top: 10px;
+        }
     }
 }
 
@@ -859,20 +938,6 @@
 
         h2 {
             padding: 0 20px;
-        }
-
-        .descriptor {
-            width: 100%;
-
-            h1 {
-                span {
-                    margin-bottom: -20px;
-                }
-            }
-
-            h2 {
-                font-size: 18pt;
-            }
         }
     }
 }
