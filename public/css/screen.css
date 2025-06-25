@@ -250,7 +250,10 @@
         }
 
         .demigirl {
-            background: linear-gradient(
+            text-decoration: none;
+            z-index: 1;
+            position: relative;
+            /* background: linear-gradient(
                 90deg,
                 #7f7f7f,
                 #c4c4c4,
@@ -259,18 +262,40 @@
                 #fdadc8,
                 #c4c4c4,
                 #7f7f7f
-            );
-            -webkit-background-clip: text;
-            background-clip: text;
+            ); */
+            /* -webkit-background-clip: text;
+            background-clip: text; */
             width: 100%;
+            color: black;
+            text-shadow: transparent;
+            padding: 0 5px;
 
-            color: rgba(255, 255, 255, 1);
-            transition: color 0.2s;
-        }
-
-        h2:hover {
-            .demigirl {
-                color: rgba(255, 255, 255, 0);
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: linear-gradient(
+                    90deg,
+                    #7f7f7f 0%,
+                    #7f7f7f 14%,
+                    #c4c4c4 14%,
+                    #c4c4c4 29%,
+                    #fdadc8 29%,
+                    #fdadc8 43%,
+                    #ffffff 43%,
+                    #ffffff 57%,
+                    #fdadc8 57%,
+                    #fdadc8 71%,
+                    #c4c4c4 71%,
+                    #c4c4c4 86%,
+                    #7f7f7f 86%,
+                    #7f7f7f 100%
+                );
+                filter: blur(2px);
+                z-index: -1;
             }
         }
 
@@ -813,6 +838,40 @@
                     justify-content: center;
                     align-items: center;
                 }
+            }
+        }
+    }
+}
+
+#hireme {
+    padding-right: 40px !important;
+    h2 {
+        text-align: right;
+        font-size: 20pt;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #hireme {
+        width: 100%;
+        box-sizing: border-box;
+        height: fit-content;
+
+        h2 {
+            padding: 0 20px;
+        }
+
+        .descriptor {
+            width: 100%;
+
+            h1 {
+                span {
+                    margin-bottom: -20px;
+                }
+            }
+
+            h2 {
+                font-size: 18pt;
             }
         }
     }

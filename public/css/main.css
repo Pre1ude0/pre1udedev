@@ -241,6 +241,11 @@ body {
             transform: rotate(0);
             transition: transform 0.3s;
         }
+
+        .hireme {
+            left: 20px !important;
+            top: 10px !important;
+        }
     }
 
     .tab-selector .selected-tab {

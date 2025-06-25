@@ -17,7 +17,7 @@ function changeScreen() {
             indicator.style.bottom = "115px";
             break;
         case "#hireme":
-            indicator.style.bottom = "calc(100% - 100px)";
+            indicator.style.bottom = "calc(100% - 50px)";
             indicator.classList.add("hidden");
             break;
         default:
@@ -28,7 +28,8 @@ function changeScreen() {
     for (i = 0; i < document.getElementsByClassName("screen").length; i++) {
         if (document.getElementsByClassName("screen")[i].id !== screenId) {
             document.getElementsByClassName("screen")[i].style.opacity = "0";
-            document.getElementsByClassName("screen")[i].style.visibility = "hidden";
+            document.getElementsByClassName("screen")[i].style.visibility =
+                "hidden";
             document.getElementsByClassName("screen")[i].style.zIndex = "0";
         } else {
             document.getElementById(screenId).style.opacity = "1";
@@ -39,11 +40,17 @@ function changeScreen() {
 }
 
 window.addEventListener("hashchange", changeScreen);
-window.addEventListener("load", function () {
-    if (window.location.hash === "" || window.location.hash === "#" || window.location.hash === "#home") {
+window.addEventListener("DOMContentLoaded", function () {
+    if (
+        window.location.hash === "" ||
+        window.location.hash === "#" ||
+        window.location.hash === "#home"
+    ) {
         window.location.hash = "#home";
     } else {
-        document.getElementsByClassName("tab-selector")[0].classList.add("not-home");
+        document
+            .getElementsByClassName("tab-selector")[0]
+            .classList.add("not-home");
     }
     changeScreen();
 });
@@ -80,9 +87,10 @@ window.copyItem = copyItem;
 // }
 
 function handleFirstTab(e) {
-    if (e.keyCode === 9) { // tab key
-        document.body.classList.add('user-is-tabbing');
-        window.removeEventListener('keydown', handleFirstTab);
+    if (e.keyCode === 9) {
+        // tab key
+        document.body.classList.add("user-is-tabbing");
+        window.removeEventListener("keydown", handleFirstTab);
     }
 }
-window.addEventListener('keydown', handleFirstTab);
+window.addEventListener("keydown", handleFirstTab);
