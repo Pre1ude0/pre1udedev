@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Agu+Display&family=Badeen+Display&family=Oswald:wght@200..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Yuji+Mai&display=swap");
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
 
-body:not(.user-is-tabbing) button:focus,
-body:not(.user-is-tabbing) a:focus,
-body:not(.user-is-tabbing) input:focus,
-body:not(.user-is-tabbing) select:focus,
-body:not(.user-is-tabbing) textarea:focus {
+body: not(.user-is-tabbing) button: focus,
+    body: not(.user-is-tabbing) a: focus,
+    body: not(.user-is-tabbing) input: focus,
+    body: not(.user-is-tabbing) select: focus,
+    body: not(.user-is-tabbing) textarea: focus {
     outline: none !important;
     box-shadow: none !important;
 }
@@ -124,7 +125,9 @@ img {
     width: 100%;
     height: auto;
     border-radius: 4px;
-    transition: transform 0.3s, border-radius 0.3s;
+    transition:
+        transform 0.3s,
+        border-radius 0.3s;
 
     &:hover {
         transform: scale(1.05);
@@ -133,16 +136,12 @@ img {
 }
 
 ul {
-
-
     li {
         list-style-type: none !important;
         margin: 0 15px;
         font-size: 13pt;
 
-
         &::before {
-
             display: inline-block;
             vertical-align: top;
             line-height: normal;
@@ -217,7 +216,10 @@ footer {
         color: #ffffff;
         text-decoration: none;
         font-size: 13pt;
-        transition: transform 0.3s, color 0.3s, background-color 0.3s;
+        transition:
+            transform 0.3s,
+            color 0.3s,
+            background-color 0.3s;
         font-weight: bold;
         padding: 0 5px;
         background-color: transparent;

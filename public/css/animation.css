@@ -227,10 +227,26 @@
             animation-delay: 2.4s;
         }
 
-        #python {
+        #ts {
             transform: translateX(-500px);
             animation: languageSlideIn 0.8s ease-in-out forwards;
             animation-delay: 2.5s;
+        }
+
+        #python {
+            transform: translateX(-500px);
+            animation: languageSlideIn 0.8s ease-in-out forwards;
+            animation-delay: 2.6s;
+        }
+        #express {
+            transform: translateX(-500px);
+            animation: languageSlideIn 0.8s ease-in-out forwards;
+            animation-delay: 2.8s;
+        }
+        #svelte {
+            transform: translateX(-500px);
+            animation: languageSlideIn 0.8s ease-in-out forwards;
+            animation-delay: 2.7s;
         }
     }
 
