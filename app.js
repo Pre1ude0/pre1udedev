@@ -15,11 +15,11 @@ app.use(express.static("js"));
 app.use(xss());
 app.use(cors());
 
-const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000,
-    max: 3,
-    message: "Too many submissions. Try again later.",
-});
+// const limiter = rateLimit({
+//     windowMs: 15 * 60 * 1000,
+//     max: 3,
+//     message: "Too many submissions. Try again later.",
+// });
 
 app.get("/", (req, res) => {
     if (req.headers.referer) {
@@ -53,40 +53,40 @@ app.get("/blogs/:hyperlink", (req, res) => {
     });
 });
 
-app.post("/api/guestbook", limiter, (req, res) => {
-    const { name, message, website } = req.body;
+// app.post("/api/guestbook", limiter, (req, res) => {
+//     const { name, message, website } = req.body;
 
-    if (!name || !message || name.length > 50 || message.length > 300) {
-        return res.status(400).json({ error: "Invalid input" });
-    }
+//     if (!name || !message || name.length > 50 || message.length > 300) {
+//         return res.status(400).json({ error: "Invalid input" });
+//     }
 
-    const entry = {
-        name: name.trim(),
-        message: message.trim(),
-        date: new Date().toISOString(),
-        website: website ? website.trim().replace(/\/+$/, "") : "",
-    };
+//     const entry = {
+//         name: name.trim(),
+//         message: message.trim(),
+//         date: new Date().toISOString(),
+//         website: website ? website.trim().replace(/\/+$/, "") : "",
+//     };
 
-    const file = "./guestbook.json";
-    const entries = fs.existsSync(file)
-        ? JSON.parse(fs.readFileSync(file))
-        : [];
+//     const file = "./guestbook.json";
+//     const entries = fs.existsSync(file)
+//         ? JSON.parse(fs.readFileSync(file))
+//         : [];
 
-    entries.push(entry);
-    fs.writeFileSync(file, JSON.stringify(entries, null, 2));
+//     entries.push(entry);
+//     fs.writeFileSync(file, JSON.stringify(entries, null, 2));
 
-    res.status(200).json({ success: true });
-});
+//     res.status(200).json({ success: true });
+// });
 
-// Get entries
-app.get("/api/guestbook", (req, res) => {
-    const file = "./guestbook.json";
-    const entries = fs.existsSync(file)
-        ? JSON.parse(fs.readFileSync(file))
-        : [];
+// // Get entries
+// app.get("/api/guestbook", (req, res) => {
+//     const file = "./guestbook.json";
+//     const entries = fs.existsSync(file)
+//         ? JSON.parse(fs.readFileSync(file))
+//         : [];
 
-    res.status(200).json({ entries });
-});
+//     res.status(200).json({ entries });
+// });
 
 app.use((req, res) => {
     res.status(404).redirect("/");
