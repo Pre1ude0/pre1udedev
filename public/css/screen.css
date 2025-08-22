@@ -299,7 +299,7 @@
             }
         }
 
-        .latvia {
+        .belgium {
             text-decoration: none;
             z-index: 1;
             position: relative;
@@ -317,12 +317,9 @@
                 right: 0;
                 background: linear-gradient(
                     to right,
-                    #c8102e 0%,
-                    #c8102e 45%,
-                    #ffffff 40%,
-                    #ffffff 60%,
-                    #c8102e 60%,
-                    #c8102e 100%
+                    #000000 33.333%,
+                    #fdda24 33.33% 66.666%,
+                    #ef3340 66.666%
                 );
                 filter: blur(2px);
                 z-index: -1;
