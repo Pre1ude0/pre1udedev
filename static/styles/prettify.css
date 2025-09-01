@@ -1,0 +1,197 @@
+:root {
+    --code: #09090b;
+    --border-radius: 0.25rem;
+    --border-radius-secondary: 0.5rem;
+    --fg: oklch(87.2% 0.01 258.338);
+    --success: #16a34a;
+}
+
+/*
+ * Derived from einaros's Sons of Obsidian theme at
+ * http://studiostyl.es/schemes/son-of-obsidian by
+ * Alex Ford of CodeTunnel:
+ * http://CodeTunnel.com/blog/post/71/google-code-prettify-obsidian-theme
+ */
+
+.str {
+    color: #ec7600;
+}
+.kwd {
+    color: #93c763;
+}
+.com {
+    color: #66747b;
+}
+.typ {
+    color: #678cb1;
+}
+.lit {
+    color: #facd22;
+}
+.pun {
+    color: #f1f2f3;
+}
+.pln {
+    color: #f1f2f3;
+}
+.tag {
+    color: #8ac763;
+}
+.atn {
+    color: #e0e2e4;
+}
+.atv {
+    color: #ec7600;
+}
+.dec {
+    color: purple;
+}
+pre.prettyprint {
+    border: none !important;
+}
+ol.linenums {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L4,
+li.L5,
+li.L6,
+li.L7,
+li.L8,
+li.L9 {
+    color: #555;
+    list-style-type: decimal;
+}
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 {
+    background: #111;
+}
+@media print {
+    .str {
+        color: #060;
+    }
+    .kwd {
+        color: #006;
+        font-weight: bold;
+    }
+    .com {
+        color: #600;
+        font-style: italic;
+    }
+    .typ {
+        color: #404;
+        font-weight: bold;
+    }
+    .lit {
+        color: #044;
+    }
+    .pun {
+        color: #440;
+    }
+    .pln {
+        color: #000;
+    }
+    .tag {
+        color: #006;
+        font-weight: bold;
+    }
+    .atn {
+        color: #404;
+    }
+    .atv {
+        color: #060;
+    }
+}
+
+code {
+    font-family: "Fira Code", monospace;
+    font-size: 0.9em;
+    background-color: var(--code);
+    padding: 2px 4px;
+    border-radius: var(--border-radius-secondary);
+
+    transition:
+        background-color 0.3s ease-in-out,
+        color 0.3s ease-in-out;
+
+    a {
+        color: var(--fg);
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+            transform: none;
+        }
+
+        &:after {
+            content: none;
+        }
+    }
+}
+
+pre {
+    margin: 2em 1em;
+    padding: 1em !important;
+    width: 90%;
+    box-sizing: border-box;
+
+    position: relative;
+    font-family: "Fira Code", monospace;
+    font-size: 0.9em;
+    background-color: #09090b;
+    border-radius: var(--border-radius-secondary);
+    outline: none;
+    border: none;
+
+    overflow-x: auto;
+    transition:
+        background-color 0.3s ease-in-out,
+        color 0.3s ease-in-out;
+
+    .copy-button {
+        position: absolute;
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        top: 10px;
+        right: 10px;
+        background-color: transparent;
+        color: var(--fg);
+        border: none;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition:
+            background-color 0.3s ease-in-out,
+            opacity 0.15s ease-in-out,
+            color 0.5s 2s ease-out;
+
+        &:hover {
+            background-color: var(--bg);
+        }
+
+        &:active,
+        &.active {
+            transition: none;
+            color: var(--success);
+        }
+
+        &:focus-visible {
+            opacity: 1;
+        }
+    }
+
+    &:hover .copy-button {
+        opacity: 1;
+    }
+}
