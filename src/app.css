@@ -1,0 +1,15 @@
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
+@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap");
+@import "tailwindcss";
+
+:root {
+    --font-geist-mono: "Geist Mono", monospace;
+}
+
+body {
+    background: url("/background.png") no-repeat center center fixed;
+    background-size: cover;
+    backdrop-filter: blur(5px);
+    min-height: 100vh;
+    padding: 2rem;
+}
