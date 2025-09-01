@@ -22,5 +22,6 @@ jobs:
                   script: |
                       cd /srv/pre1udedev
                       git pull origin master
+                      npm install
                       npm run build
                       sudo systemctl restart pre1udedev.service
