@@ -142,7 +142,7 @@
                     {/if}
                 {/if}
             </div>
-            <div class="flex flex-col">
+            <div class="flex flex-col w-[250px]">
                 <h2 class="text-white font-bold text-xl flex items-center mb-0">
                     {presence.discord_user.global_name}
                     {#if presence.discord_user.clan}
@@ -167,7 +167,7 @@
                     {#each presence.activities as activity}
                         {#if activity.type === 4}
                             <div
-                                class="flex items-center gap-2 text-gray-300 mt-1"
+                                class="flex items-center gap-2 text-gray-300 mt-1 w-80%"
                             >
                                 {#if activity.emoji}
                                     <img
@@ -189,7 +189,7 @@
                                         viewBox="0 0 24 24"
                                         stroke-width="1.5"
                                         stroke="currentColor"
-                                        class="w-6 aspect-square"
+                                        class="w-[30px] aspect-square"
                                     >
                                         <path
                                             stroke-linecap="round"
@@ -198,7 +198,7 @@
                                         />
                                     </svg>
                                 {/if}
-                                <span class="truncate line-clamp-2 max-w-80%"
+                                <span class="truncate line-clamp-2 text-wrap"
                                     >{activity.state}</span
                                 >
                             </div>
