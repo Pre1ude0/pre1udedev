@@ -23,12 +23,13 @@
     ></script>
 </svelte:head>
 
-<div class="w-full h-fit flex flex-col items-start mt-4">
+<div class="w-full h-fit flex flex-row items-center gap-3 mt-10">
     <h3 class="text-2xl">My button</h3>
-    <div class="outline outline-zinc-800 mt-4">
+    <div class="outline outline-zinc-800">
         <a href="https://pre1ude.dev" target="_blank">
             <img src="/blankie.png" alt="pre1ude.dev" width="88" height="31" />
         </a>
     </div>
-    <pre class="prettyprint lang-html">{codeSnippet}</pre>
 </div>
+
+<pre class="prettyprint lang-html">{codeSnippet}</pre>
