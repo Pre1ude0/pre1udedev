@@ -13,39 +13,40 @@
  * http://CodeTunnel.com/blog/post/71/google-code-prettify-obsidian-theme
  */
 
-.str {
+.prettyprint .str {
     color: #ec7600;
 }
-.kwd {
+.prettyprint .kwd {
     color: #93c763;
 }
-.com {
+.prettyprint .com {
     color: #66747b;
 }
-.typ {
+.prettyprint .typ {
     color: #678cb1;
 }
-.lit {
+.prettyprint .lit {
     color: #facd22;
 }
-.pun {
+.prettyprint .pun {
     color: #f1f2f3;
 }
-.pln {
+.prettyprint .pln {
     color: #f1f2f3;
 }
-.tag {
+.prettyprint .tag {
     color: #8ac763;
 }
-.atn {
+.prettyprint .atn {
     color: #e0e2e4;
 }
-.atv {
+.prettyprint .atv {
     color: #ec7600;
 }
-.dec {
+.prettyprint .dec {
     color: purple;
 }
+
 pre.prettyprint {
     border: none !important;
 }
