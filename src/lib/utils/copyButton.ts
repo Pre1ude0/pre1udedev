@@ -53,6 +53,7 @@ export function applyPrettyPrint(
     if (!codePreviewContainer) return;
 
     codePreviewContainer.innerText = code;
+    codePreviewContainer.classList.remove("prettyprinted");
     addCopyButtons(codePreviewContainer.parentElement!);
     // @ts-ignore
     if (window.PR) {

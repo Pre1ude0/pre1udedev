@@ -4,6 +4,7 @@
     import Divider from "$lib/components/Divider.svelte";
     import Toolkit from "./Toolkit.svelte";
     import Friends from "./Friends.svelte";
+    import Referrer from "./Referrer.svelte";
     import { fly } from "svelte/transition";
 </script>
 
@@ -45,6 +46,8 @@
     <Toolkit />
     <Divider />
     <Friends />
+    <Divider />
+    <Referrer />
 </div>
 
 <div

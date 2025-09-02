@@ -1,6 +1,5 @@
 <script lang="ts">
     import Buttons from "./Buttons.svelte";
-    import Referrer from "./Referrer.svelte";
     const friends = [
         {
             href: "https://simpleduck.neocities.org/",
@@ -109,5 +108,3 @@
 <Buttons buttons={friends} />
 <h2 class="text-2xl mt-5">Other cool sites/buttons I've found on the web:</h2>
 <Buttons buttons={coolButtons} />
-
-<Referrer />
