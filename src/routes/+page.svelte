@@ -5,10 +5,9 @@
     import Toolkit from "./Toolkit.svelte";
     import Friends from "./Friends.svelte";
     import Referrer from "./Referrer.svelte";
-    import { fly } from "svelte/transition";
 </script>
 
-<div class="w-[700px] p-2 text-white">
+<div class="max-w-[700px] p-2 text-white">
     <h1 class="text-5xl">
         Hi! I'm <span
             class="bg-linear-to-r text-transparent from-pink-300 to-pink-600 bg-clip-text font-bold"
