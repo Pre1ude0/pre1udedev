@@ -3,9 +3,12 @@
     import { onMount } from "svelte";
     import { addCopyButtons, applyPrettyPrint } from "$lib/utils/copyButton";
 
-    let latest = "v2";
-
     let buttons = [
+        {
+            src: "/blankie.png",
+            alt: "latest",
+            snippet: "/snippet.html",
+        },
         {
             src: "/blankies/blankie-v2.png",
             alt: "v2",
@@ -62,14 +65,13 @@
     <h3 class="text-2xl">My buttons</h3>
     <div class="flex items-start gap-3">
         <button
-            onclick={() =>
-                switchPreview(buttons.findIndex((b) => b.alt === latest))}
-            title={"Show latest snippet (" + latest + ")"}
+            onclick={() => switchPreview(0)}
+            title={"Show latest snippet"}
             class="relative hover:-translate-y-1/10 transition-transform cursor-pointer group"
         >
             <img
-                src={buttons.find((b) => b.alt === latest)?.src}
-                alt={latest}
+                src={buttons[0].src}
+                alt={buttons[0].alt}
                 width="88"
                 height="31"
                 class="{0 == currentPreview
@@ -80,34 +82,36 @@
                 class="opacity-0 text-zinc-300 font-(family-name:--font-geist-mono) -z-10 absolute -bottom-6 left-1/2 -translate-x-[50%] group-hover:opacity-100 transition-all duration-200 ease-out -translate-y-4 group-hover:translate-y-0"
                 style="display: inline-block;"
             >
-                Latest ({latest})
+                latest
             </span>
         </button>
         <div class="h-4 w-[2px] bg-zinc-700 mt-2"></div>
         <div class="flex flex-wrap gap-3">
             {#each buttons as button, i}
-                <button
-                    onclick={() => switchPreview(i)}
-                    title={"Show " + button.alt + " snippet"}
-                    class="relative hover:-translate-y-1/10 transition-transform cursor-pointer group"
-                    style="animation-delay: {(i + 1) * 100}ms; "
-                >
-                    <img
-                        src={button.src}
-                        alt={button.alt}
-                        width="88"
-                        height="31"
-                        class="{i == currentPreview
-                            ? 'border-green-300'
-                            : 'border-zinc-800'} border transition-colors"
-                    />
-                    <span
-                        class="opacity-0 text-zinc-300 font-(family-name:--font-geist-mono) -z-10 absolute -bottom-6 left-1/2 -translate-x-[50%] group-hover:opacity-100 transition-all duration-200 ease-out -translate-y-4 group-hover:translate-y-0"
-                        style="display: inline-block;"
+                {#if i != 0}
+                    <button
+                        onclick={() => switchPreview(i)}
+                        title={"Show " + button.alt + " snippet"}
+                        class="relative hover:-translate-y-1/10 transition-transform cursor-pointer group"
+                        style="animation-delay: {i * 100}ms; "
                     >
-                        {button.alt}
-                    </span>
-                </button>
+                        <img
+                            src={button.src}
+                            alt={button.alt}
+                            width="88"
+                            height="31"
+                            class="{i == currentPreview
+                                ? 'border-green-300'
+                                : 'border-zinc-800'} border transition-colors"
+                        />
+                        <span
+                            class="opacity-0 text-zinc-300 font-(family-name:--font-geist-mono) -z-10 absolute -bottom-6 left-1/2 -translate-x-[50%] group-hover:opacity-100 transition-all duration-200 ease-out -translate-y-4 group-hover:translate-y-0"
+                            style="display: inline-block;"
+                        >
+                            {button.alt}
+                        </span>
+                    </button>
+                {/if}
             {/each}
         </div>
     </div>
