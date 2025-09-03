@@ -30,12 +30,15 @@
             const crect = containerEl.getBoundingClientRect();
             left.set(rect.left - crect.left);
             width.set(rect.width);
+        } else {
+            showSelector = 0;
         }
     }
 
     function activate(e: MouseEvent) {
         const target = e.currentTarget as HTMLElement;
         if (!containerEl) return;
+        showSelector = 1;
         const rect = target.getBoundingClientRect();
         const crect = containerEl.getBoundingClientRect();
         left.set(rect.left - crect.left);
@@ -75,7 +78,7 @@
     <meta name="pride-flag" content="demigirl" />
 </svelte:head>
 
-<div class="w-full m flex items-start justify-center">
+<div class="w-full flex items-start justify-center">
     <div class="w-full max-w-[1200px]">
         <div
             class="w-full h-fit bg-zinc-900 border-b border-zinc-800 flex gap-4 items-center px-4 rounded-2xl mb-6"
@@ -109,8 +112,6 @@
                 {/each}
             </nav>
         </div>
-        <div class="relative w-full h-fit">
-            <CmdPrompt {command} {children} />
-        </div>
+        <CmdPrompt {command} {children} />
     </div>
 </div>

@@ -8,7 +8,7 @@
     import { fly } from "svelte/transition";
 </script>
 
-<div class="w-[750px] p-2 text-white">
+<div class="w-[700px] p-2 text-white">
     <h1 class="text-5xl">
         Hi! I'm <span
             class="bg-linear-to-r text-transparent from-pink-300 to-pink-600 bg-clip-text font-bold"
@@ -48,14 +48,6 @@
     <Friends />
     <Divider />
     <Referrer />
-</div>
-
-<div
-    class="absolute top-0 right-0 flex flex-col gap-6 w-[400px]"
-    out:fly={{ duration: 50, y: 50 }}
->
-    <Webring />
-    <Discord />
 </div>
 
 <style>
