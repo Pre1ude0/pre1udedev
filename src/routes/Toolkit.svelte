@@ -1,68 +1,20 @@
 <script lang="ts">
-    import Exp from "./ExperienceBox.svelte";
+    import Exp from "$lib/components/ExperienceBox.svelte";
     import { elasticOut } from "svelte/easing";
 
     let toolkit = $state([
-        {
-            text: "Svelte",
-            icon: "nf-dev-svelte",
-            styles: "bg-[#f96743] text-white",
-        },
-        {
-            text: "HTML",
-            icon: "nf-dev-html5",
-            styles: "bg-[#e34f26] text-white",
-        },
-        {
-            text: "CSS",
-            icon: "nf-custom-css",
-            styles: "bg-[rebeccapurple] text-white",
-        },
-        {
-            text: "TS",
-            icon: "nf-dev-typescript",
-            styles: "bg-[#3178c6] text-white",
-        },
-        {
-            text: "Git",
-            icon: "nf-dev-git",
-            styles: "bg-[#e24329] text-white",
-        },
-        {
-            text: "Linux",
-            icon: "nf-oct-command_palette",
-            styles: "bg-black text-white",
-        },
-        {
-            text: "Python",
-            icon: "nf-dev-python",
-            styles: "bg-[#ffde57] text-black",
-        },
-        {
-            text: "Docker",
-            icon: "nf-dev-docker",
-            styles: "bg-[#2496ed] text-white",
-        },
-        {
-            text: "tailwindcss",
-            icon: "nf-dev-tailwindcss",
-            styles: "bg-[#06b6d4] text-white",
-        },
-        {
-            text: "JS",
-            icon: "nf-fa-js",
-            styles: "bg-[#f7df1e] text-black",
-        },
-        {
-            text: "NodeJS",
-            icon: "nf-md-nodejs",
-            styles: "bg-[#215732] text-white",
-        },
-        {
-            text: "Express",
-            icon: "nf-dev-express",
-            styles: "bg-gray-800 text-white",
-        },
+        "svelte",
+        "html",
+        "css",
+        "ts",
+        "git",
+        "linux",
+        "python",
+        "docker",
+        "tailwindcss",
+        "js",
+        "nodejs",
+        "express",
     ]);
 
     function shuffleToolkit() {
@@ -132,12 +84,6 @@
 </h2>
 <div class="experience flex h-fit flex-wrap w-4/5 p-3 pl-0 gap-2">
     {#each toolkit as item, i}
-        <Exp
-            text={item.text}
-            icon={item.icon}
-            styles={item.styles}
-            delay="{i * 70}ms"
-            animName={currentAnim}
-        />
+        <Exp id={item} delay="{i * 70}ms" animName={currentAnim} />
     {/each}
 </div>
