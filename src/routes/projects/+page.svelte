@@ -18,6 +18,14 @@
             tech: ["svelte", "html", "css", "ts", "linux"],
         },
         {
+            name: "Latvian Pavilion",
+            description:
+                "Website of the Latvian Pavillion for the 19th International Architecture Exhibition",
+            link: "https://latvianpavilion.lv",
+            image: "/projects/latvianpavilion.png",
+            tech: ["html", "css", "js", "linux"],
+        },
+        {
             name: "upgrandtour.eu",
             description:
                 "Website of the european grand tour preservation project",
