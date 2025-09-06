@@ -63,6 +63,18 @@
         moveBack();
         showSelector = 1;
     });
+
+    const pageTitles = $state([
+        `${page.url.pathname === "/" ? "home" : page.url.pathname.slice(1)}.md`,
+        "Laura☾ | Pre1ude0",
+    ]);
+
+    let titleIndex = $state(0);
+    function updateTitle() {
+        titleIndex = (titleIndex + 1) % pageTitles.length;
+    }
+
+    setInterval(updateTitle, 4000);
 </script>
 
 <svelte:head>
@@ -76,6 +88,7 @@
     <meta name="theme-color" content="#db2777" />
     <meta name="site-button" content="https://pre1ude.dev/blankie.png" />
     <meta name="pride-flag" content="demigirl" />
+    <title>{pageTitles[titleIndex]}</title>
 </svelte:head>
 
 <div class="w-full flex items-start justify-center">
