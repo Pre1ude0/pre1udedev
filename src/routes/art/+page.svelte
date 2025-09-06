@@ -126,6 +126,10 @@
             }
         }
 
+        window.addEventListener("resize", runArrangeImages);
+        window.addEventListener("DOMContentLoaded", runArrangeImages);
+        window.addEventListener("load", runArrangeImages);
+
         return () => {
             window.removeEventListener("resize", runArrangeImages);
             window.removeEventListener("DOMContentLoaded", runArrangeImages);
