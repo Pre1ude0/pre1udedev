@@ -45,7 +45,7 @@
     ];
 </script>
 
-<div class="flex flex-col gap-8">
+<div class="flex flex-col gap-8 mt-3">
     {#each projects as p}
         <div
             class="flex relative flex-col gap-4 h-fit lg:h-80 w-full overflow-hidden rounded-2xl items-end justify-end bg-black group"

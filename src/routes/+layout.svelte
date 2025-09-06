@@ -10,7 +10,7 @@
     let { children } = $props();
     import "../app.css";
 
-    const items = ["Home", "Projects", "Links"];
+    const items = ["Home", "Projects", "Art", "Blog"];
     let showSelector: number = $state(0);
 
     let containerEl: HTMLElement;
