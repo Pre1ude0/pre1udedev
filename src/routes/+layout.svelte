@@ -55,19 +55,28 @@
         moveBack();
     }
 
-    let command: string = $state(
-        `glow ${page.url.pathname === "/" ? "home" : page.url.pathname.slice(1)}.md`,
+    let filename = $state(
+        page.url.pathname === "/"
+            ? "home.md"
+            : `${page.url.pathname.slice(1)}.md`,
     );
+    $effect(() => {
+        filename =
+            page.url.pathname === "/"
+                ? "home.md"
+                : `${page.url.pathname.slice(1)}.md`;
+        moveBack();
+    });
+    let command: string = $derived(`glow ${filename}`);
 
     onMount(() => {
         moveBack();
         showSelector = 1;
     });
 
-    const pageTitles = $state([
-        `${page.url.pathname === "/" ? "home" : page.url.pathname.slice(1)}.md`,
-        "Laura☾ | Pre1ude0",
-    ]);
+    const pageTitles = $derived([filename, "Laura☾ | Pre1ude0"]);
+    $inspect(filename);
+    $inspect(pageTitles);
 
     let titleIndex = $state(0);
     function updateTitle() {
