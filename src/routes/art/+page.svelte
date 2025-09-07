@@ -37,6 +37,7 @@
                 {
                     name: "Fade",
                     file: "fade.png",
+                    original: "chosofade.webp",
                     description: "Collab with my friend Kyu",
                     mentions: [{ text: "@kyuqdev", pos: [47, 87] }],
                 },
