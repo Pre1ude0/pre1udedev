@@ -154,7 +154,7 @@
                             class="w-full h-auto"
                             draggable="false"
                         />
-                        {#if media.original}
+                        {#if "original" in media && media.original}
                             <button
                                 class="peer group absolute w-6 h-6 top-2 right-2 z-20 bg-black/70 rounded-md px-1 py-0.5 text-zinc-300 cursor-grab active:cursor-grabbing"
                                 onclick={(event) => {
