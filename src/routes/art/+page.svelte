@@ -17,6 +17,12 @@
                 { name: "Mugshot", file: "mugshot.png" },
                 { name: "Sybau", file: "sybau.png" },
                 {
+                    name: "Simple gay lol",
+                    file: "simplegaylol.png",
+                    description: "A pinterest picture redrawn with our ocs",
+                    mentions: [{ text: "@simpleduck", pos: [88, 45] }],
+                },
+                {
                     name: "Fade",
                     file: "fade.png",
                     description: "Collab with my friend Kyu",
