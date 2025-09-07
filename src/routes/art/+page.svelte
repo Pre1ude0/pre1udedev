@@ -27,6 +27,14 @@
                     mentions: [{ text: "@simpleduck", pos: [88, 45] }],
                 },
                 {
+                    name: "Yo wtf...",
+                    file: "yowtf.png",
+                    original: "yowtf.jpg",
+                    description:
+                        "Artistic criticism of the absurdness of kanyes stunt",
+                    mentions: [{ text: "@kyuqdev", pos: [71, 55] }],
+                },
+                {
                     name: "Fade",
                     file: "fade.png",
                     description: "Collab with my friend Kyu",
@@ -137,12 +145,12 @@
                         href={`/art/${media.file}`}
                         target="_blank"
                         draggable="false"
+                        title={media.name}
                     >
                         <img
                             src={`/art/${media.file}`}
                             alt={`${character.name} - ${media.name}`}
                             class="w-full h-auto"
-                            title={media.name}
                             draggable="false"
                         />
                         {#if media.original}
