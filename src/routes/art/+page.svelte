@@ -1,6 +1,9 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import { preventDefault } from "svelte/legacy";
+    import { copyToClipboard } from "$lib/utils/copyToClipboard";
+    import { arrangeImages } from "$lib/utils/arrangeImages";
+    import Eye from "$lib/icons/Eye.svelte";
+    import EyeClosed from "$lib/icons/EyeClosed.svelte";
 
     const characters = $state([
         {
@@ -15,10 +18,11 @@
                 { name: "Pfp showcase", file: "pfpshowcase.png" },
                 { name: "Angels in camo", file: "angelsincamo.png" },
                 { name: "Mugshot", file: "mugshot.png" },
-                { name: "Sybau", file: "sybau.png" },
+                { name: "Sybau", original: "sybau.webp", file: "sybau.png" },
                 {
                     name: "Simple gay lol",
                     file: "simplegaylol.png",
+                    original: "matthewgaylol.png",
                     description: "A pinterest picture redrawn with our ocs",
                     mentions: [{ text: "@simpleduck", pos: [88, 45] }],
                 },
@@ -67,41 +71,6 @@
             ],
         },
     ]);
-
-    function arrangeImages(container: HTMLElement) {
-        const cards = container.querySelectorAll("a");
-
-        let columnCount = Math.ceil(container.clientWidth / 500);
-
-        const columns = Array(columnCount);
-
-        for (let i = 0; i < columnCount; i++) {
-            columns[i] = 0;
-        }
-
-        for (let card of cards) {
-            if (getComputedStyle(card).display !== "none") {
-                const currentColumn = columns.findIndex(
-                    (c) => c === Math.min(...columns),
-                );
-
-                card.style.left = (currentColumn * 100) / columnCount + "%";
-                card.style.top = columns[currentColumn] + "px";
-
-                card.style.width = `calc(${100 / columnCount}% - 20px)`;
-
-                const cardSize = card.getBoundingClientRect();
-                columns[currentColumn] += cardSize.height + 16;
-            }
-            container.style.height = Math.max(...columns) + "px";
-        }
-    }
-
-    function copyToClipboard(text: string) {
-        navigator.clipboard.writeText(text).catch((err) => {
-            console.error("Could not copy text: ", err);
-        });
-    }
 
     onMount(() => {
         function runArrangeImages() {
@@ -164,16 +133,40 @@
             <div class="relative w-full" id={character.name}>
                 {#each character.media as media}
                     <a
-                        class="cursor-pointer group absolute w-fit h-fit overflow-hidden hover:scale-105 transition-transform duration-200"
+                        class="cursor-pointer group absolute w-fit h-fit overflow-hidden hover:scale-105 transition-transform duration-200 select-none rounded-lg border border-zinc-700"
                         href={`/art/${media.file}`}
                         target="_blank"
+                        draggable="false"
                     >
                         <img
                             src={`/art/${media.file}`}
                             alt={`${character.name} - ${media.name}`}
-                            class="w-full h-auto rounded-lg border border-zinc-700"
+                            class="w-full h-auto"
                             title={media.name}
+                            draggable="false"
                         />
+                        {#if media.original}
+                            <button
+                                class="peer group absolute w-6 h-6 top-2 right-2 z-20 bg-black/70 rounded-md px-1 py-0.5 text-zinc-300 cursor-grab active:cursor-grabbing"
+                                onclick={(event) => {
+                                    event.preventDefault();
+                                }}
+                                title="Hold to peek original"
+                            >
+                                <Eye
+                                    styles="opacity-0 group-active:opacity-100 absolute top-[50%] left-[50%] translate-[-50%] w-4 aspect-square transition-opacity"
+                                />
+                                <EyeClosed
+                                    styles="opacity-100 group-active:opacity-0 absolute top-[50%] left-[50%] translate-[-50%] w-4 aspect-square transition-opacity"
+                                />
+                            </button>
+                            <img
+                                src={`/art/original/${media.original}`}
+                                alt="original media"
+                                class="absolute top-0 left-0 w-full h-full object-contain opacity-0 peer-active:opacity-100 transition-opacity z-10 bg-black/70"
+                                draggable="false"
+                            />
+                        {/if}
                         {#if media.mentions}
                             {#each media.mentions as mention}
                                 <button
