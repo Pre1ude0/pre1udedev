@@ -137,11 +137,16 @@
         window.addEventListener("load", runArrangeImages);
 
         return () => {
-            window.removeEventListener("resize", runArrangeImages);
-            window.removeEventListener("DOMContentLoaded", runArrangeImages);
-            window.removeEventListener("load", runArrangeImages);
-            observers.forEach((mo) => mo.disconnect());
-            resizeObservers.forEach((ro) => ro.disconnect());
+            if (document.readyState === "complete") {
+                window.removeEventListener("resize", runArrangeImages);
+                window.removeEventListener(
+                    "DOMContentLoaded",
+                    runArrangeImages,
+                );
+                window.removeEventListener("load", runArrangeImages);
+                observers.forEach((mo) => mo.disconnect());
+                resizeObservers.forEach((ro) => ro.disconnect());
+            }
         };
     });
 </script>
