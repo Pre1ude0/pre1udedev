@@ -1,11 +1,13 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+    import { onMount, tick } from "svelte";
+    import { slide } from "svelte/transition";
     import { copyToClipboard } from "$lib/utils/copyToClipboard";
     import { arrangeImages } from "$lib/utils/arrangeImages";
+    import type { Character } from "$lib/types/character";
     import Eye from "$lib/icons/Eye.svelte";
     import EyeClosed from "$lib/icons/EyeClosed.svelte";
 
-    const characters = $state([
+    const characters: Character[] = $state([
         {
             name: "Cry0",
             description: "My first character and fursona",
@@ -81,16 +83,40 @@
         },
     ]);
 
-    onMount(() => {
-        function runArrangeImages() {
-            for (let character of characters) {
-                const container = document.getElementById(character.name);
-                if (container) {
-                    arrangeImages(container);
-                }
+    function runArrangeImages() {
+        for (let char of characters) {
+            if (char.htmlEl) {
+                arrangeImages(char);
             }
         }
+    }
 
+    // Sequentially load images: wait for each to load before loading the next
+    async function loadImagesSequentially(character: Character) {
+        for (let media of character.media) {
+            media.load = true;
+            await tick();
+            arrangeImages(character);
+            if (media.imgEl) {
+                await media.imgEl.decode();
+                if (!media.imgEl.complete) {
+                    await new Promise((resolve) => {
+                        media.imgEl!.addEventListener("load", resolve, {
+                            once: true,
+                        });
+                        media.imgEl!.addEventListener("error", resolve, {
+                            once: true,
+                        });
+                    });
+                }
+                media.loaded = true;
+            }
+        }
+        await tick();
+        arrangeImages(character);
+    }
+
+    onMount(() => {
         // Observe container size changes and re-run arrangeImages
         const observers: MutationObserver[] = [];
         const resizeObservers: ResizeObserver[] = [];
@@ -108,6 +134,8 @@
                 ro.observe(container);
                 resizeObservers.push(ro);
             }
+
+            loadImagesSequentially(character);
         }
 
         window.addEventListener("resize", runArrangeImages);
@@ -139,62 +167,76 @@
                 {character.name}
             </h2>
             <p class="text-zinc-300 text-lg">{character.description}</p>
-            <div class="relative w-full" id={character.name}>
+            <div
+                class="relative w-full"
+                bind:this={character.htmlEl}
+                id={character.name}
+            >
                 {#each character.media as media}
-                    <a
-                        class="cursor-pointer group absolute w-fit h-fit overflow-hidden hover:scale-105 transition-transform duration-200 select-none rounded-lg border border-zinc-700"
-                        href={`/art/${media.file}`}
-                        target="_blank"
-                        draggable="false"
-                        title={media.name}
-                    >
-                        <img
-                            src={`/art/${media.file}`}
-                            alt={`${character.name} - ${media.name}`}
-                            class="w-full h-auto"
+                    {#if media.load}
+                        <a
+                            class="cursor-pointer group absolute overflow-hidden hover:scale-105 transition-transform duration-200 select-none rounded-lg
+                                {media.loaded ? 'border border-zinc-800' : ''}
+                                {media.loaded ? 'scale-100' : 'scale-0'}
+                                "
+                            href={`/art/${media.file}`}
+                            target="_blank"
                             draggable="false"
-                        />
-                        {#if "original" in media && media.original}
-                            <button
-                                class="peer group absolute w-6 h-6 top-2 right-2 z-20 bg-black/70 rounded-md px-1 py-0.5 text-zinc-300 cursor-grab active:cursor-grabbing"
-                                onclick={(event) => {
-                                    event.preventDefault();
-                                }}
-                                title="Hold to peek original"
-                            >
-                                <Eye
-                                    styles="opacity-0 group-active:opacity-100 absolute top-[50%] left-[50%] translate-[-50%] w-4 aspect-square transition-opacity"
-                                />
-                                <EyeClosed
-                                    styles="opacity-100 group-active:opacity-0 absolute top-[50%] left-[50%] translate-[-50%] w-4 aspect-square transition-opacity"
-                                />
-                            </button>
+                            title={media.name}
+                            style="aspect-ratio: {media.imgEl
+                                ? media.imgEl.naturalWidth /
+                                  media.imgEl.naturalHeight
+                                : 'auto'};
+                                "
+                        >
                             <img
-                                src={`/art/original/${media.original}`}
-                                alt="original media"
-                                class="absolute top-0 left-0 w-full h-full object-contain opacity-0 peer-active:opacity-100 transition-opacity z-10 bg-black/70"
+                                src={`/art/${media.file}`}
+                                alt={`${character.name} - ${media.name}`}
+                                class="w-full h-auto duration-500 bg-zinc-800"
                                 draggable="false"
+                                bind:this={media.imgEl}
                             />
-                        {/if}
-                        {#if media.mentions}
-                            {#each media.mentions as mention}
+                            {#if "original" in media && media.original}
                                 <button
-                                    class="absolute text-xs text-zinc-300 cursor-pointer
-                                    bg-black/70 rounded-md px-1 py-0.5 z-10 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition o"
-                                    style="
+                                    class="peer group absolute w-6 h-6 top-2 right-2 z-20 bg-black/70 rounded-md px-1 py-0.5 text-zinc-300 cursor-grab active:cursor-grabbing"
+                                    onclick={(event) => {
+                                        event.preventDefault();
+                                    }}
+                                    title="Hold to peek original"
+                                >
+                                    <Eye
+                                        styles="opacity-0 group-active:opacity-100 absolute top-[50%] left-[50%] translate-[-50%] w-4 aspect-square transition-opacity"
+                                    />
+                                    <EyeClosed
+                                        styles="opacity-100 group-active:opacity-0 absolute top-[50%] left-[50%] translate-[-50%] w-4 aspect-square transition-opacity"
+                                    />
+                                </button>
+                                <img
+                                    src={`/art/original/${media.original}`}
+                                    alt="original media"
+                                    class="absolute top-0 left-0 w-full h-full object-contain opacity-0 peer-active:opacity-100 transition-opacity z-10 bg-black/70"
+                                    draggable="false"
+                                />
+                            {/if}
+                            {#if media.mentions}
+                                {#each media.mentions as mention}
+                                    <button
+                                        class="absolute text-xs text-zinc-300 cursor-pointer
+                                    bg-black/70 rounded-md px-1 py-0.5 z-10 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition"
+                                        style="
                                         top: {mention.pos[1]}%;
                                         left: {mention.pos[0]}%;
                                         transform: translate(-50%, -50%);
                                     "
-                                    title="Click to copy"
-                                    onclick={() => {
-                                        event!.preventDefault();
-                                        copyToClipboard(mention.text);
-                                    }}
-                                >
-                                    <div
-                                        class="absolute -top-[5px] left-1/2 -translate-x-1/2"
-                                        style="
+                                        title="Click to copy"
+                                        onclick={() => {
+                                            event!.preventDefault();
+                                            copyToClipboard(mention.text);
+                                        }}
+                                    >
+                                        <div
+                                            class="absolute -top-[5px] left-1/2 -translate-x-1/2"
+                                            style="
                                             width: 0;
                                             height: 0;
                                             border-left: 5px solid transparent;
@@ -205,19 +247,20 @@
 
                                             /* yeah idk why I couldn't do this in tailwind :p */
                                         "
-                                    ></div>
-                                    <span>{mention.text}</span>
-                                </button>
-                            {/each}
-                        {/if}
-                        {#if media.description}
-                            <span
-                                class="absolute z-10 bottom-0 left-0 m-2 box-border opacity-0 -translate-x-10 translate-y-10 group-hover:translate-0 group-hover:opacity-100 transition bg-black/70 text-zinc-300 text-sm rounded-md px-2 py-1"
-                            >
-                                {media.description}
-                            </span>
-                        {/if}
-                    </a>
+                                        ></div>
+                                        <span>{mention.text}</span>
+                                    </button>
+                                {/each}
+                            {/if}
+                            {#if media.description}
+                                <span
+                                    class="absolute z-10 bottom-0 left-0 m-2 box-border opacity-0 -translate-x-10 translate-y-10 group-hover:translate-0 group-hover:opacity-100 transition bg-black/70 text-zinc-300 text-sm rounded-md px-2 py-1"
+                                >
+                                    {media.description}
+                                </span>
+                            {/if}
+                        </a>
+                    {/if}
                 {/each}
             </div>
         </div>

@@ -1,28 +1,30 @@
-export function arrangeImages(container: HTMLElement) {
-    const cards = container.querySelectorAll("a");
+import type { Character, Image } from "$lib/types/character";
 
-    let columnCount = Math.ceil(container.clientWidth / 500);
+export function arrangeImages(character: Character) {
+    if (character.htmlEl === undefined) return;
 
-    const columns = Array(columnCount);
+    const images = Array.from(character.media).filter(
+        (a) => (a as Image).load === true,
+    );
 
-    for (let i = 0; i < columnCount; i++) {
-        columns[i] = 0;
-    }
+    let columnCount = Math.ceil(character.htmlEl.clientWidth / 500);
 
-    for (let card of cards) {
-        if (getComputedStyle(card).display !== "none") {
-            const currentColumn = columns.findIndex(
-                (c) => c === Math.min(...columns),
-            );
+    const columns = Array(columnCount).fill(0);
 
-            card.style.left = (currentColumn * 100) / columnCount + "%";
-            card.style.top = columns[currentColumn] + "px";
+    for (let i of images) {
+        if (i.imgEl === undefined) continue;
 
-            card.style.width = `calc(${100 / columnCount}% - 20px)`;
+        const currentColumn = columns.findIndex(
+            (c) => c === Math.min(...columns),
+        );
 
-            const cardSize = card.getBoundingClientRect();
-            columns[currentColumn] += cardSize.height + 16;
-        }
-        container.style.height = Math.max(...columns) + "px";
+        i.imgEl.parentElement!.style.left =
+            (currentColumn * 100) / columnCount + "%";
+        i.imgEl.parentElement!.style.top = columns[currentColumn] + "px";
+        i.imgEl.parentElement!.style.width = `calc(${100 / columnCount}% - 20px)`;
+
+        const cardSize = i.imgEl.clientHeight;
+        columns[currentColumn] += cardSize + 16;
+        character.htmlEl.style.height = Math.max(...columns) + "px";
     }
 }

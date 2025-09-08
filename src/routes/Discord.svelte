@@ -5,7 +5,7 @@
     import { browser } from "$app/environment";
     import { PUBLIC_DISCORD_USER_ID } from "$env/static/public";
     import { getAvatarUrl, extractImageUrl } from "$lib/utils/helpers";
-    import type { LanyardPresence } from "$lib/interfaces/lanyard";
+    import type { LanyardPresence } from "$lib/types/lanyard";
 
     let banner = $state<string | null>(null);
 
