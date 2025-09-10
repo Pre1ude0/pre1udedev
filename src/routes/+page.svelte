@@ -1,5 +1,6 @@
 <script lang="ts">
     import Discord from "./Discord.svelte";
+    import Contact from "./Connections.svelte";
     import Webring from "./Webring.svelte";
     import Divider from "$lib/components/Divider.svelte";
     import Toolkit from "./Toolkit.svelte";
@@ -41,6 +42,8 @@
         My hobbies include creating and enjoying art and music, gaming, chess
         and, of course, software development.
     </p>
+    <Divider />
+    <Contact />
     <Divider />
     <Toolkit />
     <Divider />
