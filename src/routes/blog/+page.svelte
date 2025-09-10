@@ -4,7 +4,9 @@
     let { data }: { data: PageData } = $props();
 
     function timeAgo(dateString: string): string {
-        const date = new Date(dateString);
+        // Parse d/m/y format
+        const [day, month, year] = dateString.split("/").map(Number);
+        const date = new Date(year, month - 1, day);
         const now = new Date();
         // Set the date to 00:00:00 local time
         date.setHours(0, 0, 0, 0);
