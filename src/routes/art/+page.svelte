@@ -1,6 +1,5 @@
 <script lang="ts">
     import { onMount, tick } from "svelte";
-    import { slide } from "svelte/transition";
     import { copyToClipboard } from "$lib/utils/copyToClipboard";
     import { arrangeImages } from "$lib/utils/arrangeImages";
     import type { Character } from "$lib/types/character";

@@ -1,1 +1,1 @@
-<div class="w-full h-[1px] bg-zinc-700 mt-4 mb-4"></div>
+<div class="flex flex-1 h-[1px] bg-zinc-700 mt-4 mb-4"></div>
