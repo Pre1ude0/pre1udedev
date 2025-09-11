@@ -40,15 +40,19 @@
             <li class="w-full p-2">
                 <a
                     href={`/blog/${post.fields.slug}`}
-                    class="flex flex-row gap-2 items-center"
+                    class="flex flex-row gap-2 items-center justify-end group"
                 >
                     <h2
-                        class="text-zinc-100 text-2xl
-                        font-(family-name:--font-geist-mono)"
+                        class="text-zinc-100 text-2xl group-hover:ml-2 transition-all duration-150
+                        font-(family-name:--font-geist-mono) flex flex-row items-center gap-2"
                     >
                         {post.fields.title}
+                        <span class="text-zinc-500 text-lg">/</span>
+                        <span class="text-zinc-300 text-xl"
+                            >{post.filename}</span
+                        >
                     </h2>
-                    <span class="text-zinc-300 text-xl">/ {post.filename}</span>
+
                     <Divider />
 
                     <p
