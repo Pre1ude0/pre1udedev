@@ -40,13 +40,14 @@
 <ul>
     {#each contacts as contact}
         <li
-            class=" text-lg text-zinc-300 flex flex-row gap-2 items-center group pl-5"
+            class="text-lg text-zinc-300 flex flex-row gap-2 items-center group pl-5"
         >
             <i
                 class="nf {contact.icon} translate-x-0 group-hover:-translate-x-1 transition-transform duration-150"
             ></i>
             <a
                 href={contact.url}
+                target="_blank"
                 class="text-zinc-400 hover:text-zinc-200 transition-colors underline"
                 >{contact.name}</a
             >
