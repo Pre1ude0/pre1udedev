@@ -25,7 +25,7 @@
         },
         {
             name: "Mastodon",
-            url: "https://catgirl.central/@pre1ude0",
+            url: "https://catgirl.center/@pre1ude0",
             icon: "nf-md-cat",
         },
         {
