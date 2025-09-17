@@ -43,6 +43,18 @@
                     mentions: [{ text: "@kyuqdev", pos: [47, 87] }],
                 },
                 {
+                    name: "Baking diego into a cookie",
+                    file: "bakingdiego.png",
+                    original: "baking.jpg",
+                    mentions: [{ text: "@diegosterling", pos: [60, 50] }],
+                },
+                {
+                    name: "Baking Cry0 into a cookie",
+                    file: "bakingcry0.png",
+                    original: "baking.jpg",
+                    mentions: [{ text: "@diegosterling", pos: [35, 70] }],
+                },
+                {
                     name: "Jojo Pose",
                     file: "jojopose.png",
                     description:

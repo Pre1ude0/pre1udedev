@@ -13,6 +13,22 @@
     let command = $state("");
 </script>
 
+<svelte:head>
+    <title>{data.post.fields.title} - Pre1ude0</title>
+    <meta name="description" content={data.post.fields.description} />
+    <meta
+        property="og:title"
+        content={data.post.fields.title + " - Pre1ude0"}
+    />
+    <meta property="og:description" content={data.post.fields.description} />
+    <meta property="og:type" content="article" />
+    <meta
+        property="og:url"
+        content={"https://pre1ude.dev/blog/" + data.post.fields.slug}
+    />
+    <meta property="og:image" content="https://pre1ude.dev/og-image.png" />
+</svelte:head>
+
 <div class="flex flex-row gap-2 items-center justify-between m-2">
     <h1 class="text-4xl font-bold text-zinc-300">
         {data.post.fields.title}
