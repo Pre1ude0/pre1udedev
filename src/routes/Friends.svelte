@@ -64,7 +64,7 @@
         },
         {
             href: "https://5ee5.github.io/5ee5dev/",
-            src: "https://5ee5.github.io/5ee5dev/5ee5.png",
+            src: "https://5ee5.github.io/5ee5dev/assets/5ee5.png",
             alt: "5ee5.github.io",
             title: "error 505",
         },
