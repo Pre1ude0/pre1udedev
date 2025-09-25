@@ -13,7 +13,7 @@
             name: "Ring-amajig",
             description: "Yet another webring on the web",
             link: "https://ring.pre1ude.dev",
-            github: "Pre1ude0/ring-amajig",
+            github: "Pre1ude0/ringamajig",
             image: "/projects/ringamajig.png",
             tech: ["svelte", "html", "css", "ts", "linux"],
         },
