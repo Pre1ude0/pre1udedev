@@ -6,14 +6,26 @@
     import Toolkit from "./Toolkit.svelte";
     import Friends from "./Friends.svelte";
     import Referrer from "./Referrer.svelte";
+
+    let flags = ["trans", "demigirl", "aroace", "lesbian"];
+    let theGay: boolean = $state(Math.random() < 1 / 2);
+    let kindOfGay: string = $state(
+        flags[Math.floor(Math.random() * flags.length)],
+    );
 </script>
 
 <div class="max-w-[700px] p-2 text-white">
     <h1 class="text-5xl">
-        Hi! I'm <span
-            class="bg-linear-to-r text-transparent from-pink-300 to-pink-600 bg-clip-text font-bold"
-            >Laura</span
-        > - a memory leak in eyeliner.
+        Hi! I'm
+        <span
+            class="bg-clip-text text-transparent [-webkit-text-fill-color:transparent] bg-no-repeat inline-block font-bold"
+            style:background-image={theGay
+                ? `var(--${kindOfGay})`
+                : "linear-gradient(to right, #f9a8d4, #db2777)"}
+        >
+            Laura
+        </span>
+        - a memory leak in eyeliner.
     </h1>
     <p class="mt-4 text-lg text-zinc-300">
         Welcome to my page! I'm a full-stack freelance developer and student
