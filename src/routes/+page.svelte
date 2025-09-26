@@ -8,7 +8,7 @@
     import Referrer from "./Referrer.svelte";
 
     let flags = ["trans", "demigirl", "aroace", "lesbian"];
-    let theGay: boolean = $state(Math.random() < 1 / 2);
+    let theGay: boolean = $state(Math.random() < 1 / 50);
     let kindOfGay: string = $state(
         flags[Math.floor(Math.random() * flags.length)],
     );
