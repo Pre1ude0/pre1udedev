@@ -26,11 +26,11 @@ The server has already been placed in a stationary position on a shelf in my roo
 
 > (Have in mind that I have this funky issue with the family wifi where my whole setup randomly loses internet connection at a random time of day (this will be important in a minute))
 
-One day I kinda realize that my the fans of my server have been going crazy (like I can audibly hear it all times) for a while now and it's been also just running slow in general (like pages take a solid while to load up).
+One day I kinda realize that the fans of my server have been going crazy (like I can audibly hear it all times) for a while now and it's been also just running slow in general (like pages take a solid while to load up).
 At first I didn't really think much of it - it's never really been in my room before so I just naturally assumed it's always been running like this.
 
-One day I get genuinely curious of what kind of workload is the server handling that is sound like that
-I run `ps -aux` only to be greeted by MULTIPLE **WINDOWS** OF PUPPETEER MANAGED CHROME BROWSERS OPEN, just lingering there
+One day I get genuinely curious of what kind of workload is the server handling that makes it sound like that
+I proceed to run `ps -aux` only to be greeted by MULTIPLE **WINDOWS** OF PUPPETEER MANAGED CHROME BROWSERS OPEN, just lingering there
 
 #### fuck...
 
@@ -38,7 +38,7 @@ I end up [fixing the issue](https://github.com/Pre1ude0/ringamajig/commit/cf25e4
 
 I'm assuming that the previously mentioned wifi connection issue was at play here in some or another way via the code not reaching the `await browser.close()` block and leaving said browser open, just munching on valuable system resources
 
-So yeah my server didn't _really_ explode, but it was planning on doing that at some point or another
+So yeah my server didn't _actually_ explode, but it was planning on doing that at some point or another
 
 #### Moral of story: Make sure to always add some sort of process cleanup in your `catch` blocks
 
