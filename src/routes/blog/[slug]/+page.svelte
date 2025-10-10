@@ -49,7 +49,7 @@
             <button
                 class="hover:bg-zinc-800 transition peer p-1 cursor-pointer rounded-md"
                 onclick={() => goto(`${data.prev.fields.slug}`)}
-                title="Back to home"
+                title="Previous post"
                 onmouseenter={() => (command = "glow")}
                 onmouseleave={() => (command = "")}
             >
