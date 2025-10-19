@@ -97,6 +97,7 @@
     <meta name="theme-color" content="#db2777" />
     <meta name="site-button" content="https://pre1ude.dev/blankie.png" />
     <meta name="pride-flag" content="demigirl" />
+    <meta name="fediverse:creator" content="Pre1ude0@catgirl.center" />
     <title>{pageTitles[titleIndex]}</title>
 </svelte:head>
 
