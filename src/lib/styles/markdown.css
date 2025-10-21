@@ -199,6 +199,7 @@
     border-style: none;
     margin: var(--base-size-16) auto;
     max-width: 100%;
+    max-height: 80vh;
     border-radius: var(--borderRadius-medium);
     box-sizing: content-box;
     transform: scale(1);
@@ -434,6 +435,7 @@
     margin-top: 0;
     margin-bottom: 0;
     padding-left: 2em;
+    list-style: "- ";
 }
 
 .markdown-body ol ol,
