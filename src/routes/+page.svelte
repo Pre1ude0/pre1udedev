@@ -14,6 +14,13 @@
     );
 </script>
 
+<svelte:head>
+    <meta property="og:title" content="Laura☾" />
+    <meta property="og:url" content="https://pre1ude.dev" />
+    <meta property="og:image" content="https://pre1ude.dev/pre1ude.jpeg" />
+    <meta property="og:description" content="A memory leak in eyeliner" />
+</svelte:head>
+
 <div class="max-w-[700px] p-2 text-white">
     <h1 class="text-5xl">
         Hi! I'm

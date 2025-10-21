@@ -168,8 +168,23 @@
     });
 </script>
 
+<svelte:head>
+    <meta property="og:title" content="Art gallery - Laura☾" />
+    <meta property="og:url" content="https://pre1ude.dev/art" />
+    <meta property="og:image" content="https://pre1ude.dev/og-image.png" />
+    <meta
+        property="og:description"
+        content="A collection of art I've made featuring my characters and ocs."
+    />
+</svelte:head>
+
 <div class="flex flex-col gap-3 min-h-[100vh] p-2">
     <h1 class="text-6xl text-white mb-3">Art gallery</h1>
+    <p class="text-lg text-white mb-3">
+        For a bit of context: I started drawing very recently (end of summer
+        2025) and I still have a shit load to learn :]<br />
+        I do digital and a little bit of traditional alongside software development.
+    </p>
     {#each characters as character}
         <div class="flex flex-col gap-2">
             <h2

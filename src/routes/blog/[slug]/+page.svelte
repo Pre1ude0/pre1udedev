@@ -14,13 +14,12 @@
 </script>
 
 <svelte:head>
-    <title>{data.post.fields.title} - Pre1ude0</title>
-    <meta name="description" content={data.post.fields.description} />
+    <meta name="description" content="Lauras blogs" />
     <meta
         property="og:title"
         content={data.post.fields.title + " - Pre1ude0"}
     />
-    <meta property="og:description" content={data.post.fields.description} />
+    <meta property="og:description" content="Lauras blogs" />
     <meta property="og:type" content="article" />
     <meta
         property="og:url"

@@ -45,6 +45,21 @@
     ];
 </script>
 
+<svelte:head>
+    <meta
+        name="description"
+        content="A couple of my best projects I've worked on/am working on."
+    />
+    <meta property="og:title" content="Projects | Pre1ude0" />
+    <meta
+        property="og:description"
+        content="A couple of my best projects I've worked on/am working on."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pre1ude.dev/projects" />
+    <meta property="og:image" content="https://pre1ude.dev/og-image.png" />
+</svelte:head>
+
 <div class="flex flex-col gap-8 mt-3">
     {#each projects as p}
         <div
