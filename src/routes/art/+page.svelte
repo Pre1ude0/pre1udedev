@@ -102,6 +102,8 @@
         }
     }
 
+    let loadingIndicators = $state(Array(characters.length).fill(true));
+
     // Sequentially load images: wait for each to load before loading the next
     async function loadImagesSequentially(character: Character) {
         for (let media of character.media) {
@@ -123,6 +125,7 @@
                 media.loaded = true;
             }
         }
+        loadingIndicators[characters.indexOf(character)] = false;
         await tick();
         arrangeImages(character);
     }
@@ -185,7 +188,7 @@
         2025) and I still have a shit load to learn :]<br />
         I do digital and a little bit of traditional alongside software development.
     </p>
-    {#each characters as character}
+    {#each characters as character, i}
         <div class="flex flex-col gap-2">
             <h2
                 class="text-4xl text-zinc-100 font-(family-name:--font-geist-mono)"
@@ -290,5 +293,10 @@
                 {/each}
             </div>
         </div>
+        <span class="text-zinc-500 text-sm">
+            {#if loadingIndicators[i]}
+                Loading... (this might take a while on first visit)
+            {/if}
+        </span>
     {/each}
 </div>
