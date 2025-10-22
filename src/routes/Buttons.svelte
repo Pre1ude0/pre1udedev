@@ -1,12 +1,11 @@
 <script lang="ts">
-    import { fly } from "svelte/transition";
     let { buttons } = $props();
 </script>
 
 <div class="w-full flex flex-wrap gap-2 mt-4">
     {#each buttons as button, i}
         <a
-            href={button.href}
+            href={button.href ? button.href : null}
             target="_blank"
             rel="noopener noreferrer"
             title={button.title}
@@ -18,7 +17,8 @@
                 alt={button.alt}
                 width="88"
                 height="31"
-                class="border border-zinc-800"
+                class="border border-zinc-800 w-[88px] h-[31px] box-content"
+                style:image-rendering="pixelated"
             />
         </a>
     {/each}

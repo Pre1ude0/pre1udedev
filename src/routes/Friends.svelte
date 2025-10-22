@@ -101,6 +101,17 @@
             alt: "eightyeightthirty.one",
             title: "A 88x31 button network visualizer",
         },
+        {
+            src: "/buttons/cloudfree.png",
+            alt: "hosted on a computer",
+            title: "Host your stuff locally!!",
+        },
+        {
+            href: "https://svelte.dev",
+            src: "/buttons/madewithsveltekit.gif",
+            alt: "made with sveltekit",
+            title: "Svelte is fucking amazing",
+        },
     ];
 </script>
 
