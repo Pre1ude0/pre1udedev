@@ -3,6 +3,7 @@ title: "Laura does graffiti"
 date: "21/10/2025"
 slug: "graffiti-server"
 highlight: true
+thumbnail: "https://cdn.pre1ude.dev/blog/AsTu65sPrd0C.png"
 ---
 
 I kind of forgot I have a blog...

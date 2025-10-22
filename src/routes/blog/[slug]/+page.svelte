@@ -25,7 +25,7 @@
         property="og:url"
         content={"https://pre1ude.dev/blog/" + data.post.fields.slug}
     />
-    <meta property="og:image" content="https://pre1ude.dev/og-image.png" />
+    <meta property="og:image" content={data.post.fields.thumbnail} />
 </svelte:head>
 
 <div class="flex flex-row gap-2 items-center justify-between m-2">

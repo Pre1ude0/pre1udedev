@@ -3,6 +3,7 @@ title: "First blog post"
 date: "10/09/2025"
 slug: "first-post"
 highlight: true
+thumbnail: "https://cdn.pre1ude.dev/blog/EjXRPcjQTkj3.jpg"
 ---
 
 # Hi!
