@@ -28,8 +28,10 @@
     <meta property="og:image" content={data.post.fields.thumbnail} />
 </svelte:head>
 
-<div class="flex flex-row gap-2 items-center justify-between m-2">
-    <h1 class="text-4xl font-bold text-zinc-300">
+<div
+    class="flex flex-col-reverse md:flex-row gap-2 items-center justify-between m-2"
+>
+    <h1 class="text-4xl font-bold text-zinc-300 self-start">
         {data.post.fields.title}
     </h1>
 
@@ -39,7 +41,7 @@
     >
         {#if command}
             <span
-                class="text-zinc-500 font-normal pointer-events-none"
+                class="text-zinc-500 font-normal pointer-events-none md:block hidden"
                 transition:fly={{ duration: 150, x: -20 }}>{command}</span
             >
         {/if}

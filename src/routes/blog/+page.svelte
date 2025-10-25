@@ -37,18 +37,21 @@
     <h1 class="text-white text-6xl my-2">Blog</h1>
     <ul>
         {#each data.posts as post}
-            <li class="w-full p-2">
+            <li class="w-full p-2 border-zinc-700 border-b-1 md:border-b-0">
                 <a
                     href={`/blog/${post.fields.slug}`}
-                    class="flex flex-row gap-2 items-center justify-end group"
+                    class="flex flex-col md:flex-row gap-2 items-start justify-end group"
                 >
                     <h2
-                        class="text-zinc-100 text-2xl group-hover:ml-2 transition-all duration-150
-                        font-(family-name:--font-geist-mono) flex flex-row items-center gap-2"
+                        class="text-zinc-100 text-lg md:text-2xl group-hover:ml-2 transition-all duration-150
+                        font-(family-name:--font-geist-mono) flex flex-col md:flex-row items-start md:items-center gap-0 md:gap-2"
                     >
                         {post.fields.title}
-                        <span class="text-zinc-500 text-lg">/</span>
-                        <span class="text-zinc-300 text-xl"
+                        <span
+                            class="text-zinc-500 hidden md:inline-block text-lg"
+                            >/</span
+                        >
+                        <span class="text-zinc-300 text-md md:text-xl"
                             >{post.filename}</span
                         >
                     </h2>
@@ -56,7 +59,7 @@
                     <Divider />
 
                     <p
-                        class="text-zinc-300 font-(family-name:--font-geist-mono)"
+                        class="text-zinc-300 font-(family-name:--font-geist-mono) self-end"
                     >
                         {post.fields.date}
                         - {timeAgo(post.fields.date)}
