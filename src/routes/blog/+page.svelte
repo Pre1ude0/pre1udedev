@@ -59,7 +59,7 @@
                     <Divider />
 
                     <p
-                        class="text-zinc-300 font-(family-name:--font-geist-mono) self-end"
+                        class="text-zinc-300 font-(family-name:--font-geist-mono) self-end md:self-center"
                     >
                         {post.fields.date}
                         - {timeAgo(post.fields.date)}
