@@ -17,7 +17,16 @@
                     description: "Cry0 character sheet",
                 },
                 { name: "Pfp showcase", file: "pfpshowcase.png" },
-                { name: "Angels in camo", file: "angelsincamo.png" },
+                {
+                    name: "Angels in camo",
+                    file: "angelsincamo.png",
+                    description: "Art of Angels in Camo by Jane Remover",
+                },
+                {
+                    name: "D.A.N.C.E",
+                    file: "dance_final.png",
+                    description: "Art of D.A.N.C.E by Justice",
+                },
                 { name: "Mugshot", file: "mugshot.png" },
                 { name: "Sybau", original: "sybau.webp", file: "sybau.png" },
                 {
