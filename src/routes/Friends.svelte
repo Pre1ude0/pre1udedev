@@ -64,10 +64,10 @@
         },
         {
             href: "https://willascool.neocities.org",
-            src:"https://willascool.neocities.org/SapButton2.png",
+            src: "https://willascool.neocities.org/SapButton2.png",
             alt: "willascool.neocities.org",
             title: "Cool music person",
-        }
+        },
         {
             href: "https://5ee5.github.io/5ee5dev/",
             src: "https://5ee5.dev/5ee5.png",
