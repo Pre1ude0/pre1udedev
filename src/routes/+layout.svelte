@@ -97,6 +97,8 @@
     <title>{pageTitles[titleIndex]}</title>
 </svelte:head>
 
+<bg-filter></bg-filter>
+
 <div class="w-full flex items-start justify-center">
     <div class="w-full max-w-[1200px]">
         <div

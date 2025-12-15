@@ -1,6 +1,7 @@
 <script lang="ts">
     import Characters from "./Characters.svelte";
     import Music from "./Music.svelte";
+    import Highlight from "./Highlight.svelte";
     import { blur } from "svelte/transition";
 
     let section: "art" | "music" = $state("art");
@@ -32,13 +33,15 @@
     />
 </svelte:head>
 
+<Highlight />
+
 <div class="flex flex-col gap-3 min-h-[100vh] p-2 overflow-hidden">
     <h1 class="text-6xl text-white mb-3">Art gallery</h1>
     <p class="text-lg text-white mb-3">
         For a bit of context: I started drawing very recently (end of summer
         2025) and I still have a shit load to learn :]<br />
-        I do digital, a little bit of traditional and music production alongside
-        software development.
+        I do digital, a little bit of traditional and music production alongside software
+        development.
     </p>
     <div
         class="flex flex-row gap-2 relative selector-container group w-fit"
@@ -46,7 +49,7 @@
     >
         <button
             class="font-bold text-zinc-200 text-2xl cursor-pointer px-3 py-1 bg-transparent hover:bg-zinc-800 transition-all rounded-sm"
-            on:click={() => (section = "art")}
+            onclick={() => (section = "art")}
             aria-pressed={section === "art"}
             bind:this={artBtn}
         >
@@ -54,7 +57,7 @@
         </button>
         <button
             class="font-bold text-zinc-200 text-2xl cursor-pointer px-3 py-1 bg-transparent hover:bg-zinc-800 transition-all rounded-sm"
-            on:click={() => (section = "music")}
+            onclick={() => (section = "music")}
             aria-pressed={section === "music"}
             bind:this={musicBtn}
         >

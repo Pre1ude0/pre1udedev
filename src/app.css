@@ -47,11 +47,20 @@
 }
 
 body {
+    padding: 2rem;
+    min-height: 100vh;
     background: url("/background.png") no-repeat center center fixed;
+}
+
+bg-filter {
     background-size: cover;
     backdrop-filter: blur(5px);
-    min-height: 100vh;
-    padding: 2rem;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    top: 0;
+    left: 0;
 }
 
 @media screen and (max-width: 1200px) {
