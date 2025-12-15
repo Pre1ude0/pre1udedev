@@ -46,6 +46,11 @@
     );
 }
 
+:root {
+    scrollbar-color: var(--color-zinc-900) black;
+    scrollbar-width: thin;
+}
+
 body {
     padding: 2rem;
     min-height: 100vh;
