@@ -24,7 +24,7 @@ The app is also part of the [TNR (Trap, Neuter, Return)](https://streetcat.wiki/
 These feeders come equipped with three cameras: top, front (of the feeder) and back. Via the app you can then watch a livestream of said cameras. Not only that but you can also interact with the cats on the other side of the livestream by donating and seeing the food you've just purchased for the cat dispense in the bowl, and suddenly you’re way more willing to donate, because you literally see the food drop into the bowl for a cat you’ve accidentally fallen in love with (because who can resist the pleading look of a hungry cat).
 
 ### Comparison to other movements
-This, combined with social features like comment sections under each livestream, notifications when a cat appears at a feeder you follow, and a global donor leaderboard, in my opinion, immediately becomes way more appealing than the usual non-profit stray cat support movements promising change with more than 77,000+ active users on the platform.
+This, combined with social features like comment sections under each livestream, notifications when a cat appears at a feeder you follow, and a global donor leaderboard, in my opinion, immediately becomes way more appealing than the usual non-profit stray cat support movements promising change, especially when Purr has already more than 77,000+ active users on the platform.
 
 Currently the movement only has feeders in China, but they're branching out to America with the first feeders being deployed there at the time of writing.
 
