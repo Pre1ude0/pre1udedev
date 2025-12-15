@@ -55,10 +55,10 @@ body {
     padding: 2rem;
     min-height: 100vh;
     background: url("/background.png") no-repeat center center fixed;
+    background-size: cover;
 }
 
 bg-filter {
-    background-size: cover;
     backdrop-filter: blur(5px);
     position: fixed;
     width: 100%;
