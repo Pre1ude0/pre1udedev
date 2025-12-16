@@ -36,7 +36,7 @@
     ];
 </script>
 
-<h2 class="text-4xl mb-4">Contact me</h2>
+<h2 class="text-4xl mb-4">Socials:</h2>
 <ul>
     {#each contacts as contact}
         <li
