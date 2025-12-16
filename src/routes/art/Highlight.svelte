@@ -31,9 +31,8 @@
     style:visibility={visible ? "visible" : "hidden"}
     style:opacity={visible ? 1 : 0}
     style:blur={visible ? "0px" : "8px"}
-    role="img"
 >
-    <img
+    <enhanced:img
         src={`/art/highlights/${highlights[0].url}`}
         alt={highlights[0].alt}
         class="[filter:drop-shadow(2px_2px_0_white)_drop-shadow(-2px_-2px_0_white)]"

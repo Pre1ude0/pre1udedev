@@ -208,7 +208,7 @@
                             : 'auto'};
                                "
                     >
-                        <img
+                        <enhanced:img
                             src={`/art/${media.file}`}
                             alt={`${character.name} - ${media.name}`}
                             class="w-full h-auto duration-500 bg-zinc-800"
