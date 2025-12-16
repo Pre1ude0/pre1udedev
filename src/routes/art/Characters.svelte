@@ -5,6 +5,7 @@
     import { copyToClipboard } from "$lib/utils/copyToClipboard";
     import Eye from "$lib/icons/Eye.svelte";
     import EyeClosed from "$lib/icons/EyeClosed.svelte";
+    import { enhancedImages } from "$lib/assets/enhancedImage";
 
     const characters: Character[] = $state([
         {
@@ -139,6 +140,20 @@
         arrangeImages(character);
     }
 
+    for (const character of characters) {
+        for (const media of character.media) {
+            media.fileEnhanced =
+                enhancedImages[`/src/lib/assets/art/${media.file}`];
+
+            if (media.original) {
+                media.originalEnhanced =
+                    enhancedImages[
+                        `/src/lib/assets/art/original/${media.original}`
+                    ];
+            }
+        }
+    }
+
     onMount(() => {
         // Observe container size changes and re-run arrangeImages
         const observers: MutationObserver[] = [];
@@ -209,7 +224,7 @@
                                "
                     >
                         <enhanced:img
-                            src={`/art/${media.file}`}
+                            src={media.fileEnhanced ? media.fileEnhanced : ""}
                             alt={`${character.name} - ${media.name}`}
                             class="w-full h-auto duration-500 bg-zinc-800"
                             draggable="false"
@@ -230,9 +245,11 @@
                                     styles="opacity-100 group-active:opacity-0 absolute top-[50%] left-[50%] translate-[-50%] w-4 aspect-square transition-opacity"
                                 />
                             </button>
-                            <img
-                                src={`/art/original/${media.original}`}
-                                alt="original media"
+                            <enhanced:img
+                                src={media.originalEnhanced
+                                    ? media.originalEnhanced
+                                    : ""}
+                                alt="original/reference"
                                 class="absolute top-0 left-0 w-full h-full object-contain opacity-0 peer-active:opacity-100 transition-opacity z-10 bg-black/70"
                                 draggable="false"
                             />

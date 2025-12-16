@@ -61,9 +61,9 @@
         }}
     >
         {#if visible}
-            <Eye />
+            <Eye styles />
         {:else}
-            <EyeClosed />
+            <EyeClosed styles />
         {/if}
     </button>
 </div>

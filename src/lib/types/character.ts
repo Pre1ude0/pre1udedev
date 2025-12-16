@@ -6,8 +6,10 @@ export interface Mention {
 export interface Image {
     name: string;
     file: string;
+    fileEnhanced?: string;
     description?: string;
     original?: string;
+    originalEnhanced?: string;
     mentions?: Mention[];
     imgEl?: HTMLImageElement;
     load?: boolean;

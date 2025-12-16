@@ -1,12 +1,13 @@
 <script lang="ts">
     import Exp from "$lib/components/ExperienceBox.svelte";
+    import { enhancedImages } from "$lib/assets/enhancedImage";
 
     const projects = [
         {
             name: "Sampling.lv",
             description: "Website of the Sampling Design office",
             link: "https://sampling.lv",
-            image: "/projects/sampling.png",
+            image: "sampling.png",
             tech: ["express", "nodejs", "html", "css", "js"],
         },
         {
@@ -14,7 +15,7 @@
             description: "Yet another webring on the web",
             link: "https://ring.pre1ude.dev",
             github: "Pre1ude0/ringamajig",
-            image: "/projects/ringamajig.png",
+            image: "ringamajig.png",
             tech: ["svelte", "html", "css", "ts", "linux"],
         },
         {
@@ -22,7 +23,7 @@
             description:
                 "Website of the Latvian Pavillion for the 19th International Architecture Exhibition",
             link: "https://latvianpavilion.lv",
-            image: "/projects/latvianpavilion.png",
+            image: "latvianpavilion.png",
             tech: ["html", "css", "js", "linux"],
         },
         {
@@ -30,7 +31,7 @@
             description:
                 "Website of the european grand tour preservation project",
             link: "https://upgrandtour.eu",
-            image: "/projects/upgrandt.png",
+            image: "upgrandt.png",
             tech: ["express", "nodejs", "html", "css", "js"],
         },
         {
@@ -39,10 +40,15 @@
                 "A hobby project discord bot. Developed when I was learning the basic ropes of development",
             link: "https://insermius.pre1ude.dev",
             github: "insermius-dev/insermius-bot",
-            image: "/projects/insermius.png",
+            image: "insermius.png",
             tech: ["python"],
         },
     ];
+
+    for (const project of projects) {
+        project.image =
+            enhancedImages[`/src/lib/assets/projects/${project.image}`];
+    }
 </script>
 
 <svelte:head>
