@@ -20,7 +20,7 @@
         },
         {
             name: "Bsky",
-            url: "https://bsky.app/profile/pre1ude0.at.fent.space",
+            url: "https://bsky.app/profile/pre1ude.dev",
             icon: "nf-fae-butterfly",
         },
         {
