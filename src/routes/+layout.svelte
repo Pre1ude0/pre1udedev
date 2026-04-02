@@ -1,138 +1,97 @@
 <script lang="ts">
-    import favicon from "$lib/assets/favicon.ico";
-    import Moon from "$lib/icons/Moon.svelte";
-    import CmdPrompt from "./CmdPrompt.svelte";
-    import { tweened } from "svelte/motion";
-    import { page } from "$app/state";
-    import { cubicOut } from "svelte/easing";
-    import { onMount } from "svelte";
-
-    let { children } = $props();
     import "../app.css";
+    let { children } = $props();
+    import { onMount } from "svelte";
+    let screenWidth = $state(0);
 
-    const items = ["Home", "Projects", "Art", "Blog"];
-    let showSelector: number = $state(0);
+    function updateScreenWidth() {
+        screenWidth = window.innerWidth;
+    }
 
-    let containerEl: HTMLElement;
-    const left = tweened(0, { duration: 200, easing: cubicOut });
-    const width = tweened(0, { duration: 200, easing: cubicOut });
+    onMount(() => {
+        updateScreenWidth();
+        window.addEventListener("resize", updateScreenWidth);
+        return () => {
+            window.removeEventListener("resize", updateScreenWidth);
+        };
+    });
+</script>
 
-    function moveBack() {
-        if (!containerEl) return;
-        const activeItem = Array.from(containerEl.children).find(
-            (child) =>
-                child instanceof HTMLAnchorElement &&
-                (child as HTMLAnchorElement).getAttribute("href") ===
-                    `/${page.url.pathname === "/" ? "" : page.url.pathname.slice(1)}`,
-        ) as HTMLElement;
-        if (activeItem) {
-            const rect = activeItem.getBoundingClientRect();
-            const crect = containerEl.getBoundingClientRect();
-            left.set(rect.left - crect.left);
-            width.set(rect.width);
-        } else {
-            showSelector = 0;
+<div class="flex justify-center align-start pt-4 w-full">
+    {@render children()}
+</div>
+
+<div class="flex flex-1"></div>
+
+<!-- TODO: Redo this with canvas for performance -->
+<div
+    class="w-full bottom-0 left-0 relative flex flex-row justify-evenly items-end h-[200px] overflow-hidden"
+>
+    {#each Array(Math.floor(screenWidth / 50)) as _, i}
+        <div class="w-0 relative">
+            <div
+                class="w-[60px] bg-linear-to-t from-stone-900 to-black absolute bottom-0 left-0 -translate-x-1/2 shadow-2xl shadow-black"
+                style:height={`${Math.random() * 150 + 50}px`}
+                style:z-index={Math.floor(Math.random() * 3) + 1}
+            >
+                <!-- style:animation={`riseAndFall ${Math.random() * 2 + 10}s ease-in-out ${Math.random() * -100}s infinite`} -->
+                <div
+                    class="grid grid-cols-3 grid-rows-4 items-start gap-[4px] pt-2 p-[5px] h-fit w-full"
+                >
+                    {#each Array(26) as _, j}
+                        <div
+                            class="box-border mix-blend-difference w-full aspect-square
+                        {Math.random() < 0.3
+                                ? 'bg-transparent'
+                                : 'bg-white/90'}"
+                        ></div>
+                    {/each}
+                </div>
+            </div>
+        </div>
+    {/each}
+    <div
+        class="absolute bottom-0 left-0 w-full h-20 bg-linear-to-t/longer from-black to-transparent pointer-events-none"
+    ></div>
+</div>
+
+<div class="crt fixed inset-0 pointer-events-none z-10 opacity-80"></div>
+
+<style>
+    @keyframes scanline {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 0 -4px;
         }
     }
 
-    function activate(e: MouseEvent) {
-        const target = e.currentTarget as HTMLElement;
-        if (!containerEl) return;
-        showSelector = 1;
-        const rect = target.getBoundingClientRect();
-        const crect = containerEl.getBoundingClientRect();
-        left.set(rect.left - crect.left);
-        width.set(rect.width);
+    @keyframes -global-riseAndFall {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(50%);
+        }
+        100% {
+            transform: translateY(0);
+        }
     }
 
-    function handleMouseLeave(e: MouseEvent) {
-        if (
-            e.relatedTarget instanceof Node &&
-            containerEl.contains(e.relatedTarget)
-        )
-            return;
+    .crt {
+        /*background: contain repeat
+            linear-gradient(to top, #000000, #000000, #333333, #333333);
+        background-size: 100% 2px;*/
 
-        moveBack();
+        background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.2) 0%,
+            rgba(0, 0, 0, 0.2) 50%,
+            transparent 50%,
+            transparent 100%
+        );
+        background-size: 100% 4px;
+        animation: scanline 0.5s linear infinite;
     }
-
-    let filename = $state(
-        page.url.pathname === "/"
-            ? "home.md"
-            : `${page.url.pathname.slice(1)}.md`,
-    );
-    $effect(() => {
-        filename =
-            page.url.pathname === "/"
-                ? "home.md"
-                : `${page.url.pathname.slice(1)}.md`;
-        moveBack();
-    });
-    let command: string = $derived(`glow ${filename}`);
-
-    onMount(() => {
-        moveBack();
-        showSelector = 1;
-    });
-
-    const pageTitles = $derived([filename, "Laura☾ | Pre1ude0"]);
-    $inspect(filename);
-    $inspect(pageTitles);
-
-    let titleIndex = $state(0);
-    function updateTitle() {
-        titleIndex = (titleIndex + 1) % pageTitles.length;
-    }
-
-    setInterval(updateTitle, 4000);
-</script>
-
-<svelte:head>
-    <link rel="icon" href={favicon} />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="pre1ude.dev" />
-    <meta name="theme-color" content="#db2777" />
-    <meta name="site-button" content="https://pre1ude.dev/blankie.png" />
-    <meta name="pride-flag" content="demigirl" />
-    <meta name="fediverse:creator" content="Pre1ude0@catgirl.center" />
-    <title>{pageTitles[titleIndex]}</title>
-</svelte:head>
-
-<bg-filter></bg-filter>
-
-<div class="w-full flex items-start justify-center">
-    <div class="w-full max-w-[1200px]">
-        <div
-            class="w-full h-fit bg-zinc-900 border-b border-zinc-800 flex gap-4 items-center px-4 rounded-2xl mb-6"
-        >
-            <Moon styles="text-zinc-300 w-6" />
-            <nav
-                bind:this={containerEl}
-                onmouseleave={handleMouseLeave}
-                class="relative flex gap-2 text-white h-full select-none items-center"
-            >
-                <div
-                    class="absolute top-1/2 -translate-y-1/2 bg-zinc-800/70 rounded-md pointer-events-none transition-opacity duration-150 h-3/4"
-                    style="
-                        left: {$left}px;
-                        width: {$width}px;
-                        opacity: {showSelector};
-                    "
-                ></div>
-
-                {#each items as label}
-                    <a
-                        href="/{label === 'Home' ? '' : label.toLowerCase()}"
-                        class="relative z-10 px-3 p-3 cursor-pointer rounded-md text-xl font-medium hover:text-zinc-100 text-zinc-300 transition-colors duration-150"
-                        onmouseenter={activate}
-                        onclick={() => {
-                            command = `glow ${label.toLowerCase()}.md`;
-                        }}
-                    >
-                        {label}
-                    </a>
-                {/each}
-            </nav>
-        </div>
-        <CmdPrompt {command} {children} />
-    </div>
-</div>
+</style>
