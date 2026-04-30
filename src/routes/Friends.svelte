@@ -2,22 +2,28 @@
     import Buttons from "./Buttons.svelte";
     const friends = [
         {
-            href: "https://simpleduck.neocities.org/",
-            src: "https://simpleduck.neocities.org/stupididiotthing.png",
-            alt: "simpleduck.neocities.org",
-            title: "Shrimple my beloved",
+            href: "https://volkgrid.world",
+            src: "https://volkgrid.world/button.png",
+            alt: "volkgrid.world",
+            title: "This guy is by definition better than me at video games"
         },
         {
             href: "https://kyuqdev.pages.dev",
             src: "https://kyuqdev.pages.dev/referer/banner.png",
             alt: "kyuqdev.pages.dev",
-            title: "Nyaboom :3",
+            title: "My day 1 and ex boyfriend :3",
         },
         {
             href: "https://nyatalie.fyi",
             src: "https://nyatalie.fyi/nat88x31.png",
             alt: "nyatalie.fyi",
             title: "Nyataliewiewiewie",
+        },
+        {
+            href: "https://simpleduck.neocities.org/",
+            src: "https://simpleduck.neocities.org/stupididiotthing.png",
+            alt: "simpleduck.neocities.org",
+            title: "Woke gay person who likes very specific music",
         },
         {
             href: "https://uwu.gal/about-us",
@@ -61,12 +67,6 @@
             src: "https://dvop.fyi/images/frank.png",
             alt: "dvop.fyi",
             title: "Go tell him that his site is awesome",
-        },
-        {
-            href: "https://willascool.neocities.org",
-            src: "https://willascool.neocities.org/SapButton2.png",
-            alt: "willascool.neocities.org",
-            title: "Cool music person",
         },
         {
             href: "https://5ee5.github.io/5ee5dev/",
