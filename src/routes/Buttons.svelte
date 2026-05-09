@@ -2,14 +2,14 @@
     let { buttons } = $props();
 </script>
 
-<div class="w-full flex flex-wrap gap-2 mt-4">
+<div class="w-full flex flex-wrap gap-1 mt-4">
     {#each buttons as button, i}
         <a
             href={button.href ? button.href : null}
             target="_blank"
             rel="noopener noreferrer"
             title={button.title}
-            class="hover:-translate-y-1/10 transition-transform"
+            class="border-2 border-transparent hover:border-gray-200 transition-transform"
             style="animation-delay: {i * 100}ms"
         >
             <img

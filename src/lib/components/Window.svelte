@@ -1,51 +1,65 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import Discord from "../../routes/Discord.svelte";
-    let titleBarElement: HTMLElement;
-    let isDragging = $state(false);
-    let { children, initialX = 20, initialY = 20 } = $props();
-    let x = $state(100);
-    let y = $state(100);
+    import { fly } from "svelte/transition";
+    import { cubicOut } from "svelte/easing";
 
-    onMount(() => {
-        const handleMouseMove = (event) => {
-            if (isDragging) {
-                x = event.clientX - initialX;
-                y = event.clientY - initialY;
-            }
-        };
+    type Props = {
+        command?: string;
+        path?: string;
+        width?: number | string;
+        height?: number | string;
+    };
 
-        const handleMouseUp = () => {
-            isDragging = false;
-            document.removeEventListener("mousemove", handleMouseMove);
-            document.removeEventListener("mouseup", handleMouseUp);
-        };
+    let {
+        children,
+        command = "neofetch",
+        path = "~",
+        width = 420,
+        height = "auto",
+    }: Props & { children: any } = $props();
 
-        const handleMouseDown = (event) => {
-            isDragging = true;
-            initialX = event.clientX - x;
-            initialY = event.clientY - y;
-            document.addEventListener("mousemove", handleMouseMove);
-            document.addEventListener("mouseup", handleMouseUp);
-        };
+    let el: HTMLDivElement | null = $state(null);
 
-        titleBarElement.addEventListener("mousedown", handleMouseDown);
-    });
+    function px(v: number | string): string {
+        return typeof v === "number" ? `${v}px` : v;
+    }
 </script>
 
 <div
-    class="bg-zinc-950 h-100 w-[700px] absolute border border-zinc-700 flex flex-row justify-between items-start gap-4 p-3 pt-10
-    {isDragging ? 'select-none' : ''}"
-    style:top={`${y}px`}
-    style:left={`${x}px`}
+    bind:this={el}
+    id="target"
+    class="z-100 left-0 top-0 box-border overflow-hidden border border-white/10 bg-black/80 text-white/90 shadow-[0_30px_90px_rgba(0,0,0,0.55),0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur-[10px]"
+    style:width={px(width)}
+    style:height={px(height)}
+    style:animation-delay={`${Math.random() * 1}s`}
 >
-    <div
-        class="absolute top-0 left-0 w-full bg-zinc-100 px-2 border-b border-zinc-300"
-        bind:this={titleBarElement}
-    >
-        Pre1ude0
+    <div class="prompt">
+        <span class="font-mono ml-1">[laura {path}]$ {command}</span>
     </div>
-    <div>
+
+    <div
+        class="content p-3 max-h-[min(70vh,720px)] overflow-auto [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.16)_rgba(255,255,255,0.06)] [&::-webkit-scrollbar]:h-[10px] [&::-webkit-scrollbar]:w-[10px] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:border-2 [&::-webkit-scrollbar-thumb]:border-transparent [&::-webkit-scrollbar-thumb]:bg-white/15 [&::-webkit-scrollbar-thumb]:bg-clip-padding [&::-webkit-scrollbar-track]:bg-white/5"
+    >
         {@render children()}
     </div>
 </div>
+
+<style>
+    @keyframes slideIn {
+        from {
+            transform: translateY(20px);
+            filter: blur(10px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            filter: blur(0);
+            opacity: 1;
+        }
+    }
+
+    #target {
+        opacity: 0;
+        animation: slideIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+</style>
