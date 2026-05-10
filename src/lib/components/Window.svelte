@@ -27,39 +27,19 @@
 
 <div
     bind:this={el}
-    id="target"
-    class="z-100 left-0 top-0 box-border overflow-hidden border border-white/10 bg-black/80 text-white/90 shadow-[0_30px_90px_rgba(0,0,0,0.55),0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur-[10px]"
+    class="relative flex flex-col z-100 left-0 top-0 box-border overflow-hidden border border-white/10 bg-black/80 text-white/90 shadow-[0_30px_90px_rgba(0,0,0,0.55),0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur-[10px]"
     style:width={px(width)}
     style:height={px(height)}
     style:animation-delay={`${Math.random() * 1}s`}
+    in:fly={{ y: 40, duration: 400, easing: cubicOut }}
 >
     <div class="prompt">
         <span class="font-mono ml-1">[laura {path}]$ {command}</span>
     </div>
 
     <div
-        class="content p-3 max-h-[min(70vh,720px)] overflow-auto [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.16)_rgba(255,255,255,0.06)] [&::-webkit-scrollbar]:h-[10px] [&::-webkit-scrollbar]:w-[10px] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:border-2 [&::-webkit-scrollbar-thumb]:border-transparent [&::-webkit-scrollbar-thumb]:bg-white/15 [&::-webkit-scrollbar-thumb]:bg-clip-padding [&::-webkit-scrollbar-track]:bg-white/5"
+        class="grow content p-3 overflow-auto [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.16)_rgba(255,255,255,0.06)] [&::-webkit-scrollbar]:h-[10px] [&::-webkit-scrollbar]:w-[10px] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:border-2 [&::-webkit-scrollbar-thumb]:border-transparent [&::-webkit-scrollbar-thumb]:bg-white/15 [&::-webkit-scrollbar-thumb]:bg-clip-padding [&::-webkit-scrollbar-track]:bg-white/5"
     >
         {@render children()}
     </div>
 </div>
-
-<style>
-    @keyframes slideIn {
-        from {
-            transform: translateY(20px);
-            filter: blur(10px);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(0);
-            filter: blur(0);
-            opacity: 1;
-        }
-    }
-
-    #target {
-        opacity: 0;
-        animation: slideIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
-</style>

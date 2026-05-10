@@ -17,15 +17,14 @@
     });
 </script>
 
-<div class="flex justify-center align-start pt-4 w-full">
+<div class="flex flex-col w-screen min-h-screen items-center">
     {@render children()}
 </div>
-
-<div class="flex flex-1"></div>
+<div class="flex grow"></div>
 
 <!-- TODO: Redo this with canvas for performance -->
 <div
-    class="w-full bottom-0 left-0 relative flex flex-row justify-evenly items-end h-[200px] overflow-hidden"
+    class="w-full relative flex flex-row justify-evenly items-end h-[200px] overflow-hidden"
 >
     {#each Array(Math.floor(screenWidth / 50)) as _, i}
         <div class="w-0 relative">
