@@ -51,7 +51,6 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://pre1ude.dev/dev" />
-    <meta property="og:image" content="https://pre1ude.dev/og-image.png" />
 </svelte:head>
 
 <div class="flex flex-col items-center justify-center p-4 gap-6 max-w-[1200px]">

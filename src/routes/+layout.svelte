@@ -1,4 +1,6 @@
 <script lang="ts">
+    import favicon from "$lib/assets/favicon.ico";
+    import favicon_png from "$lib/assets/favicon.png";
     import "../app.css";
     let { children } = $props();
     import { onMount } from "svelte";
@@ -16,6 +18,13 @@
         };
     });
 </script>
+
+<svelte:head>
+    <link rel="icon" href={favicon} />
+    <link rel="icon" type="image/png" href={favicon_png} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:image" content="https://pre1ude.dev/ogimg.png" />
+</svelte:head>
 
 <div class="flex flex-col w-screen min-h-screen items-center">
     {@render children()}
