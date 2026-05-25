@@ -6,7 +6,7 @@
             href: "https://volkgrid.world",
             src: "https://volkgrid.world/button.png",
             alt: "volkgrid.world",
-            title: "This guy is by definition better than me at video games"
+            title: "This guy is by definition better than me at video games",
         },
         {
             href: "https://kyuqdev.pages.dev",
@@ -125,3 +125,5 @@
 <Buttons buttons={friends} />
 <Divider />
 <Buttons buttons={coolButtons} />
+
+<a class="text-sm hover:underline" href="#blankie">Add me to your page?</a>

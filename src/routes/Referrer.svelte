@@ -2,6 +2,8 @@
     import "$lib/styles/prettify.css";
     import { onMount } from "svelte";
     import { addCopyButtons, applyPrettyPrint } from "$lib/utils/copyButton";
+    import { page } from "$app/state";
+    import Window from "$lib/components/Window.svelte";
 
     let buttons = [
         {
@@ -29,20 +31,33 @@
     let previews: Array<string> = [];
     let currentPreview: number = $state(0);
 
-    onMount(async () => {
-        for (let i = 0; i < buttons.length; i++) {
-            await fetch(buttons[i].snippet)
-                .then((res) => res.text())
-                .then((text) => {
-                    previews.push(text);
-                });
-        }
+    async function loadPreviews() {
+        previews = [];
+        const texts = await Promise.all(
+            buttons.map((b) => fetch(b.snippet).then((res) => res.text())),
+        );
+        previews.push(...texts);
 
         const pre = document.getElementById("preview");
         if (!pre) return;
 
-        applyPrettyPrint(pre, previews[0] || "");
+        applyPrettyPrint(pre, previews[currentPreview] || previews[0] || "");
         addCopyButtons(pre);
+    }
+
+    onMount(() => {
+        // initial load
+        loadPreviews();
+
+        // re-run whenever the URL hash changes
+        const onHashChange = () => {
+            loadPreviews();
+        };
+        window.addEventListener("hashchange", onHashChange);
+
+        return () => {
+            window.removeEventListener("hashchange", onHashChange);
+        };
     });
 
     function switchPreview(index: number) {
@@ -61,46 +76,24 @@
     ></script>
 </svelte:head>
 
-<div class="w-full h-fit flex flex-col items-start gap-3 mt-5">
-    <h3 class="text-2xl">My buttons</h3>
-    <div class="flex items-start gap-3">
-        <button
-            onclick={() => switchPreview(0)}
-            title={"Show latest snippet"}
-            class="relative hover:-translate-y-1/10 transition-transform cursor-pointer group"
-        >
-            <img
-                src={buttons[0].src}
-                alt={buttons[0].alt}
-                width="88"
-                height="31"
-                class="{0 == currentPreview
-                    ? 'border-green-300'
-                    : 'border-zinc-800'} border transition-colors"
-            />
-            <span
-                class="opacity-0 text-zinc-300 font-(family-name:--font-geist-mono) -z-10 absolute -bottom-6 left-1/2 -translate-x-[50%] group-hover:opacity-100 transition-all duration-200 ease-out -translate-y-4 group-hover:translate-y-0"
-                style="display: inline-block;"
-            >
-                latest
-            </span>
-        </button>
-        <div class="h-4 w-[2px] bg-zinc-700 mt-2"></div>
-        <div class="flex flex-wrap gap-3">
-            {#each buttons as button, i}
-                {#if i != 0}
+{#if page.url.hash === "#blankie"}
+    <div
+        class="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center gap-3 z-200"
+    >
+        <Window width={700} command="glow ref.md">
+            <div class="w-full h-fit flex flex-col items-start gap-3">
+                <div class="flex items-start gap-3">
                     <button
-                        onclick={() => switchPreview(i)}
-                        title={"Show " + button.alt + " snippet"}
+                        onclick={() => switchPreview(0)}
+                        title={"Show latest snippet"}
                         class="relative hover:-translate-y-1/10 transition-transform cursor-pointer group"
-                        style="animation-delay: {i * 100}ms; "
                     >
                         <img
-                            src={button.src}
-                            alt={button.alt}
+                            src={buttons[0].src}
+                            alt={buttons[0].alt}
                             width="88"
                             height="31"
-                            class="{i == currentPreview
+                            class="{0 == currentPreview
                                 ? 'border-green-300'
                                 : 'border-zinc-800'} border transition-colors"
                         />
@@ -108,13 +101,43 @@
                             class="opacity-0 text-zinc-300 font-(family-name:--font-geist-mono) -z-10 absolute -bottom-6 left-1/2 -translate-x-[50%] group-hover:opacity-100 transition-all duration-200 ease-out -translate-y-4 group-hover:translate-y-0"
                             style="display: inline-block;"
                         >
-                            {button.alt}
+                            latest
                         </span>
                     </button>
-                {/if}
-            {/each}
-        </div>
-    </div>
-</div>
+                    <div class="h-4 w-[2px] bg-zinc-700 mt-2"></div>
+                    <div class="flex flex-wrap gap-3">
+                        {#each buttons as button, i}
+                            {#if i != 0}
+                                <button
+                                    onclick={() => switchPreview(i)}
+                                    title={"Show " + button.alt + " snippet"}
+                                    class="relative hover:-translate-y-1/10 transition-transform cursor-pointer group"
+                                    style="animation-delay: {i * 100}ms; "
+                                >
+                                    <img
+                                        src={button.src}
+                                        alt={button.alt}
+                                        width="88"
+                                        height="31"
+                                        class="{i == currentPreview
+                                            ? 'border-green-300'
+                                            : 'border-zinc-800'} border transition-colors"
+                                    />
+                                    <span
+                                        class="opacity-0 text-zinc-300 font-(family-name:--font-geist-mono) -z-10 absolute -bottom-6 left-1/2 -translate-x-[50%] group-hover:opacity-100 transition-all duration-200 ease-out -translate-y-4 group-hover:translate-y-0"
+                                        style="display: inline-block;"
+                                    >
+                                        {button.alt}
+                                    </span>
+                                </button>
+                            {/if}
+                        {/each}
+                    </div>
+                </div>
+            </div>
 
-<pre class="prettyprint lang-html" id="preview"></pre>
+            <pre class="prettyprint lang-html" id="preview"></pre>
+            <a href="/" class="self-end hover:underline text-sm">Go back</a>
+        </Window>
+    </div>
+{/if}
