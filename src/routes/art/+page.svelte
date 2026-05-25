@@ -10,7 +10,7 @@
     <meta property="og:image" content="https://pre1ude.dev/og-image.png" />
     <meta
         property="og:description"
-        content="A collection of art I've made featuring my characters and ocs."
+        content="An art gallery of art made by and for me"
     />
 </svelte:head>
 

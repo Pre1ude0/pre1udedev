@@ -27,7 +27,7 @@
 
 <div
     bind:this={el}
-    class="relative flex flex-col z-100 left-0 top-0 box-border overflow-hidden border border-white/10 bg-black/80 text-white/90 shadow-[0_30px_90px_rgba(0,0,0,0.55),0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur-[10px]"
+    class="relative flex flex-col z-100 hover:z-101 left-0 top-0 box-border overflow-visible border border-white/10 bg-black/80 text-white/90 shadow-[0_30px_90px_rgba(0,0,0,0.55),0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur-[10px]"
     style:width={px(width)}
     style:height={px(height)}
     style:animation-delay={`${Math.random() * 1}s`}
@@ -38,7 +38,7 @@
     </div>
 
     <div
-        class="grow content p-3 overflow-auto [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.16)_rgba(255,255,255,0.06)] [&::-webkit-scrollbar]:h-[10px] [&::-webkit-scrollbar]:w-[10px] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:border-2 [&::-webkit-scrollbar-thumb]:border-transparent [&::-webkit-scrollbar-thumb]:bg-white/15 [&::-webkit-scrollbar-thumb]:bg-clip-padding [&::-webkit-scrollbar-track]:bg-white/5"
+        class="relative grow content p-3 overflow-visible [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.16)_rgba(255,255,255,0.06)]"
     >
         {@render children()}
     </div>

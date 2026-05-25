@@ -2,6 +2,7 @@
     import type { PageData } from "./$types";
     import Divider from "$lib/components/Divider.svelte";
     let { data }: { data: PageData } = $props();
+    import Window from "$lib/components/Window.svelte";
 
     function timeAgo(dateString: string): string {
         // Parse d/m/y format
@@ -33,39 +34,43 @@
     }
 </script>
 
-<main>
-    <h1 class="text-white text-6xl my-2">Blog</h1>
-    <ul>
-        {#each data.posts as post}
-            <li class="w-full p-2 border-zinc-700 border-b-1 md:border-b-0">
-                <a
-                    href={`/blog/${post.fields.slug}`}
-                    class="flex flex-col md:flex-row gap-2 items-start justify-end group"
-                >
-                    <h2
-                        class="text-zinc-100 text-lg md:text-2xl group-hover:ml-2 transition-all duration-150
-                        font-(family-name:--font-geist-mono) flex flex-col md:flex-row items-start md:items-center gap-0 md:gap-2"
+<div
+    class="flex flex-row flex-wrap items-start justify-center gap-6 w-full p-10"
+>
+    <Window width={"100%"} command="ls -l blog">
+        <h1 class="text-white text-6xl my-2">Blog</h1>
+        <ul>
+            {#each data.posts as post}
+                <li class="w-full p-2 border-zinc-700 border-b-1 md:border-b-0">
+                    <a
+                        href={`/blog/${post.fields.slug}`}
+                        class="flex flex-col md:flex-row gap-2 items-start justify-end group"
                     >
-                        {post.fields.title}
-                        <span
-                            class="text-zinc-500 hidden md:inline-block text-lg"
-                            >/</span
+                        <h2
+                            class="text-zinc-100 text-lg md:text-2xl group-hover:ml-2 transition-all duration-150
+                        font-geist-mono flex flex-col md:flex-row items-start md:items-center gap-0 md:gap-2"
                         >
-                        <span class="text-zinc-300 text-md md:text-xl"
-                            >{post.filename}</span
+                            {post.fields.title}
+                            <span
+                                class="text-zinc-500 hidden md:inline-block text-lg"
+                                >/</span
+                            >
+                            <span class="text-zinc-300 text-md md:text-xl"
+                                >{post.filename}</span
+                            >
+                        </h2>
+
+                        <div class="grow"></div>
+
+                        <p
+                            class="text-zinc-300 font-(family-name:--font-geist-mono) self-end md:self-center"
                         >
-                    </h2>
-
-                    <Divider />
-
-                    <p
-                        class="text-zinc-300 font-(family-name:--font-geist-mono) self-end md:self-center"
-                    >
-                        {post.fields.date}
-                        - {timeAgo(post.fields.date)}
-                    </p>
-                </a>
-            </li>
-        {/each}
-    </ul>
-</main>
+                            {post.fields.date}
+                            - {timeAgo(post.fields.date)}
+                        </p>
+                    </a>
+                </li>
+            {/each}
+        </ul>
+    </Window>
+</div>

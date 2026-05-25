@@ -5,10 +5,10 @@
 
 @theme {
     --font-mono: "Courier Prime", monospace;
+    --font-geist-mono: "Geist Mono", monospace;
 }
 
 :root {
-    --font-geist-mono: "Geist Mono", monospace;
     --trans: linear-gradient(
         90deg,
         #5bcefa,
@@ -48,7 +48,7 @@
 }
 
 body {
-    @apply bg-white text-black min-h-screen flex flex-col;
+    @apply bg-white text-black min-h-screen flex flex-col relative [&::-webkit-scrollbar]:h-[10px] [&::-webkit-scrollbar]:w-[10px] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:border-2 [&::-webkit-scrollbar-thumb]:border-transparent [&::-webkit-scrollbar-thumb]:bg-white/15 [&::-webkit-scrollbar-thumb]:bg-clip-padding [&::-webkit-scrollbar-track]:bg-white/5;
 }
 
 :root {
@@ -92,4 +92,44 @@ body {
         left 0.15s var(--overshoot),
         right 0.15s var(--overshoot),
         bottom 0.15s var(--overshoot);
+}
+
+:root {
+    --tw-column-rule-style: solid;
+}
+
+@theme {
+    --column-rule-style-solid: solid;
+    --column-rule-style-dashed: dashed;
+    --column-rule-style-dotted: dotted;
+    --column-rule-style-double: double;
+    --column-rule-style-none: none;
+    --column-fill-auto: auto;
+    --column-fill-balance: balance;
+    --column-fill-all: all;
+    --column-count-span-none: none;
+    --column-count-span-all: all;
+}
+@utility col-count-* {
+    column-count: --value(integer);
+}
+@utility col-gap-* {
+    column-gap: --spacing(--value(integer));
+}
+@utility col-w-* {
+    column-width: --spacing(--value(integer));
+}
+@utility col-rule-* {
+    column-rule-style: var(--tw-column-rule-style);
+    column-rule-color: --value(--color);
+    column-rule-width: calc(--value(integer) * 1px);
+    column-rule-style: --value(--column-rule-style-*);
+}
+@utility col-fill-* {
+    column-fill: --value(--column-fill-*);
+}
+
+/* Specific name with "col-count" prefix to avoid collision with grid-column utilities */
+@utility col-span-* {
+    column-span: --value(--column-count-span-*);
 }

@@ -13,14 +13,13 @@
         such file or directory
     </p> -->
 
-    <Window width={600} command={`cd ${page.url.pathname.slice(1)}`}>
+    <Window width={600} command={`echo $ERROR && exit 1`}>
         <div class="flex flex-col items-center justify-center pb-4">
             <h1 class="text-[10rem] font-bold font-geist-mono">
                 {page.status}
             </h1>
             <p class="text-3xl text-center">
-                cd: <strong>{page.url.pathname.slice(1)}</strong>: No such file
-                or directory
+                {page.error?.message}
             </p>
         </div>
     </Window>

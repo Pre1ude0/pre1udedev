@@ -9,8 +9,6 @@
         description: string;
     };
 
-    let selected: Art | null = $state(null);
-
     const arts = [
         {
             file: "newdesign.jpg",
@@ -48,14 +46,16 @@
                 "Fanart of the sona of my friend <a class='underline' href='https://volkgrid.world' target='_blank'>Volkgrid</a>",
         },
     ];
+
+    let selected: Art | null = $state(arts[0] || null);
 </script>
 
 <div class="flex flex-row gap-1 h-full w-full overflow-auto">
     <div class="flex flex-col justify-between h-full w-120">
-        <div class="flex flex-col items-start gap-1 w-full h-fit">
+        <div class="flex flex-col items-start gap-1 w-full h-2/3">
             {#each arts as art}
                 <button
-                    class="flex flex-col justify-end gap-2 p-3 w-full h-20 hover:h-40 transition-all duration-200 bg-center bg-cover group cursor-pointer"
+                    class="flex flex-col justify-end gap-2 p-3 w-full flex-1 hover:flex-2 transition-all duration-200 bg-center bg-cover group cursor-pointer"
                     style={`background-image: url("${enhancedImages[`art/${art.file}`]}"); background-position: 0% ${art.bannerPos}%;`}
                     aria-label={art.name}
                     onclick={() => (selected = art)}

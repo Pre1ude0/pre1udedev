@@ -1,6 +1,6 @@
 <script lang="ts">
     import Discord from "./Discord.svelte";
-    import Contact from "./Connections.svelte";
+    import Links from "./Links.svelte";
     import Webring from "./Webring.svelte";
     import Divider from "$lib/components/Divider.svelte";
     import Toolkit from "./Toolkit.svelte";
@@ -59,21 +59,26 @@
             <span class="font-mono">{timeFromBirth}</span>
             year old student, web dev and artist from Belgium.
         </p>
-        <a
-            href="/art"
-            class="border text-xl leading-0 border-gray-200 hover:bg-gray-200 hover:text-black inline-block p-1 font-mono"
-            >art <Folder />
-        </a>
-        <a
-            href="/dev"
-            class="border text-xl leading-0 border-gray-200 hover:bg-gray-200 hover:text-black inline-block p-1 font-mono"
-            >dev <Folder /></a
-        >
-        <a
-            href="/blog"
-            class="border text-xl leading-0 border-gray-200 hover:bg-gray-200 hover:text-black inline-block p-1 font-mono"
-            >blogs <Folder /></a
-        >
+        <h1 class="text-2xl text-zinc-300 mt-6 mb-1">More by me</h1>
+        <div class="flex flex-row items-start gap-1 flex-wrap">
+            <a
+                href="/art"
+                class="border text-xl leading-0 border-gray-200 hover:bg-gray-200 hover:text-black inline-block p-1 font-mono"
+                >art <Folder />
+            </a>
+            <a
+                href="/dev"
+                class="border text-xl leading-0 border-gray-200 hover:bg-gray-200 hover:text-black inline-block p-1 font-mono"
+                >dev <Folder /></a
+            >
+            <a
+                href="/blog"
+                class="border text-xl leading-0 border-gray-200 hover:bg-gray-200 hover:text-black inline-block p-1 font-mono"
+                >blogs <Folder /></a
+            >
+        </div>
+        <h1 class="text-xl text-zinc-300 mt-6 mb-1">On the outer-web</h1>
+        <Links />
     </Window>
     <Window width={500} command="dvm run stable">
         <Discord />
