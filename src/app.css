@@ -1,13 +1,14 @@
 @import "https://www.nerdfonts.com/assets/css/webfont.css";
 @import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import "tailwindcss";
 
 @theme {
-    --breakpoint-lg: calc(1200px + 2 * 2rem);
+    --font-mono: "Courier Prime", monospace;
+    --font-geist-mono: "Geist Mono", monospace;
 }
 
 :root {
-    --font-geist-mono: "Geist Mono", monospace;
     --trans: linear-gradient(
         90deg,
         #5bcefa,
@@ -46,30 +47,89 @@
     );
 }
 
-:root {
-    scrollbar-color: var(--color-zinc-900) black;
-    scrollbar-width: thin;
-}
-
 body {
-    padding: 2rem;
-    min-height: 100vh;
-    background: url("/background.png") no-repeat center center fixed;
-    background-size: cover;
+    @apply bg-white text-black min-h-screen flex flex-col relative [&::-webkit-scrollbar]:h-[10px] [&::-webkit-scrollbar]:w-[10px] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:border-2 [&::-webkit-scrollbar-thumb]:border-transparent [&::-webkit-scrollbar-thumb]:bg-white/15 [&::-webkit-scrollbar-thumb]:bg-clip-padding [&::-webkit-scrollbar-track]:bg-white/5;
 }
 
-bg-filter {
-    backdrop-filter: blur(5px);
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    z-index: -1;
-    top: 0;
-    left: 0;
+:root {
+    --link: #bb86fc;
+    --overshoot: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --bg: #121212;
 }
 
-@media screen and (max-width: 1200px) {
-    body {
-        padding: 1rem !important;
+.ringamajig {
+    border-radius: 0.25em;
+    text-indent: 0;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--link);
+    transition:
+        transform 0.15s var(--overshoot),
+        color 0.3s ease-out;
+}
+.ringamajig:hover {
+    transform: translateY(-2px);
+    &::after {
+        opacity: 1;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
+}
+
+.ringamajig:after {
+    opacity: 0;
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    right: 50%;
+    left: 50%;
+    height: 2px;
+    background-color: var(--link);
+    transition:
+        opacity 0.15s ease-out,
+        left 0.15s var(--overshoot),
+        right 0.15s var(--overshoot),
+        bottom 0.15s var(--overshoot);
+}
+
+:root {
+    --tw-column-rule-style: solid;
+}
+
+@theme {
+    --column-rule-style-solid: solid;
+    --column-rule-style-dashed: dashed;
+    --column-rule-style-dotted: dotted;
+    --column-rule-style-double: double;
+    --column-rule-style-none: none;
+    --column-fill-auto: auto;
+    --column-fill-balance: balance;
+    --column-fill-all: all;
+    --column-count-span-none: none;
+    --column-count-span-all: all;
+}
+@utility col-count-* {
+    column-count: --value(integer);
+}
+@utility col-gap-* {
+    column-gap: --spacing(--value(integer));
+}
+@utility col-w-* {
+    column-width: --spacing(--value(integer));
+}
+@utility col-rule-* {
+    column-rule-style: var(--tw-column-rule-style);
+    column-rule-color: --value(--color);
+    column-rule-width: calc(--value(integer) * 1px);
+    column-rule-style: --value(--column-rule-style-*);
+}
+@utility col-fill-* {
+    column-fill: --value(--column-fill-*);
+}
+
+/* Specific name with "col-count" prefix to avoid collision with grid-column utilities */
+@utility col-span-* {
+    column-span: --value(--column-count-span-*);
 }

@@ -1,5 +1,6 @@
 <script lang="ts">
     import Buttons from "./Buttons.svelte";
+    import Divider from "$lib/components/Divider.svelte";
     const friends = [
         {
             href: "https://volkgrid.world",
@@ -69,7 +70,7 @@
             title: "Go tell him that his site is awesome",
         },
         {
-            href: "https://5ee5.github.io/5ee5dev/",
+            href: "https://5ee5.dev",
             src: "https://5ee5.dev/5ee5.png",
             alt: "5ee5.github.io",
             title: "error 505",
@@ -121,7 +122,6 @@
     ];
 </script>
 
-<h2 class="text-3xl mt-5">Friends:</h2>
 <Buttons buttons={friends} />
-<h2 class="text-2xl mt-5">Other cool sites/buttons I've found on the web:</h2>
+<Divider />
 <Buttons buttons={coolButtons} />

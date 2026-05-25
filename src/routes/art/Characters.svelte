@@ -8,100 +8,100 @@
     import { enhancedImages } from "$lib/assets/enhancedImage";
 
     const characters: Character[] = $state([
-        {
-            name: "Cry0",
-            description: "My first character and fursona",
-            media: [
-                {
-                    name: "Cry0",
-                    file: "cry0.png",
-                    description: "Cry0 character sheet",
-                },
-                { name: "Pfp showcase", file: "pfpshowcase.png" },
-                {
-                    name: "Angels in camo",
-                    file: "angelsincamo.png",
-                    description: "Art of Angels in Camo by Jane Remover",
-                },
-                {
-                    name: "D.A.N.C.E",
-                    file: "dance_final.png",
-                    description: "Art of D.A.N.C.E by Justice",
-                },
-                { name: "Mugshot", file: "mugshot.png" },
-                { name: "Sybau", original: "sybau.webp", file: "sybau.png" },
-                {
-                    name: "Simple gay lol",
-                    file: "simplegaylol.png",
-                    original: "matthewgaylol.png",
-                    description: "A pinterest picture redrawn with our ocs",
-                    mentions: [{ text: "@simpleduck", pos: [88, 45] }],
-                },
-                {
-                    name: "Yo wtf...",
-                    file: "yowtf.png",
-                    original: "yowtf.jpg",
-                    description:
-                        "Artistic criticism of the absurdness of kanyes stunt",
-                    mentions: [{ text: "@kyuqdev", pos: [71, 55] }],
-                },
-                {
-                    name: "Fade",
-                    file: "fade.png",
-                    original: "chosofade.webp",
-                    description: "Collab with my friend Kyu",
-                    mentions: [{ text: "@kyuqdev", pos: [47, 87] }],
-                },
-                {
-                    name: "Baking diego into a cookie",
-                    file: "bakingdiego.png",
-                    original: "baking.jpg",
-                    mentions: [{ text: "@diegosterling", pos: [60, 50] }],
-                },
-                {
-                    name: "Baking Cry0 into a cookie",
-                    file: "bakingcry0.png",
-                    original: "baking.jpg",
-                    mentions: [{ text: "@diegosterling", pos: [35, 70] }],
-                },
-                {
-                    name: "Jojo Pose",
-                    file: "jojopose.png",
-                    description:
-                        "An unfinished collab that I spent way too much time on",
-                },
-            ],
-        },
-        {
-            name: "Other characters/ocs",
-            description: "Fan art I've made of other ocs/characters",
-            media: [
-                {
-                    name: "Simple filling out a job application",
-                    file: "simplejobapplication.jpg",
-                    description:
-                        "My friends oc filling out a job application, also my first official piece",
-                    mentions: [{ text: "@simpleduck", pos: [38, 57] }],
-                },
-                {
-                    name: "Volkgrid crashout",
-                    file: "volkgridcrashout.png",
-                    description:
-                        "My version of the furry trauma meme with my and my friends ocs instead",
-                    mentions: [
-                        { text: "Cry0", pos: [30, 70] },
-                        { text: "@simpleduck", pos: [50.5, 72] },
-                        { text: "@volkgrid", pos: [72, 50] },
-                    ],
-                },
-                {
-                    name: "Alex the Hoarder",
-                    file: "alexthehoarder.jpg",
-                    description:
-                        "Fanart of Alex the Hoarder from Ena: dream bbq",
-                },
-            ],
-        },
+        // {
+        //     name: "Cry0",
+        //     description: "My first character and fursona",
+        //     media: [
+        //         {
+        //             name: "Cry0",
+        //             file: "cry0.png",
+        //             description: "Cry0 character sheet",
+        //         },
+        //         { name: "Pfp showcase", file: "pfpshowcase.png" },
+        //         {
+        //             name: "Angels in camo",
+        //             file: "angelsincamo.png",
+        //             description: "Art of Angels in Camo by Jane Remover",
+        //         },
+        //         {
+        //             name: "D.A.N.C.E",
+        //             file: "dance_final.png",
+        //             description: "Art of D.A.N.C.E by Justice",
+        //         },
+        //         { name: "Mugshot", file: "mugshot.png" },
+        //         { name: "Sybau", original: "sybau.webp", file: "sybau.png" },
+        //         {
+        //             name: "Simple gay lol",
+        //             file: "simplegaylol.png",
+        //             original: "matthewgaylol.png",
+        //             description: "A pinterest picture redrawn with our ocs",
+        //             mentions: [{ text: "@simpleduck", pos: [88, 45] }],
+        //         },
+        //         {
+        //             name: "Yo wtf...",
+        //             file: "yowtf.png",
+        //             original: "yowtf.jpg",
+        //             description:
+        //                 "Artistic criticism of the absurdness of kanyes stunt",
+        //             mentions: [{ text: "@kyuqdev", pos: [71, 55] }],
+        //         },
+        //         {
+        //             name: "Fade",
+        //             file: "fade.png",
+        //             original: "chosofade.webp",
+        //             description: "Collab with my friend Kyu",
+        //             mentions: [{ text: "@kyuqdev", pos: [47, 87] }],
+        //         },
+        //         {
+        //             name: "Baking diego into a cookie",
+        //             file: "bakingdiego.png",
+        //             original: "baking.jpg",
+        //             mentions: [{ text: "@diegosterling", pos: [60, 50] }],
+        //         },
+        //         {
+        //             name: "Baking Cry0 into a cookie",
+        //             file: "bakingcry0.png",
+        //             original: "baking.jpg",
+        //             mentions: [{ text: "@diegosterling", pos: [35, 70] }],
+        //         },
+        //         {
+        //             name: "Jojo Pose",
+        //             file: "jojopose.png",
+        //             description:
+        //                 "An unfinished collab that I spent way too much time on",
+        //         },
+        //     ],
+        // },
+        // {
+        //     name: "Other characters/ocs",
+        //     description: "Fan art I've made of other ocs/characters",
+        //     media: [
+        //         {
+        //             name: "Simple filling out a job application",
+        //             file: "simplejobapplication.jpg",
+        //             description:
+        //                 "My friends oc filling out a job application, also my first official piece",
+        //             mentions: [{ text: "@simpleduck", pos: [38, 57] }],
+        //         },
+        //         {
+        //             name: "Volkgrid crashout",
+        //             file: "volkgridcrashout.png",
+        //             description:
+        //                 "My version of the furry trauma meme with my and my friends ocs instead",
+        //             mentions: [
+        //                 { text: "Cry0", pos: [30, 70] },
+        //                 { text: "@simpleduck", pos: [50.5, 72] },
+        //                 { text: "@volkgrid", pos: [72, 50] },
+        //             ],
+        //         },
+        //         {
+        //             name: "Alex the Hoarder",
+        //             file: "alexthehoarder.jpg",
+        //             description:
+        //                 "Fanart of Alex the Hoarder from Ena: dream bbq",
+        //         },
+        //     ],
+        // },
     ]);
 
     function runArrangeImages() {

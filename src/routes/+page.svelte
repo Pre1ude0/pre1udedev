@@ -1,11 +1,28 @@
 <script lang="ts">
     import Discord from "./Discord.svelte";
-    import Contact from "./Connections.svelte";
+    import Links from "./Links.svelte";
     import Webring from "./Webring.svelte";
     import Divider from "$lib/components/Divider.svelte";
     import Toolkit from "./Toolkit.svelte";
     import Friends from "./Friends.svelte";
     import Referrer from "./Referrer.svelte";
+    import Window from "$lib/components/Window.svelte";
+    import { onMount } from "svelte";
+    import Folder from "$lib/icons/Folder.svelte";
+
+    const birthDate = new Date("2008-1-26");
+
+    function age() {
+        const now = new Date();
+        const ageInMs = now.getTime() - birthDate.getTime();
+        return ageInMs / (1000 * 60 * 60 * 24 * 365.25);
+    }
+
+    let timeFromBirth = $state(age().toFixed(8));
+
+    setInterval(() => {
+        timeFromBirth = age().toFixed(8);
+    }, 2000);
 
     let flags = ["trans", "demigirl", "aroace", "lesbian"];
     let theGay: boolean = $state(Math.random() < 1 / 50);
@@ -21,97 +38,65 @@
     <meta property="og:description" content="A memory leak in eyeliner" />
 </svelte:head>
 
-<div class="max-w-[700px] p-2 text-white">
-    <h1 class="text-5xl">
-        Hi! I'm
-        <span
-            class="bg-clip-text text-transparent [-webkit-text-fill-color:transparent] bg-no-repeat inline-block font-bold"
-            style:background-image={theGay
-                ? `var(--${kindOfGay})`
-                : "linear-gradient(to right, #f9a8d4, #db2777)"}
-        >
-            Laura
-        </span>
-        - a memory leak in eyeliner.
-    </h1>
-    <p class="mt-4 text-lg text-zinc-300">
-        Welcome to my page! I'm a full-stack freelance developer and student
-        based in 🇧🇪 Belgium. You may know me from my other projects such as
-        <span class="bg-(--bg) pl-2 pr-2 pb-1 pt-1 rounded-md">
-            <a
-                class="ringamajig"
-                href="https://ring.pre1ude.dev"
-                target="_blank"
-                rel="noopener noreferrer">Ring-amajig</a
+<div
+    class="flex flex-row flex-wrap items-center justify-center gap-6 max-w-[1200px] p-10"
+>
+    <Window width={500} command="whoami">
+        <h1 class="text-4xl text-white">
+            Hi! I'm
+            <span
+                class="bg-clip-text text-transparent [-webkit-text-fill-color:transparent] bg-no-repeat inline-block font-bold"
+                style:background-image={theGay
+                    ? `var(--${kindOfGay})`
+                    : "linear-gradient(to right, #f9a8d4, #db2777)"}
             >
-        </span>
-        and
-        <span class="bg-white pl-1 pr-1 pb-0.5 pt-0.5">
+                Laura
+            </span>
+            - a memory leak in eyeliner.
+        </h1>
+        <p class="my-4 text-lg text-zinc-100">
+            I'm a{Math.floor(Number(timeFromBirth)) === 18 ? "n" : ""}
+            <span class="font-mono">{timeFromBirth}</span>
+            year old student, web dev and artist from Belgium.
+        </p>
+        <h1 class="text-2xl text-zinc-300 mt-6 mb-1">More by me</h1>
+        <div class="flex flex-row items-start gap-1 flex-wrap">
             <a
-                class="text-black underline"
-                href="https://sampling.lv"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                sampling.lv
+                href="/art"
+                class="border text-xl leading-0 border-gray-200 hover:bg-gray-200 hover:text-black inline-block p-1 font-mono"
+                >art <Folder />
             </a>
-        </span>
-    </p>
-    <p class="mt-4 text-lg text-zinc-300">
-        My hobbies include creating and enjoying art and music, gaming, chess
-        and, of course, software development.
-    </p>
-    <Divider />
-    <Contact />
-    <Divider />
-    <Toolkit />
-    <Divider />
-    <Friends />
-    <Divider />
-    <Referrer />
+            <a
+                href="/dev"
+                class="border text-xl leading-0 border-gray-200 hover:bg-gray-200 hover:text-black inline-block p-1 font-mono"
+                >dev <Folder /></a
+            >
+            <a
+                href="/blog"
+                class="border text-xl leading-0 border-gray-200 hover:bg-gray-200 hover:text-black inline-block p-1 font-mono"
+                >blogs <Folder /></a
+            >
+        </div>
+        <h1 class="text-xl text-zinc-300 mt-6 mb-1">On the outer-web</h1>
+        <Links />
+    </Window>
+    <Window width={500} command="dvm run stable">
+        <Discord />
+    </Window>
+    <Window width={500} command="icat friends/*">
+        <Friends />
+    </Window>
+
+    <Window width={350} command="curl ring.pre1ude.dev">
+        <Webring />
+    </Window>
+
+    <!-- <span class="bg-(--bg) pl-2 pr-2 pb-1 pt-1 rounded-md">
+    <a
+        class="ringamajig"
+        href="https://ring.pre1ude.dev"
+        target="_blank"
+        rel="noopener noreferrer">Ring-amajig</a
+    >
+    </span> -->
 </div>
-
-<style>
-    :root {
-        --link: #bb86fc;
-        --overshoot: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        --bg: #121212;
-    }
-
-    .ringamajig {
-        border-radius: 0.25em;
-        text-indent: 0;
-        position: relative;
-        display: inline-block;
-        text-decoration: none;
-        color: var(--link);
-        transition:
-            transform 0.15s var(--overshoot),
-            color 0.3s ease-out;
-    }
-    .ringamajig:hover {
-        transform: translateY(-2px);
-        &::after {
-            opacity: 1;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-    }
-
-    .ringamajig:after {
-        opacity: 0;
-        content: "";
-        position: absolute;
-        bottom: 2px;
-        right: 50%;
-        left: 50%;
-        height: 2px;
-        background-color: var(--link);
-        transition:
-            opacity 0.15s ease-out,
-            left 0.15s var(--overshoot),
-            right 0.15s var(--overshoot),
-            bottom 0.15s var(--overshoot);
-    }
-</style>
