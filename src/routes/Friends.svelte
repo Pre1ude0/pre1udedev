@@ -3,22 +3,28 @@
     import Divider from "$lib/components/Divider.svelte";
     const friends = [
         {
-            href: "https://simpleduck.neocities.org/",
-            src: "https://simpleduck.neocities.org/stupididiotthing.png",
-            alt: "simpleduck.neocities.org",
-            title: "Shrimple my beloved",
+            href: "https://volkgrid.world",
+            src: "https://volkgrid.world/button.png",
+            alt: "volkgrid.world",
+            title: "This guy is by definition better than me at video games"
         },
         {
             href: "https://kyuqdev.pages.dev",
             src: "https://kyuqdev.pages.dev/referer/banner.png",
             alt: "kyuqdev.pages.dev",
-            title: "Nyaboom :3",
+            title: "My day 1 and ex boyfriend :3",
         },
         {
             href: "https://nyatalie.fyi",
             src: "https://nyatalie.fyi/nat88x31.png",
             alt: "nyatalie.fyi",
             title: "Nyataliewiewiewie",
+        },
+        {
+            href: "https://simpleduck.neocities.org/",
+            src: "https://simpleduck.neocities.org/stupididiotthing.png",
+            alt: "simpleduck.neocities.org",
+            title: "Woke gay person who likes very specific music",
         },
         {
             href: "https://uwu.gal/about-us",
