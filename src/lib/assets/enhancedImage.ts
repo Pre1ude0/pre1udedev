@@ -12,5 +12,20 @@ export const enhancedImages = (() => {
     }),
   ) as Record<string, string>;
 
+  const byFilenameIncludingRoot = Object.fromEntries(
+    Object.entries(raw).flatMap(([fullPath, value]) => {
+      const parts = fullPath.split("/");
+      const leaf = parts[parts.length - 1];
+      const dir = parts[parts.length - 2];
+
+      return [
+        [`${leaf}`, value],
+        [leaf, value],
+      ];
+    }),
+  ) as Record<string, string>;
+
+  Object.assign(byFilename, byFilenameIncludingRoot);
+
   return byFilename;
 })();

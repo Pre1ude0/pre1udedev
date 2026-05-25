@@ -2,13 +2,11 @@
     import Discord from "./Discord.svelte";
     import Links from "./Links.svelte";
     import Webring from "./Webring.svelte";
-    import Divider from "$lib/components/Divider.svelte";
-    import Toolkit from "./Toolkit.svelte";
     import Friends from "./Friends.svelte";
     import Referrer from "./Referrer.svelte";
     import Window from "$lib/components/Window.svelte";
-    import { onMount } from "svelte";
     import Folder from "$lib/icons/Folder.svelte";
+    import { enhancedImages } from "$lib/assets/enhancedImage";
 
     const birthDate = new Date("2008-1-26");
 
@@ -41,7 +39,13 @@
 <div
     class="flex flex-row flex-wrap items-center justify-center gap-6 max-w-[1200px] p-10"
 >
-    <Window width={500} command="whoami">
+    <Window width={500} command="whoami" styles="mt-[80px]">
+        <enhanced:img
+            src={enhancedImages["peeking.png"]}
+            alt="Cry0"
+            class="absolute -top-[129px] -right-[7px] image-rendering-pixelated"
+        >
+        </enhanced:img>
         <h1 class="text-4xl text-white">
             Hi! I'm
             <span

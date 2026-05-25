@@ -9,7 +9,7 @@
             name: "Discord",
             url: "https://discord.com/users/737983831000350731",
             icon: "nf-fa-discord",
-            popup: "This should bring me to my profile. If it doesn't, we don't share any mutual servers. My username is pre1ude0",
+            popup: "This should bring you to my profile. If it doesn't, we don't share any mutual servers. My username is pre1ude0",
         },
         {
             name: "GitHub",

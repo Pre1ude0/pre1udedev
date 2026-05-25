@@ -8,6 +8,7 @@
         path?: string;
         width?: number | string;
         height?: number | string;
+        styles?: string;
     };
 
     let {
@@ -16,6 +17,7 @@
         path = "~",
         width = 420,
         height = "auto",
+        styles = "",
     }: Props & { children: any } = $props();
 
     let el: HTMLDivElement | null = $state(null);
@@ -27,7 +29,7 @@
 
 <div
     bind:this={el}
-    class="relative flex flex-col z-100 hover:z-101 left-0 top-0 box-border overflow-visible border border-white/10 bg-black/80 text-white/90 shadow-[0_30px_90px_rgba(0,0,0,0.55),0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur-[10px]"
+    class="{styles} relative flex flex-col z-100 hover:z-101 left-0 top-0 box-border overflow-visible border border-white/10 bg-black/80 text-white/90 shadow-[0_30px_90px_rgba(0,0,0,0.55),0_8px_24px_rgba(0,0,0,0.35)] backdrop-blur-[10px]"
     style:width={px(width)}
     style:height={px(height)}
     style:animation-delay={`${Math.random() * 1}s`}

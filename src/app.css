@@ -109,6 +109,12 @@ body {
     --column-fill-all: all;
     --column-count-span-none: none;
     --column-count-span-all: all;
+
+    --image-rendering-auto: auto;
+    --image-rendering-crisp-edges: crisp-edges;
+    --image-rendering-pixelated: pixelated;
+    --image-rendering-optimize-contrast: optimize-contrast;
+    --image-rendering-smooth: smooth;
 }
 @utility col-count-* {
     column-count: --value(integer);
@@ -132,4 +138,8 @@ body {
 /* Specific name with "col-count" prefix to avoid collision with grid-column utilities */
 @utility col-span-* {
     column-span: --value(--column-count-span-*);
+}
+
+@utility image-rendering-* {
+    image-rendering: --value(--image-rendering-*);
 }
