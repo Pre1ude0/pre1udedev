@@ -91,7 +91,7 @@
                 <enhanced:img
                     src={enhancedImages[`art/${selected.file}`]}
                     alt={selected.name}
-                    class="max-h-full max-w-full"
+                    class="h-full"
                 />
             {/if}
         </div>

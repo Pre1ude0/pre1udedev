@@ -32,7 +32,6 @@
 <svelte:head>
     <meta property="og:title" content="Laura☾" />
     <meta property="og:url" content="https://pre1ude.dev" />
-
     <meta property="og:description" content="A memory leak in eyeliner" />
 </svelte:head>
 

@@ -21,6 +21,7 @@
             height={"100%"}
             path="art"
             command="ls && icat *"
+            innerStyles="overflow-hidden"
         >
             <Gallery />
         </Window>

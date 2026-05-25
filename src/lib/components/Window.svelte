@@ -9,6 +9,7 @@
         width?: number | string;
         height?: number | string;
         styles?: string;
+        innerStyles?: string;
     };
 
     let {
@@ -18,6 +19,7 @@
         width = 420,
         height = "auto",
         styles = "",
+        innerStyles = "",
     }: Props & { children: any } = $props();
 
     let el: HTMLDivElement | null = $state(null);
@@ -40,7 +42,7 @@
     </div>
 
     <div
-        class="relative grow content p-3 overflow-visible [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.16)_rgba(255,255,255,0.06)]"
+        class="{innerStyles} relative grow content p-3 [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.16)_rgba(255,255,255,0.06)]"
     >
         {@render children()}
     </div>
