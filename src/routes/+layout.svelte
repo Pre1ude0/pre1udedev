@@ -13,9 +13,13 @@
     <meta property="og:image" content="https://pre1ude.dev/ogimg.png" />
 </svelte:head>
 
-<div class="flex flex-col w-screen min-h-screen items-center">
+<div
+    class="flex flex-col w-screen min-h-screen items-center drop-shadow-[0_30px_90px_rgba(0,0,0,0.55),0_8px_24px_rgba(0,0,0,0.35)] z-50"
+>
     {@render children()}
 </div>
+
+<!-- shadow-[0_30px_90px_rgba(0,0,0,0.55),0_8px_24px_rgba(0,0,0,0.35)]  -->
 
 <Skyline />
 
