@@ -37,7 +37,7 @@
 <div
     class="flex flex-row flex-wrap items-start justify-center gap-6 w-full p-10"
 >
-    <Window width={"100%"} command="ls -l blog">
+    <Window styles="w-full" command="ls -l blog">
         <h1 class="text-white text-6xl my-2">Blog</h1>
         <ul>
             {#each data.posts as post}

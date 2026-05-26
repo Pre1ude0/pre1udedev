@@ -14,11 +14,12 @@
     />
 </svelte:head>
 
-<div class="flex flex-col gap-5 max-w-[1600px] w-full px-5 box-border">
-    <div class="h-screen p-5">
+<div
+    class="flex flex-col gap-5 max-w-[1600px] w-full py-5 md:py-0 px-5 box-border"
+>
+    <div class="h-fit md:h-screen p-0 md:p-5">
         <Window
-            width={"100%"}
-            height={"100%"}
+            styles="w-full h-full"
             path="art"
             command="ls && icat *"
             innerStyles="overflow-hidden"

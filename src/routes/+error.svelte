@@ -13,7 +13,7 @@
         such file or directory
     </p> -->
 
-    <Window width={600} command={`echo $ERROR && exit 1`}>
+    <Window styles="w-[600px]" command={`echo $ERROR && exit 1`}>
         <div class="flex flex-col items-center justify-center pb-4">
             <h1 class="text-[10rem] font-bold font-geist-mono">
                 {page.status}

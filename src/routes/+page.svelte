@@ -3,7 +3,6 @@
     import Links from "./Links.svelte";
     import Webring from "./Webring.svelte";
     import Friends from "./Friends.svelte";
-    import Referrer from "./Referrer.svelte";
     import Window from "$lib/components/Window.svelte";
     import Folder from "$lib/icons/Folder.svelte";
     import { enhancedImages } from "$lib/assets/enhancedImage";
@@ -36,9 +35,12 @@
 </svelte:head>
 
 <div
-    class="flex flex-row flex-wrap items-center justify-center gap-6 max-w-[1200px] p-10"
+    class="flex flex-row flex-wrap items-center justify-center gap-6 max-w-full md:max-w-[1200px] p-2 md:p-10 mb-50 md:mb-auto"
 >
-    <Window width={500} command="whoami" styles="mt-[80px]">
+    <Window
+        styles="w-[500px] max-w-full mt-[100px] md:mt-[80px]"
+        command="whoami"
+    >
         <enhanced:img
             src={enhancedImages["peeking.png"]}
             alt="Cry0"
@@ -83,15 +85,22 @@
         <h1 class="text-xl text-zinc-300 mt-6 mb-1">On the outer-web</h1>
         <Links />
     </Window>
-    <Window width={500} command="dvm run stable">
+    <Window styles="w-[500px]" command="dvm run stable">
         <Discord />
     </Window>
-    <Window width={500} command="icat friends/*">
+    <Window styles="w-[500px]" command="icat friends/*">
         <Friends />
     </Window>
 
-    <Window width={350} command="curl ring.pre1ude.dev">
+    <Window styles="w-[350px]" command="curl ring.pre1ude.dev">
         <Webring />
+        <a
+            href="https://ring.pre1ude.dev"
+            target="_blank"
+            class="text-sm hover:underline mt-3 block"
+        >
+            Join my webring?
+        </a>
     </Window>
 
     <!-- <span class="bg-(--bg) pl-2 pr-2 pb-1 pt-1 rounded-md">
@@ -103,5 +112,3 @@
     >
     </span> -->
 </div>
-
-<Referrer />

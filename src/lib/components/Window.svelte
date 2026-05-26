@@ -6,8 +6,6 @@
     type Props = {
         command?: string;
         path?: string;
-        width?: number | string;
-        height?: number | string;
         styles?: string;
         innerStyles?: string;
     };
@@ -16,8 +14,6 @@
         children,
         command = "neofetch",
         path = "~",
-        width = 420,
-        height = "auto",
         styles = "",
         innerStyles = "",
     }: Props & { children: any } = $props();
@@ -31,9 +27,7 @@
 
 <div
     bind:this={el}
-    class="{styles} relative flex flex-col left-0 top-0 box-border overflow-visible border border-white/10 bg-zinc-950/90 text-white/90 backdrop-blur-[10px]"
-    style:width={px(width)}
-    style:height={px(height)}
+    class="{styles} flex flex-col left-0 top-0 box-border overflow-visible border border-white/10 bg-zinc-950/90 text-white/90 backdrop-blur-[10px]"
     style:animation-delay={`${Math.random() * 1}s`}
     in:fly={{ y: 40, duration: 400, easing: cubicOut }}
 >

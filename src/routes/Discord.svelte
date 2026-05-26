@@ -80,7 +80,7 @@
     {#if browser && presence}
         <div
             in:slide={{ duration: 200 }}
-            class="w-full relative flex items-center gap-4 flex-col justify-center p-2"
+            class="w-full relative flex items-center gap-2 flex-col justify-center p-2"
         >
             {#if banner}
                 <img
@@ -216,7 +216,7 @@
                 {#each presence.activities as activity}
                     {#if activity.type === 0 || activity.type === 2}
                         <div
-                            class="w-full backdrop-blur-xs p-3 bg-gray-600/10 rounded-md pointer-events-none transition-opacity duration-150 flex flex-col items-start text-white"
+                            class="w-full backdrop-blur-xs p-3 from-bg-gray-100 to-zinc-800 bg-linear-to-b rounded-md pointer-events-none transition-opacity duration-150 flex flex-col items-start text-white"
                         >
                             {#if activity.type === 0}
                                 <span class="text-sm text-zinc-400 mb-0.5"

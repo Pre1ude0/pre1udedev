@@ -3,6 +3,7 @@
     import favicon_png from "$lib/assets/favicon.png";
     import "../app.css";
     import Skyline from "$lib/components/Skyline.svelte";
+    import Referrer from "./Referrer.svelte";
     let { children } = $props();
 </script>
 
@@ -11,6 +12,9 @@
     <link rel="icon" type="image/png" href={favicon_png} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:image" content="https://pre1ude.dev/ogimg.png" />
+    <meta name="theme-color" content="#000000" />
+    <meta property="site-button" content="https://pre1ude.dev/blankie.png" />
+    <meta property="pride-flag" content="" />
 </svelte:head>
 
 <div
@@ -18,6 +22,8 @@
 >
     {@render children()}
 </div>
+
+<Referrer />
 
 <!-- shadow-[0_30px_90px_rgba(0,0,0,0.55),0_8px_24px_rgba(0,0,0,0.35)]  -->
 

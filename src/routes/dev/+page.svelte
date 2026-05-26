@@ -54,7 +54,7 @@
 </svelte:head>
 
 <div class="flex flex-col items-center justify-center p-4 gap-6 max-w-[1200px]">
-    <Window width={"100%"} path="dev" command="cat about.txt">
+    <Window styles="w-full" path="dev" command="cat about.txt">
         <p class="text-lg text-zinc-300">
             One of my main interests and life long passions that I'd like to
             pursue further professionally is <strong
@@ -76,8 +76,7 @@
         {#each projects as p (p.name)}
             <div class="break-inside-avoid mb-6 w-full inline-block">
                 <Window
-                    width={"100%"}
-                    height={"fit-content"}
+                    styles="w-full h-fit"
                     command={`glow "${p.name}"/readme.md`}
                 >
                     <div class="flex relative flex-col gap-2 h-fit w-full">

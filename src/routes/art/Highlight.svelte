@@ -13,11 +13,11 @@
 </script>
 
 <div
-    class="flex flex-row flex-wrap items-center justify-center gap-6 p-10 relative h-fit"
+    class="flex flex-row flex-wrap items-center justify-center gap-6 p-0 md:p-10 relative h-fit"
 >
     {#each highlights as h, i}
         <Window
-            width={600}
+            styles="w-[600px] max-w-full"
             path="fanart"
             command={`icat ${h.file} && file ${h.file} `}
         >

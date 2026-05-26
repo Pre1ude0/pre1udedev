@@ -13,7 +13,10 @@
         such file or directory
     </p> -->
 
-    <Window width={600} command={`cd ${page.url.pathname.slice(1)}`}>
+    <Window
+        styles="w-full md:w-[600px]"
+        command={`cd ${page.url.pathname.slice(1)}`}
+    >
         <div class="flex flex-col items-center justify-center pb-4">
             <h1 class="text-[10rem] font-bold font-geist-mono">
                 {page.status}

@@ -50,9 +50,11 @@
     let selected: Art | null = $state(arts[0] || null);
 </script>
 
-<div class="flex flex-row gap-1 h-full w-full overflow-auto">
-    <div class="flex flex-col justify-between h-full w-120">
-        <div class="flex flex-col items-start gap-1 w-full h-2/3">
+<div
+    class="flex flex-col md:flex-row gap-1 h-auto md:h-full w-full overflow-auto"
+>
+    <div class="flex flex-col justify-between w-full md:w-120">
+        <div class="flex flex-col items-start gap-1 h-[500px] md:h-2/3">
             {#each arts as art}
                 <button
                     class="flex flex-col justify-end gap-2 p-3 w-full flex-1 hover:flex-2 transition-all duration-200 bg-center bg-cover group cursor-pointer"
@@ -72,7 +74,7 @@
             {#key selected}
                 <div
                     in:blur={{ duration: 200 }}
-                    class="w-full flex flex-col gap-1 h-fit p-3"
+                    class="w-full hidden md:flex flex-col gap-1 h-fit p-3"
                 >
                     <h1 class="text-3xl">{selected?.name}</h1>
                     <p class="text-lg leading-5 text-zinc-300">
@@ -96,4 +98,17 @@
             {/if}
         </div>
     {/key}
+    {#if selected}
+        {#key selected}
+            <div
+                in:blur={{ duration: 200 }}
+                class="w-full flex md:hidden flex-col gap-1 h-fit p-3"
+            >
+                <h1 class="text-3xl">{selected?.name}</h1>
+                <p class="text-lg leading-5 text-zinc-300">
+                    {@html selected?.description}
+                </p>
+            </div>
+        {/key}
+    {/if}
 </div>

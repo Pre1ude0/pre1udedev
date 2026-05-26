@@ -78,9 +78,9 @@
 
 {#if page.url.hash === "#blankie"}
     <div
-        class="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center gap-3 z-200"
+        class="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center gap-3 z-200 overflow-hidden p-2"
     >
-        <Window width={700} command="glow ref.md">
+        <Window styles="w-full md:w-[700px]" command="glow ref.md">
             <div class="w-full h-fit flex flex-col items-start gap-3">
                 <div class="flex items-start gap-3">
                     <button
