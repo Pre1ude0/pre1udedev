@@ -14,7 +14,7 @@
     <meta property="og:image" content="https://pre1ude.dev/ogimg.png" />
     <meta name="theme-color" content="#000000" />
     <meta property="site-button" content="https://pre1ude.dev/blankie.png" />
-    <meta property="pride-flag" content="" />
+    <meta property="pride-flag" content="aromantic" />
 </svelte:head>
 
 <div
