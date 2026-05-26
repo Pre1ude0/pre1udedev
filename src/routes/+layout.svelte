@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" href={favicon_png} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:image" content="https://pre1ude.dev/ogimg.png" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#ffffff" />
     <meta property="site-button" content="https://pre1ude.dev/blankie.png" />
     <meta property="pride-flag" content="aromantic" />
 </svelte:head>
