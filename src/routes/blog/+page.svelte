@@ -34,6 +34,12 @@
     }
 </script>
 
+<svelte:head>
+    <meta name="description" content="Lauras blogs" />
+    <meta property="og:title" content="Blog | Pre1ude0" />
+    <meta property="og:description" content="Lauras blogs" />
+</svelte:head>
+
 <div
     class="flex flex-row flex-wrap items-start justify-center gap-6 w-full p-10"
 >

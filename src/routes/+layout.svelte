@@ -4,10 +4,19 @@
     import "../app.css";
     import Skyline from "$lib/components/Skyline.svelte";
     import Referrer from "./Referrer.svelte";
+    import { title } from "process";
+    import { page } from "$app/state";
     let { children } = $props();
 </script>
 
 <svelte:head>
+    <title
+        >{page.url.pathname === "/"
+            ? "pre1ude.dev"
+            : page.url.pathname.slice(1).charAt(0).toUpperCase() +
+              page.url.pathname.slice(1).slice(1) +
+              " - pre1ude.dev"}</title
+    >
     <link rel="icon" href={favicon} />
     <link rel="icon" type="image/png" href={favicon_png} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

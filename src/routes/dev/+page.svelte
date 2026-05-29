@@ -43,7 +43,7 @@
 </script>
 
 <svelte:head>
-    <meta name="description" content="Software development and projects" />
+    <meta name="description" content="Software development - Pre1ude0" />
     <meta property="og:title" content="Dev | Pre1ude0" />
     <meta
         property="og:description"

@@ -5,7 +5,7 @@
 </script>
 
 <svelte:head>
-    <meta property="og:title" content="Art gallery - Laura☾" />
+    <meta property="og:title" content="Art | Laura☾" />
     <meta property="og:url" content="https://pre1ude.dev/art" />
     <meta property="og:image" content="https://pre1ude.dev/og-image.png" />
     <meta

@@ -15,12 +15,19 @@
 </script>
 
 <svelte:head>
-    <meta name="description" content="Lauras blogs" />
+    <meta
+        name="description"
+        content={data.post.content.slice(0, 100) + "..."}
+    />
     <meta
         property="og:title"
         content={data.post.fields.title + " - Pre1ude0"}
     />
-    <meta property="og:description" content="Lauras blogs" />
+    <title>{data.post.fields.slug}.md</title>
+    <meta
+        property="og:description"
+        content={data.post.content.slice(0, 100) + "..."}
+    />
     <meta property="og:type" content="article" />
     <meta
         property="og:url"
@@ -29,7 +36,7 @@
     <meta property="og:image" content={data.post.fields.thumbnail} />
 </svelte:head>
 <div class="flex flex-col items-center justify-center p-4 gap-6 max-w-[1200px]">
-    <Window width={"100%"} command={`glow ${data.post.filename}`}>
+    <Window styles="w-full" command={`glow ${data.post.filename}`}>
         <div
             class="flex flex-col-reverse md:flex-row gap-2 items-center justify-between m-2"
         >
