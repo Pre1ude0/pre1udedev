@@ -35,8 +35,7 @@
 </script>
 
 <svelte:head>
-    <meta name="description" content="Lauras blogs" />
-    <meta property="og:title" content="Blog | Pre1ude0" />
+    <meta name="description" content="Lauras blog" />
     <meta property="og:description" content="Lauras blogs" />
 </svelte:head>
 

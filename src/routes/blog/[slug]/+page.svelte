@@ -21,7 +21,7 @@
     />
     <meta
         property="og:title"
-        content={data.post.fields.title + " - Pre1ude0"}
+        content={data.post.fields.title + " - pre1ude.dev"}
     />
     <title>{data.post.fields.slug}.md</title>
     <meta
