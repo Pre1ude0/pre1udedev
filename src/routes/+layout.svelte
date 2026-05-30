@@ -4,9 +4,16 @@
     import "../app.css";
     import Skyline from "$lib/components/Skyline.svelte";
     import Referrer from "./Referrer.svelte";
-    import { title } from "process";
     import { page } from "$app/state";
     let { children } = $props();
+
+    let pageTitle = $derived(
+        page.url.pathname === "/"
+            ? "pre1ude.dev"
+            : page.url.pathname.slice(1).charAt(0).toUpperCase() +
+                  page.url.pathname.slice(1).slice(1) +
+                  " - pre1ude.dev",
+    );
 </script>
 
 <svelte:head>
@@ -14,14 +21,8 @@
     <link rel="icon" type="image/png" href={favicon_png} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {#if !("blog" == page.url.pathname.split("/")[1] && page.url.pathname.split("/").length > 2)}
-        <title
-            >{page.url.pathname === "/"
-                ? "pre1ude.dev"
-                : page.url.pathname.slice(1).charAt(0).toUpperCase() +
-                  page.url.pathname.slice(1).slice(1) +
-                  " - pre1ude.dev"}</title
-        >
-        <meta property="og:title" content={title} />
+        <title>{pageTitle}</title>
+        <meta property="og:title" content={pageTitle} />
         <meta property="og:image" content="https://pre1ude.dev/ogimg.png" />
     {/if}
     <meta name="theme-color" content="#ffffff" />
