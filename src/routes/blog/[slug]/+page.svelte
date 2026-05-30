@@ -34,6 +34,7 @@
         content={"https://pre1ude.dev/blog/" + data.post.fields.slug}
     />
     <meta property="og:image" content={data.post.fields.thumbnail} />
+    <meta name="twitter:card" content="summary_large_image" />
 </svelte:head>
 <div class="flex flex-col items-center justify-center p-4 gap-6 max-w-[1200px]">
     <Window styles="w-full" command={`glow ${data.post.filename}`}>
