@@ -76,7 +76,7 @@ export interface LanyardUser {
   global_name?: string | null;
   display_name?: string | null;
   avatar_decoration_data?: AvatarDecoration | null;
-  primary_guild?: UserGuild | null;
+  primary_guild: UserGuild | null;
 }
 
 export type DiscordStatus = "online" | "idle" | "dnd" | "offline";

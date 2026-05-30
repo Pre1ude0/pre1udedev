@@ -71,6 +71,12 @@
         }, 1000);
         return () => clearInterval(interval);
     });
+
+    $inspect({
+        presence,
+        connected,
+        banner,
+    });
 </script>
 
 <!-- Messy ass code T-T -->
@@ -158,7 +164,7 @@
                                 class="text-3xl text-white font-bold text-shadow-md text-shadow-black"
                                 >{presence.discord_user.global_name}</span
                             >
-                            {#if presence.discord_user.primary_guild}
+                            {#if presence.discord_user.primary_guild.identity_enabled}
                                 <div
                                     class="ml-5 text-sm text-white bg-gray-400 flex items-center gap-0.5 outline-1 rounded-sm pl-1 pr-1"
                                 >
