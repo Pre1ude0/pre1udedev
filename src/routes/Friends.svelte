@@ -27,10 +27,10 @@
             title: "Woke gay person who likes very specific music",
         },
         {
-            href: "https://uwu.gal/about-us",
-            src: "https://uwu.gal/button.png",
-            alt: "uwu.gal",
-            title: "Silly system",
+            href: "https://mystie.dev",
+            src: "https://mystie.dev/st/img/mystie_btn.png",
+            alt: "mystie.dev",
+            title: "cool fedi moot",
         },
         {
             href: "https://vorlie.pl/",
@@ -50,18 +50,17 @@
             alt: "specifix.dev",
             title: "miku lovr",
         },
-
+        {
+            href: "https://uwu.gal/about-us",
+            src: "https://uwu.gal/button.png",
+            alt: "uwu.gal",
+            title: "Silly system",
+        },
         {
             href: "https://lumap.xyz",
             src: "https://lumap.xyz/button.png",
             alt: "lumap.xyz",
             title: "kitty!!!",
-        },
-        {
-            href: "https://mystie.dev",
-            src: "https://mystie.dev/st/img/mystie_btn.png",
-            alt: "mystie.dev",
-            title: "gay fedi moot",
         },
         {
             href: "https://dvop.fyi",
@@ -72,9 +71,15 @@
         {
             href: "https://5ee5.dev",
             src: "https://5ee5.dev/5ee5.png",
-            alt: "5ee5.github.io",
+            alt: "5ee5.dev",
             title: "error 505",
         },
+        {
+            href: "https://salamithecat.com",
+            src: "https://salamithecat.com/button.webp",
+            alt: "salamithecat.com",
+            title: "sick ass osu inspired page"
+        }
     ];
 
     const coolButtons = [
