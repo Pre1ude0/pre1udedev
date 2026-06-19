@@ -9,27 +9,22 @@
         {
             src: "/blankie.png",
             alt: "latest",
-            snippet: "/snippet.html",
         },
         {
             src: "/blankies/city.png",
             alt: "v3",
-            snippet: "/blankies/snippets/snippet-v3.html",
         },
         {
             src: "/blankies/blankie-v2.png",
             alt: "v2",
-            snippet: "/blankies/snippets/snippet-v2.html",
         },
         {
             src: "/blankies/blankie-v1.png",
             alt: "v1",
-            snippet: "/blankies/snippets/snippet-v1.html",
         },
         {
             src: "/blankies/blankie-legacy.png",
             alt: "legacy",
-            snippet: "/blankies/snippets/snippet-legacy.html",
         },
     ];
 
