@@ -7,7 +7,7 @@ import type {
     LanyardPresence,
     InternalState,
     LanyardEventEnvelope,
-} from "$lib/interfaces/lanyard";
+} from "$lib/types/lanyard";
 
 export function createLanyardStore(discordId: string): LanyardController {
     if (!discordId) {
