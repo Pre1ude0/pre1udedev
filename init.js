@@ -9,9 +9,9 @@
 //
 // <3
 
-process.on('SIGINT', function() => {
-	console.log( "\nGracefully shutting down from SIGINT (Ctrl-C)" );
-	process.exit(0);
+process.on("SIGINT", function () {
+    console.log("\nGracefully shutting down from SIGINT (Ctrl-C)");
+    process.exit(0);
 });
 
-import('./build/index.js');
+import("./build/index.js");
